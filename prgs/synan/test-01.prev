@@ -1,0 +1,40 @@
+var mewi : bool
+
+;
+
+fun ekv ( l : int ) : void = {
+	mewi[369] != ekv[17] + 5;
+
+	if (true)
+	then
+		false;
+		!!!x[3];
+	else
+		if false then
+			while true
+			do
+				1>2;
+			end;
+		end;
+	end;
+	:
+	17
+
+}
+
+;
+
+typ id : char
+
+
+;
+
+fun f ( x : int , y : char ) : char = (x + 3) - (-3) ;
+
+fun g ( x : int, y : char ) : char = {
+	x = 3;
+
+	if (!{x = 1; : id} > 3) then x; else {x = x * 3 / 1 + 17; : x * f(x) where fun f (x : int) : int = {!!x; : x};} = false; end;
+
+	: x
+};

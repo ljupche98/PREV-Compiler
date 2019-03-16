@@ -1,0 +1,90 @@
+Source -> Declarations .
+Declarations -> Declaration Declarations' .
+Declarations' -> Declaration Declarations' .
+Declarations' -> .
+Declaration -> TYP IDENTIFIER COLON Type SEMIC .
+Declaration -> VAR IDENTIFIER COLON Type SEMIC .
+Declaration -> FUN IDENTIFIER LPARENTHESIS ParametersOpt RPARENTHESIS COLON Type FunctionBodyOpt SEMIC .
+Statement -> Expression Statement' .
+Statement' -> .
+Statement' -> ASSIGN Expression .
+Statement -> IF Expression THEN Statements ElseOpt END .
+Statement -> WHILE Expression DO Statements END .
+Expression -> ORXORExpression .
+ORXORExpression -> ANDExpression ORXORExpression' .
+ORXORExpression' -> IOR ANDExpression ORXORExpression' .
+ORXORExpression' -> XOR ANDExpression ORXORExpression' .
+ORXORExpression' -> .
+ANDExpression -> RelationalExpression ANDExpression' .
+ANDExpression' -> AND RelationalExpression ANDExpression' .
+ANDExpression' -> .
+RelationalExpression -> ADDSUBExpression RelationalExpression' .
+RelationalExpression' -> .
+RelationalExpression' -> EQU ADDSUBExpression .
+RelationalExpression' -> NEQ ADDSUBExpression .
+RelationalExpression' -> GTE ADDSUBExpression .
+RelationalExpression' -> LTE ADDSUBExpression .
+RelationalExpression' -> GTH ADDSUBExpression .
+RelationalExpression' -> LTH ADDSUBExpression .
+ADDSUBExpression -> MULDIVExpression ADDSUBExpression' .
+ADDSUBExpression' -> ADD MULDIVExpression ADDSUBExpression' .
+ADDSUBExpression' -> SUB MULDIVExpression ADDSUBExpression' .
+ADDSUBExpression' -> .
+MULDIVExpression -> PrefixExpression MULDIVExpression' .
+MULDIVExpression' -> MUL PrefixExpression MULDIVExpression' .
+MULDIVExpression' -> DIV PrefixExpression MULDIVExpression' .
+MULDIVExpression' -> MOD PrefixExpression MULDIVExpression' .
+MULDIVExpression' -> .
+PrefixExpression -> PostfixExpression .
+PrefixExpression -> ADD PrefixExpression .
+PrefixExpression -> SUB PrefixExpression .
+PrefixExpression -> NOT PrefixExpression .
+PrefixExpression -> NEW LPARENTHESIS Type RPARENTHESIS .
+PrefixExpression -> DEL LPARENTHESIS Expression RPARENTHESIS .
+PrefixExpression -> DATA PrefixExpression .
+PrefixExpression -> ADDR PrefixExpression .
+PrefixExpression -> LPARENTHESIS Expression PrefixExpression' .
+PrefixExpression' -> COLON Type RPARENTHESIS .
+PrefixExpression' -> RPARENTHESIS .
+PostfixExpression -> AtomicExpression PostfixExpression' .
+PostfixExpression' -> LBRACKET Expression RBRACKET PostfixExpression' .
+PostfixExpression' -> DOT IDENTIFIER PostfixExpression' .
+PostfixExpression' -> .
+AtomicExpression -> INTCONST .
+AtomicExpression -> VOIDCONST .
+AtomicExpression -> CHARCONST .
+AtomicExpression -> BOOLCONST .
+AtomicExpression -> PTRCONST .
+AtomicExpression -> STRCONST .
+AtomicExpression -> IDENTIFIER ArgumentsOpt .
+AtomicExpression -> LBRACE Statements COLON Expression WhereOpt RBRACE .
+Type -> INT .
+Type -> VOID .
+Type -> CHAR .
+Type -> BOOL .
+Type -> IDENTIFIER .
+Type -> ARR LBRACKET Expression RBRACKET Type .
+Type -> PTR Type .
+Type -> LPARENTHESIS Type RPARENTHESIS .
+Type -> REC LPARENTHESIS Parameters RPARENTHESIS .
+FunctionBodyOpt -> .
+FunctionBodyOpt -> ASSIGN Expression .
+ParametersOpt -> .
+ParametersOpt -> Parameters .
+Parameters -> IDENTIFIER COLON Type Parameters' .
+Parameters' -> COMMA IDENTIFIER COLON Type Parameters' .
+Parameters' -> .
+Statements -> Statement SEMIC Statements' .
+Statements' -> Statement SEMIC Statements' .
+Statements' -> .
+WhereOpt -> .
+WhereOpt -> WHERE Declarations .
+ArgumentsOpt -> .
+ArgumentsOpt -> LPARENTHESIS ArgumentsOpt' .
+ArgumentsOpt' -> RPARENTHESIS .
+ArgumentsOpt' -> Arguments RPARENTHESIS .
+Arguments -> Expression Arguments' .
+Arguments' -> COMMA Expression Arguments' .
+Arguments' -> .
+ElseOpt -> .
+ElseOpt -> ELSE Statements .
