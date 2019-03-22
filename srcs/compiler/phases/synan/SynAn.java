@@ -164,7 +164,7 @@ public class SynAn extends Phase {
 				add(node, Symbol.Term.IDENTIFIER, "Expected IDENTIFIER when parsing Declaration");
 				add(node, Symbol.Term.COLON, "Expected COLON when parsing Declaration");
 				node.add(parseType());
-				add(node, Symbol.Term.SEMIC, "Expected SEMIC when parsing Declaration ... FOUND " + currSymb.token);
+				add(node, Symbol.Term.SEMIC, "Expected SEMIC when parsing Declaration");
 				break;
 			case FUN:
 				add(node, Symbol.Term.FUN, "Expected FUN when parsing Declaration");

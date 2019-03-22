@@ -1,0 +1,10 @@
+var j:int;
+fun x():int = j + 3;
+
+typ y:rec(k:int);
+var z:y;
+
+fun ekv(mk : y, cr : int, xx : bool) : y = mk + j + x();
+
+var i:int;
+fun main(n:int):int=main(i+2*n)+{none;:i where var i:int;};

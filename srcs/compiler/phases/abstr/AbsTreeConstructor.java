@@ -158,7 +158,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 			}
 
 			case ArgumentsOptP: {
-				if (node.numSubtrees() == 0) return new AbsArgs(new Location(0, 0), new Vector<AbsExpr>());
+				if (node.numSubtrees() == 1) return new AbsArgs(new Location(0, 0), new Vector<AbsExpr>());
 
 				return node.subtree(0).accept(this, null);
 			}
