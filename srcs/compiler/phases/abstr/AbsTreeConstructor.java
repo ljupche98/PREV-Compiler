@@ -56,7 +56,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 					case VAR: return new AbsVarDecl(new Location(node.subtree(0), node.subtree(4)),
 									((DerLeaf) node.subtree(1)).symb.lexeme,
 									(AbsType) node.subtree(3).accept(this, null));
-					case TYP: return new AbsVarDecl(new Location(node.subtree(0), node.subtree(4)),
+					case TYP: return new AbsTypDecl(new Location(node.subtree(0), node.subtree(4)),
 									((DerLeaf) node.subtree(1)).symb.lexeme,
 									(AbsType) node.subtree(3).accept(this, null));
 					case FUN: {
