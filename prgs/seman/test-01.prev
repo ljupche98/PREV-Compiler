@@ -15,9 +15,8 @@ fun fl(x : int, y : ll, x : ll) : pll;
 
 
 var j:int;
-fun x():int = j + 3;
 
 typ y:rec(k:int);
 var z:y;
 
-fun ekv(mk : y, cr : ll, xx : bool) : y = mewi + j + x();
+fun ekv(mk : y, cr : ll, xx : bool) : y = j ;

@@ -1,0 +1,23 @@
+typ ll : long;
+typ long : int;
+
+typ pi : ptr int;
+typ ppi : ptr pi;
+
+typ r : rec(x : int);
+typ pr : rec(x : ll, y : long, z : ptr ((ptr arr[1 + 5] ptr r)), w : ptr void);
+
+var i : arr[--17 + 69 + ((3 - 1) * 2 + (1))] arr[1] int;
+
+fun f() : void = null + none + @i + $i + { i = new(ll); del(i); : none};
+
+fun g() : void = {
+	if true then
+		i = 1;
+	else
+		i = 2;
+	end;
+
+	:
+	none
+};

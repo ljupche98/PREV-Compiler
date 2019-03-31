@@ -1,0 +1,22 @@
+fun f() : int = {
+	i = i + 1;
+	i[3];
+	:
+	true
+};
+
+var i : int;
+
+typ r : rec(x : int, y : int);
+typ rr : rec(z : int, w : r);
+
+var x : r;
+var xx : rr;
+
+fun g() : void = {
+	i = i + 1;
+	x.y;
+	xx.w.y;
+	:
+	none
+};

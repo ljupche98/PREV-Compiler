@@ -14,8 +14,14 @@ import compiler.data.abstree.visitor.*;
  */
 public class NameResolver extends AbsFullVisitor<Object, Object> {
 
+	/**
+	symbTableType is almost equal to symbTable with the only difference that I am also checking the node type.
+	Prevents exceptions that occur when a variable has been defined, but is later called as a function or vice versa.
+	**/
+
 	/** Symbol table. */
 	private final SymbTable symbTable = new SymbTable();
+	private final SymbTable symbTableType = new SymbTable();
 
 	@Override
 	public Object visit(AbsArgs args, Object visArg) {
@@ -65,9 +71,11 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 	@Override
 	public Object visit(AbsBlockExpr blockExpr, Object visArg) {
 		symbTable.newScope();
-		blockExpr.decls.accept(this, visArg);
-		blockExpr.stmts.accept(this, visArg);
-		blockExpr.expr.accept(this, visArg);
+		symbTableType.newScope();
+		blockExpr.decls.accept(this, 0);
+		blockExpr.stmts.accept(this, 0);
+		blockExpr.expr.accept(this, 0);
+		symbTableType.oldScope();
 		symbTable.oldScope();
 		return null;
 	}
@@ -95,6 +103,8 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 	@Override
 	public Object visit(AbsDecls decls, Object visArg) {
 		for (AbsDecl decl : decls.decls())
+			decl.accept(this, (int) visArg | (1 << 0));
+		for (AbsDecl decl : decls.decls())
 			decl.accept(this, visArg);
 		return null;
 	}
@@ -113,32 +123,45 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 
 	@Override
 	public Object visit(AbsFunDecl funDecl, Object visArg) {
-		try {
-			symbTable.ins(funDecl.name, funDecl);
-		} catch (Exception e) {
-			throw new Report.Error(funDecl.name + " is already defined");
+		if ((((int) visArg) & (1 << 0)) != 0) {
+			/// first visit => we should just add it to the symbol table.
+			try {
+				symbTable.ins(funDecl.name, funDecl);
+				symbTableType.ins(funDecl.name + "FUN", funDecl);
+			} catch (Exception e) {
+				throw new Report.Error("Function " + funDecl.name + " is already defined");
+			}
+		} else {
+			/// second visit => we should process the declaration.
+			funDecl.parDecls.accept(this, (int) visArg | (1 << 1));
+			funDecl.type.accept(this, visArg);
 		}
 
-		funDecl.parDecls.accept(this, null);
-		funDecl.type.accept(this, visArg);
 		return null;
 	}
 
 	@Override
 	public Object visit(AbsFunDef funDef, Object visArg) {
-		try {
-			symbTable.ins(funDef.name, funDef);
-		} catch (Exception e) {
-			throw new Report.Error(funDef.name + " is already defined");
+		if ((((int) visArg) & (1 << 0)) != 0) {
+			/// first visit => we should just add it to the symbol table.
+			try {
+				symbTable.ins(funDef.name, funDef);
+				symbTableType.ins(funDef.name + "FUN", funDef);
+			} catch (Exception e) {
+				throw new Report.Error("Function " + funDef.name + " is already defined");
+			}
+		} else {
+			/// second visit => we should process the declaration.
+			funDef.parDecls.accept(this, (int) visArg | (1 << 1));
+			funDef.type.accept(this, visArg);
+
+			symbTable.newScope();
+			symbTableType.newScope();
+			funDef.parDecls.accept(this, visArg);
+			funDef.value.accept(this, visArg);
+			symbTableType.oldScope();
+			symbTable.oldScope();
 		}
-
-		funDef.parDecls.accept(this, null);
-		funDef.type.accept(this, visArg);
-
-		symbTable.newScope();
-		funDef.parDecls.accept(this, true);
-		funDef.value.accept(this, visArg);
-		symbTable.oldScope();
 
 		return null;
 	}
@@ -146,9 +169,10 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 	@Override
 	public Object visit(AbsFunName funName, Object visArg) {
 		try {
+			symbTableType.fnd(funName.name + "FUN");
 			SemAn.declaredAt.put(funName, symbTable.fnd(funName.name));
 		} catch (Exception e) {
-			throw new Report.Error(funName.name + " has not been defined");
+			throw new Report.Error("Function " + funName.name + " has not been defined");
 		}
 
 		funName.args.accept(this, visArg);
@@ -171,14 +195,17 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 
 	@Override
 	public Object visit(AbsParDecl parDecl, Object visArg) {
-		if (visArg != null) { /// visArg = true iff a new scope has been created
+		if ((((int) visArg) & (1 << 1)) != 0) {
+			/// first visit => just check the types.
+			parDecl.type.accept(this, visArg);
+		} else {
+			/// second visit => add parameters into the new scope.
 			try {
 				symbTable.ins(parDecl.name, parDecl);
+				symbTableType.ins(parDecl.name + "VAR", parDecl);
 			} catch (Exception e) {
-				throw new Report.Error(parDecl.name + " is already defined");
+				throw new Report.Error("Variable " + parDecl.name + " is already defined");
 			}
-		} else { /// else find the type declaration
-			parDecl.type.accept(this, visArg);
 		}
 
 		return null;
@@ -200,7 +227,7 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 	@Override
 	public Object visit(AbsRecExpr recExpr, Object visArg) {
 		recExpr.record.accept(this, visArg);
-	///	ecExpr.comp.accept(this, visArg);
+	///	recExpr.comp.accept(this, visArg);
 		return null;
 	}
 
@@ -212,7 +239,7 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 
 	@Override
 	public Object visit(AbsSource source, Object visArg) {
-		source.decls.accept(this, visArg);
+		source.decls.accept(this, 0);
 		return null;
 	}
 
@@ -225,22 +252,29 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 
 	@Override
 	public Object visit(AbsTypDecl typDecl, Object visArg) {
-		try {
-			symbTable.ins(typDecl.name, typDecl);
-		} catch (Exception e) {
-			throw new Report.Error(typDecl.name + " is already defined");
+		if ((((int) visArg) & (1 << 0)) != 0) {
+			/// first visit => we should just add it to the symbol table.
+			try {
+				symbTable.ins(typDecl.name, typDecl);
+				symbTableType.ins(typDecl.name + "TYP", typDecl);
+			} catch (Exception e) {
+				throw new Report.Error("Type " + typDecl.name + " is already defined");
+			}
+		} else {
+			/// second visit => we should process the declaration.
+			typDecl.type.accept(this, visArg);
 		}
 
-		typDecl.type.accept(this, visArg);
 		return null;
 	}
 
 	@Override
 	public Object visit(AbsTypName typName, Object visArg) {
 		try {
+			symbTableType.fnd(typName.name + "TYP");
 			SemAn.declaredAt.put(typName, symbTable.fnd(typName.name));
 		} catch (Exception e) {
-			throw new Report.Error(typName.name + " has not been defined");
+			throw new Report.Error("Type " + typName.name + " has not been defined");
 		}
 
 		return null;
@@ -254,22 +288,29 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 
 	@Override
 	public Object visit(AbsVarDecl varDecl, Object visArg) {
-		try {
-			symbTable.ins(varDecl.name, varDecl);
-		} catch (Exception e) {
-			throw new Report.Error(varDecl.name + " is already defined");
+		if ((((int) visArg) & (1 << 0)) != 0) {
+			/// first visit => we should just add it to the symbol table.
+			try {
+				symbTable.ins(varDecl.name, varDecl);
+				symbTableType.ins(varDecl.name + "VAR", varDecl);
+			} catch (Exception e) {
+				throw new Report.Error("Variable " + varDecl.name + " has already been defined");
+			}
+		} else {
+			/// second visit => we should process the declaration.
+			varDecl.type.accept(this, visArg);
 		}
 
-		varDecl.type.accept(this, visArg);
 		return null;
 	}
 
 	@Override
 	public Object visit(AbsVarName varName, Object visArg) {
 		try {
+			symbTableType.fnd(varName.name + "VAR");
 			SemAn.declaredAt.put(varName, symbTable.fnd(varName.name));
 		} catch (Exception e) {
-			throw new Report.Error(varName.name + " has not been defined");
+			throw new Report.Error("Variable " + varName.name + " has not been defined");
 		}
 
 		return null;

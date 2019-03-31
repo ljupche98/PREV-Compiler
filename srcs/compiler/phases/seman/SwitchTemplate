@@ -1,0 +1,358 @@
+/**
+ * @author sliva 
+ */
+package compiler.phases.seman;
+
+import java.util.*;
+import compiler.common.report.*;
+import compiler.data.abstree.*;
+import compiler.data.abstree.visitor.*;
+import compiler.data.type.*;
+import compiler.data.type.property.*;
+
+/**
+ * Type resolving: the result is stored in {@link SemAn#declaresType},
+ * {@link SemAn#isType}, and {@link SemAn#ofType}.
+ * 
+ * @author sliva
+ */
+public class TypeResolver extends AbsFullVisitor<SemType, Object> {
+
+	/** Symbol tables of individual record types. */
+	private final HashMap<SemRecType, SymbTable> symbTables = new HashMap<SemRecType, SymbTable>();
+
+	/**
+	0: Type expressions.
+	**/
+
+	@Override
+	public SemType visit(AbsArgs args, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			for (AbsExpr arg : args.args())
+				arg.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsArrExpr arrExpr, Object visArg) {
+		switch ((int) visArg) {
+			
+			default:
+			arrExpr.array.accept(this, visArg);
+			arrExpr.index.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsArrType arrType, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			arrType.len.accept(this, visArg);
+			arrType.elemType.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsAssignStmt assignStmt, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			assignStmt.dst.accept(this, visArg);
+			assignStmt.src.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsAtomExpr atomExpr, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsAtomType atomType, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsBinExpr binExpr, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			binExpr.fstExpr.accept(this, visArg);
+			binExpr.sndExpr.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsBlockExpr blockExpr, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			blockExpr.decls.accept(this, visArg);
+			blockExpr.stmts.accept(this, visArg);
+			blockExpr.expr.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsCastExpr castExpr, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			castExpr.type.accept(this, visArg);
+			castExpr.expr.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsCompDecl compDecl, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			compDecl.type.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsCompDecls compDecls, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			for (AbsCompDecl compDecl : compDecls.compDecls())
+				compDecl.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsDecls decls, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			for (AbsDecl decl : decls.decls())
+				decl.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsDelExpr delExpr, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			delExpr.expr.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsExprStmt exprStmt, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			exprStmt.expr.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsFunDecl funDecl, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			funDecl.parDecls.accept(this, visArg);
+			funDecl.type.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsFunDef funDef, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			funDef.parDecls.accept(this, visArg);
+			funDef.type.accept(this, visArg);
+			funDef.value.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsFunName funName, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			funName.args.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsIfStmt ifStmt, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			ifStmt.cond.accept(this, visArg);
+			ifStmt.thenStmts.accept(this, visArg);
+			ifStmt.elseStmts.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsNewExpr newExpr, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			newExpr.type.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsParDecl parDecl, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			parDecl.type.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsParDecls parDecls, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			for (AbsParDecl parDecl : parDecls.parDecls())
+				parDecl.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsPtrType ptrType, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			ptrType.ptdType.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsRecExpr recExpr, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			recExpr.record.accept(this, visArg);
+			recExpr.comp.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsRecType recType, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			recType.compDecls.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsSource source, Object visArg) {
+		source.decls.accept(this, 0);
+		return null;
+	}
+
+	@Override
+	public SemType visit(AbsStmts stmts, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			for (AbsStmt stmt : stmts.stmts())
+				stmt.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsTypDecl typDecl, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			typDecl.type.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsTypName typName, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsUnExpr unExpr, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			unExpr.subExpr.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsVarDecl varDecl, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			varDecl.type.accept(this, visArg);
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsVarName varName, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			return null;
+		}
+	}
+
+	@Override
+	public SemType visit(AbsWhileStmt whileStmt, Object visArg) {
+		switch ((int) visArg) {
+
+			default:
+			whileStmt.cond.accept(this, visArg);
+			whileStmt.stmts.accept(this, visArg);
+			return null;
+		}
+	}
+}
