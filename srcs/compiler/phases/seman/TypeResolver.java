@@ -31,6 +31,12 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 	
 	**/
 
+	private boolean lock = false;
+	public TypeResolver() {}
+	public TypeResolver(boolean l) {
+		this.lock = l;
+	}
+
 	private static long exprValue = 0;
 	private static Vector<SemType> recDecl = new Vector<SemType>();
 
@@ -58,7 +64,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				if (!index.matches(new SemIntType())) throw new Report.Error("Expression of type int is expected when accessing array element at " + arrExpr);
 
 				SemType ret = ((SemArrType) array).elemType;
-				SemAn.isOfType.put(arrExpr, ret);
+				if (!lock) SemAn.isOfType.put(arrExpr, ret);
 				return ret;
 			}
 			
@@ -83,7 +89,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				if (type instanceof SemVoidType) throw new Report.Error("Array at " + arrType + " cannot be of type void");
 
 				SemArrType ret = new SemArrType(TypeResolver.exprValue, type);
-				SemAn.isType.put(arrType, ret);
+				if (!lock) SemAn.isType.put(arrType, ret);
 
 				TypeResolver.exprValue = fv;
 				return ret;
@@ -143,32 +149,32 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				switch (atomExpr.type) {
 					case INT:
 						ret = new SemIntType();
-						SemAn.isOfType.put(atomExpr, ret);
+						if (!lock) SemAn.isOfType.put(atomExpr, ret);
 						return ret;
 
 					case CHAR:
 						ret = new SemCharType();
-						SemAn.isOfType.put(atomExpr, ret);
+						if (!lock) SemAn.isOfType.put(atomExpr, ret);
 						return ret;
 
 					case BOOL:
 						ret = new SemBoolType();
-						SemAn.isOfType.put(atomExpr, ret);
+						if (!lock) SemAn.isOfType.put(atomExpr, ret);
 						return ret;
 
 					case VOID:
 						ret = new SemVoidType();
-						SemAn.isOfType.put(atomExpr, ret);
+						if (!lock) SemAn.isOfType.put(atomExpr, ret);
 						return ret;
 
 					case PTR:
 						ret = new SemPtrType(new SemVoidType());
-						SemAn.isOfType.put(atomExpr, ret);
+						if (!lock) SemAn.isOfType.put(atomExpr, ret);
 						return ret;
 
 					case STR:
 						ret = new SemPtrType(new SemCharType());
-						SemAn.isOfType.put(atomExpr, ret);
+						if (!lock) SemAn.isOfType.put(atomExpr, ret);
 						return ret;
 
 					default: throw new Report.Error("Cannot determine type of atomic expression at " + atomExpr);
@@ -239,7 +245,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 						if (!f.matches(req)) throw new Report.Error("Expression of type boolean is expected as first operand of a &, |, ^ logical expression at " + binExpr);
 						if (!s.matches(req)) throw new Report.Error("Expression of type boolean is expected as second operand of a &, |, ^ logical expression at " + binExpr);
 
-						SemAn.isOfType.put(binExpr, req);
+						if (!lock) SemAn.isOfType.put(binExpr, req);
 						return req;
 
 					case ADD:
@@ -252,7 +258,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 						if (!f.matches(s)) throw new Report.Error("Expressions of same types are expected in a +, -, *, /, % arithmetic expression at " + binExpr);
 						if (!f.matches(reqInt) && !f.matches(reqChar)) throw new Report.Error("Expressions of type int or char are expected for +, -, *, /, % arithmetic expression at " + binExpr);
 
-						SemAn.isOfType.put(binExpr, reqInt);
+						if (!lock) SemAn.isOfType.put(binExpr, reqInt);
 						return reqInt;
 					}
 
@@ -264,7 +270,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 						if (!f.matches(s)) throw new Report.Error("Expressions of same types are expected in a ==, != comparison expression at " + binExpr);
 						if (!f.matches(reqInt) && !f.matches(reqChar) && !f.matches(reqBool) && !(f instanceof SemPtrType)) throw new Report.Error("Expressions of type int, char, bool or pointer are expected for a ==, != comparison expression at " + binExpr);
 
-						SemAn.isOfType.put(binExpr, reqBool);
+						if (!lock) SemAn.isOfType.put(binExpr, reqBool);
 						return reqBool;
 					}
 
@@ -278,7 +284,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 						if (!f.matches(s)) throw new Report.Error("Expressions of same types are expected in a >, <, >=, <= relational expression at " + binExpr);
 						if (!f.matches(reqInt) && !f.matches(reqChar) && !(f instanceof SemPtrType)) throw new Report.Error("Expressions of type int, char or pointer are expected for a >, <, >=, <= relational expression at " + binExpr);
 
-						SemAn.isOfType.put(binExpr, reqBool);
+						if (!lock) SemAn.isOfType.put(binExpr, reqBool);
 						return reqBool;
 					}
 
@@ -297,16 +303,17 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 	@Override
 	public SemType visit(AbsBlockExpr blockExpr, Object visArg) {
 		switch ((int) visArg) {
-			case 2:
+			case 2: {
 				blockExpr.expr.accept(this, 2);
 				return null;
+			}
 
 			case 4: {
 				blockExpr.decls.accept(this, 4);
 				blockExpr.stmts.accept(this, 4);
 
 				SemType ret = blockExpr.expr.accept(this, 4);
-				SemAn.isOfType.put(blockExpr, ret);
+				if (!lock) SemAn.isOfType.put(blockExpr, ret);
 				return ret;
 			}
 
@@ -334,7 +341,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				if (!type.matches(reqInt) && !type.matches(reqChar) && !(type instanceof SemPtrType)) throw new Report.Error("Expected int, char or pointer type as type in cast expression at " + castExpr);
 
 				SemType ret = type;
-				SemAn.isOfType.put(castExpr, ret);
+				if (!lock) SemAn.isOfType.put(castExpr, ret);
 				return ret;
 			}
 
@@ -405,7 +412,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				if (expr.matches(new SemPtrType(new SemVoidType()))) throw new Report.Error("Expression must not point to void in del(EXPR) expression at " + delExpr);
 
 				SemType ret = new SemVoidType();
-				SemAn.isOfType.put(delExpr, ret);
+				if (!lock) SemAn.isOfType.put(delExpr, ret);
 				return ret;	
 			}
 
@@ -428,6 +435,21 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 	@Override
 	public SemType visit(AbsFunDecl funDecl, Object visArg) {
 		switch ((int) visArg) {
+			case 4: {
+				funDecl.parDecls.accept(this, 4);
+				SemType type = funDecl.type.accept(this, 4);
+			///	SemAn.isOfType.put(funDecl, type);
+				return type;
+			}
+
+			case 5: {
+				funDecl.parDecls.accept(this, 5);
+				funDecl.type.accept(this, 5);
+				SemType type = funDecl.type.accept(this, 1);
+				if (!type.matches(new SemVoidType()) && !type.matches(new SemIntType()) && !type.matches(new SemCharType()) && !type.matches(new SemBoolType()) && !(type instanceof SemPtrType))
+					throw new Report.Error("Return type of a function must be of void, int, char, bool or pointer type");
+				return null;
+			}
 
 			default:
 				funDecl.parDecls.accept(this, visArg);
@@ -439,6 +461,14 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 	@Override
 	public SemType visit(AbsFunDef funDef, Object visArg) {
 		switch ((int) visArg) {
+			case 4: {
+				funDef.parDecls.accept(this, 4);
+				SemType type = funDef.type.accept(this, 4);
+				SemType anst = funDef.value.accept(this, 4);
+				if (!type.matches(anst)) throw new Report.Error("Type returned by function must be of same type as defined");
+			///	SemAn.isOfType.put(funDef, type);
+				return type;
+			}
 
 			default:
 				funDef.parDecls.accept(this, visArg);
@@ -455,6 +485,9 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				throw new Report.Error("Cannot evaluate expression");
 
 			case 4: {
+				AbsDecl fx = SemAn.declaredAt.get(funName);
+				if (!(fx instanceof AbsFunDecl)) throw new Report.Error("Variable " + funName.name + " is not a function");
+
 				AbsFunDecl decl = (AbsFunDecl) SemAn.declaredAt.get(funName);
 				Vector<AbsParDecl> decls = decl.parDecls.parDecls();
 				Vector<AbsExpr> args = funName.args.args();
@@ -464,6 +497,10 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				for (int i = 0; i < decls.size(); i++) {
 					SemType need = decls.get(i).accept(this, 4);
 					SemType have = args.get(i).accept(this, 4);
+
+					if (!(args.get(i) instanceof AbsAtomExpr)) {
+						SemAn.isOfType.put(args.get(i), have);
+					}
 
 					if (!need.matches(have)) throw new Report.Error("Parameter mismatch. Expected " + need + " instead of " + have + ".");
 					if (!need.matches(new SemIntType()) && !need.matches(new SemCharType()) && !need.matches(new SemBoolType())
@@ -475,6 +512,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 					!type.matches(new SemVoidType()) && !(type instanceof SemPtrType))
 					throw new Report.Error("Function " + funName.name + " must return int, char, bool or pointer");
 
+				if (!lock) SemAn.isOfType.put(funName, type);
 				return type;
 			}
 
@@ -520,7 +558,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				if (type instanceof SemVoidType) throw new Report.Error("Type void cannot be used for new(TYPE) expression at " + newExpr);
 
 				SemType ret = new SemPtrType(type);
-				SemAn.isOfType.put(newExpr, ret);
+				if (!lock) SemAn.isOfType.put(newExpr, ret);
 				return ret;
 			}
 
@@ -541,6 +579,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 			case 5: {
 				SemType type = parDecl.type.accept(this, 4);
 				if (type.matches(new SemVoidType())) throw new Report.Error("Parameter of a function cannot be of type void at " + parDecl);
+				if (!type.matches(new SemIntType()) && !type.matches(new SemCharType()) && !type.matches(new SemBoolType()) && !(type instanceof SemPtrType)) throw new Report.Error("Parameters of a function must be of int, char, bool or pointer type");
 				return type;
 			}
 
@@ -568,7 +607,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 			case 4: {
 				SemType type = ptrType.ptdType.accept(this, 1);
 				SemPtrType ret = new SemPtrType(type);
-				SemAn.isType.put(ptrType, ret);
+				if (!lock) SemAn.isType.put(ptrType, ret);
 				return ret;
 			}
 
@@ -597,7 +636,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				}
 
 				SemType ret = decl.accept(this, 4);
-				SemAn.isOfType.put(recExpr, ret);
+				if (!lock) SemAn.isOfType.put(recExpr, ret);
 				return ret;
 			}
 
@@ -616,7 +655,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 
 				recType.compDecls.accept(this, 3);	
 				SemRecType type = new SemRecType(TypeResolver.recDecl);
-				SemAn.isType.put(recType, type);
+				if (!lock) SemAn.isType.put(recType, type);
 
 				SymbTable tab = new SymbTable();
 				for (AbsCompDecl decl : recType.compDecls.compDecls())
@@ -663,7 +702,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 			case 0: {
 				SemNamedType td = new SemNamedType(typDecl.name);
 				td.define(typDecl.type.accept(this, 0));
-				SemAn.declaresType.put(typDecl, td);
+				if (!lock) SemAn.declaresType.put(typDecl, td);
 				return td;
 			}
 
@@ -686,7 +725,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 			case 0:
 			case 1: {
 				AbsDecl decl = SemAn.declaredAt.get(typName);
-				return decl.accept(this, 0);
+				return decl.accept(this, visArg);
 			}
 
 			case 4: {
@@ -726,7 +765,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 						SemType req = (SemType) new SemIntType();
 						if (!expr.matches(req)) throw new Report.Error("Expression of type int is required for +- unary expression at " + unExpr);
 
-						SemAn.isOfType.put(unExpr, req);
+						if (!lock) SemAn.isOfType.put(unExpr, req);
 						return req;
 					}
 
@@ -734,7 +773,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 						SemType req = (SemType) new SemBoolType();
 						if (!expr.matches(req)) throw new Report.Error("Expression of type bool is required for ! unary expression at " + unExpr);
 
-						SemAn.isOfType.put(unExpr, req);
+						if (!lock) SemAn.isOfType.put(unExpr, req);
 						return req;
 					}
 
@@ -743,7 +782,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 						if (expr.matches(req)) throw new Report.Error("Expression of void type cannot be used for $ unary expression at " + unExpr);
 
 						SemType ret = (SemType) new SemPtrType(expr);
-						SemAn.isOfType.put(unExpr, ret);
+						if (!lock) SemAn.isOfType.put(unExpr, ret);
 						return ret;
 					}
 
@@ -753,8 +792,8 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 						if (expr.matches(req)) throw new Report.Error("Expression of pointer to void type cannot be used for @ unary expression at " + unExpr);
 
 						SemType ret = ((SemPtrType) expr).ptdType;
-						SemAn.isOfType.put(unExpr, ret);
-						SemAn.isOfType.put(unExpr.subExpr, expr);
+						if (!lock) SemAn.isOfType.put(unExpr, ret);
+						if (!lock) SemAn.isOfType.put(unExpr.subExpr, expr);
 						return ret;
 					}
 

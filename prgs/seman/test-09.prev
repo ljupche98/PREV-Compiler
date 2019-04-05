@@ -1,0 +1,52 @@
+fun x() : char = {
+	true;
+	:
+	a
+	where var a : char; var b : arr[10] int;
+};
+
+fun g(x : int, y : int, z : int, w : ptr arr[10] int) : ptr void = {
+	true;
+	:
+	null
+};
+
+fun op(x : int) : int;
+
+typ ll : int;
+typ myrec : rec(x : int, y : ll);
+
+var global : myrec;
+
+fun h(A : int, B : int, C : int) : void = {
+	x();
+	op(3 + 7, 3);
+	g(1, ((op((x() : int), 1) : char) : int), 1, y);
+	h(1, 1, 1);
+	x();
+	op(17, 17);
+	test(0, pt.x, pt.y, -1, 17, 5, 6, 7);
+	:
+	none
+	where
+		var y : ptr arr[10] int;
+
+		fun test(x : int, y : int, z : int, w : int, a : int, b : int, c : int, d : int) : int;
+
+		fun op(lj : int, mw : int) : int = {
+			h(1, global.y, 1);
+			:
+			fx
+			where var fx : int; var sx : char;
+		};
+
+		var pt : myrec;
+		var ptrx : ptr myrec;
+
+		fun crazy(x : int) : bool = {
+			op(nmb, op(1, 1));
+			:
+			!!true
+			where var nmb : int; var xx : bool;
+		};
+};

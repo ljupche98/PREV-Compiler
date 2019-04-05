@@ -1,0 +1,20 @@
+fun x() : char = {
+	true;
+	:
+	a
+	where var a : char; var b : arr[10] int;
+};
+
+fun g(x : int, y : int, z : int, w : ptr arr[10] int) : ptr void = {
+	true;
+	:
+	null
+};
+
+fun h() : void = {
+	x();
+	g(1, 1, 1, y);
+	:
+	none
+	where var y : ptr arr[10] int;
+};

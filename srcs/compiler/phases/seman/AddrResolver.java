@@ -26,6 +26,7 @@ public class AddrResolver extends AbsFullVisitor<Boolean, Object> {
 	@Override
 	public Boolean visit(AbsArrExpr arrExpr, Object visArg) {
 		Boolean array = arrExpr.array.accept(this, visArg);
+		if (array == null) throw new Report.Error("Cannot address resolve something that is not an array");
 		if (array) SemAn.isAddr.put(arrExpr, true);
 		arrExpr.index.accept(this, visArg);
 		return true;
@@ -165,6 +166,7 @@ public class AddrResolver extends AbsFullVisitor<Boolean, Object> {
 	@Override
 	public Boolean visit(AbsRecExpr recExpr, Object visArg) {
 		Boolean record = recExpr.record.accept(this, visArg);
+		if (record == null) throw new Report.Error("Cannot address resolve something that is not a record variable");
 		if (record) SemAn.isAddr.put(recExpr, true);
 	///	recExpr.comp.accept(this, visArg);
 		return true;
@@ -222,6 +224,7 @@ public class AddrResolver extends AbsFullVisitor<Boolean, Object> {
 	public Boolean visit(AbsVarName varName, Object visArg) {
 		AbsDecl decl = SemAn.declaredAt.get(varName);
 		Boolean ret = decl.accept(this, visArg);
+		if (ret == null) throw new Report.Error("Cannot address resolve something that is not a variable");
 		///if (ret) SemAn.isAddr.put(varName, true);
 		return ret;
 	}

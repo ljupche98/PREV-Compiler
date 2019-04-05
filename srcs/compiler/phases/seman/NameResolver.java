@@ -135,6 +135,12 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 			/// second visit => we should process the declaration.
 			funDecl.parDecls.accept(this, (int) visArg | (1 << 1));
 			funDecl.type.accept(this, visArg);
+
+			symbTable.newScope();
+			symbTableType.newScope();
+			funDecl.parDecls.accept(this, visArg);
+			symbTableType.oldScope();
+			symbTable.oldScope();
 		}
 
 		return null;
@@ -202,7 +208,7 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 			/// second visit => add parameters into the new scope.
 			try {
 				symbTable.ins(parDecl.name, parDecl);
-				symbTableType.ins(parDecl.name + "VAR", parDecl);
+				symbTableType.ins(parDecl.name + "PAR", parDecl);
 			} catch (Exception e) {
 				throw new Report.Error("Variable " + parDecl.name + " is already defined");
 			}
@@ -307,7 +313,6 @@ public class NameResolver extends AbsFullVisitor<Object, Object> {
 	@Override
 	public Object visit(AbsVarName varName, Object visArg) {
 		try {
-			symbTableType.fnd(varName.name + "VAR");
 			SemAn.declaredAt.put(varName, symbTable.fnd(varName.name));
 		} catch (Exception e) {
 			throw new Report.Error("Variable " + varName.name + " has not been defined");

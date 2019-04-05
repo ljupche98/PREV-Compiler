@@ -178,10 +178,10 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 				if (node.numSubtrees() == 0) return null;
 
 				Vector<AbsExpr> allArgs = new Vector<AbsExpr>();
-				AbsExpr arg = (AbsExpr) node.subtree(0).accept(this, null);
+				AbsExpr arg = (AbsExpr) node.subtree(1).accept(this, null);
 				allArgs.add(arg);
 
-				AbsArgs args = (AbsArgs) node.subtree(1).accept(this, null);
+				AbsArgs args = (AbsArgs) node.subtree(2).accept(this, null);
 				if (args != null) allArgs.addAll(args.args());
 
 				return new AbsArgs(new Location(arg, args == null ? arg : args), allArgs);

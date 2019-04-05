@@ -1,0 +1,35 @@
+typ a : int;
+typ b : a;
+typ c : a;
+typ d : c;
+
+var x : int;
+var y : int;
+
+typ ll : int;
+typ pt : rec(x : int, y : int);
+typ pt2 : rec(x : a, y : c);
+typ pt3 : rec(x : pt, y : pt2);
+
+var ptv : pt;
+var ptu : pt2;
+var ptt : pt3;
+
+var pi : ptr int;
+
+fun main() : int = {
+	ptv.y = x * ptu.x + ('c' : ll);
+	ptt.x.y = ptt.y.x;
+	:
+	0
+};
+
+fun f(x : int) : int = {
+	x = x - 1;
+	@pi = 3;
+	:
+	f(x - 1) + x
+};
+
+
+fun fx() : void;

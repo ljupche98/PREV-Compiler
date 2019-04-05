@@ -33,3 +33,5 @@ fun f(x : int) : int = {
 
 
 fun fx() : void;
+
+fun gx(x : ptr arr[10] int) : arr[10] int;

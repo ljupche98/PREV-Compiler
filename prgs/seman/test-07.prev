@@ -1,0 +1,10 @@
+fun x(i : int) : ptr r = {pi + pc; : true};
+
+var pi : ptr int;
+var pc : ptr char;
+
+typ r : rec(x : int);
+
+
+var i : int;
+fun g() : int = {i = (x(('2' : int)) : int) + ({true; : '1'} : int); : (((1 : int) : char) : int)};
