@@ -40,8 +40,10 @@ fun h(A : int, B : int, C : int) : void = {
 			where var fx : int; var sx : char; fun fxx() : int = {true; : px[17] where var px : arr[10] int;};
 		};
 
+		var stl : ll;
 		var pt : myrec;
 		var ptrx : ptr myrec;
+		var str : ll;
 
 		fun crazy(x : int) : bool = {
 			op(nmb, op(1, 1));

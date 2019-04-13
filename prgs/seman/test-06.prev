@@ -34,4 +34,15 @@ fun f(x : int) : int = {
 
 fun fx() : void;
 
-fun gx(x : ptr arr[10] int) : arr[10] int;
+fun gx(x : ptr arr[10] int) : ptr arr[10] int;
+
+fun complicate() : int =
+	{nv.y; : 17
+		where
+		typ pt4 : pt;
+		var nv : pt4;}
+	+
+	{nv.y.x; : 17
+		where typ pt4 : pt3;
+		var nv : pt4;
+	};

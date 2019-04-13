@@ -1,0 +1,29 @@
+typ r : rec(a : int, b : int, c : ll);
+typ ll : int;
+
+typ rr : rec(rr : char, b : int);
+
+typ xx : rec(pp : ptr rr, ppp : ptr ptr rr, r : r);
+
+typ zz : ptr xx;
+
+var vr : ptr int;
+
+var zzz : zz;
+
+fun f(x : int, y : int, z : int, w : ptr rr) : void = {
+	y.b;
+	+5;
+	++55;
+	-+55;
+	-55+55;
+	++-++17;
+	$vr;
+	@zzz;
+	"xx_string";
+	x = y.a + y.b * y.c % y.a;
+	: none
+	where
+		var x : int;
+		var y : r;
+};

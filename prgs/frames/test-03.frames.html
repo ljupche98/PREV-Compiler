@@ -81,7 +81,7 @@
 <tr><td><nobr>
 	      size:8
 		label:<font style="font-family:courier new">_x</font>
-		label:<font style="font-family:courier new">0</font></nobr></td></tr>
+		init:<font style="font-family:courier new">0</font></nobr></td></tr>
 </table></td></tr>
 </table>
 </td></tr>
@@ -103,7 +103,7 @@
 <tr><td><nobr>
 	      size:8
 		label:<font style="font-family:courier new">_y</font>
-		label:<font style="font-family:courier new">0</font></nobr></td></tr>
+		init:<font style="font-family:courier new">0</font></nobr></td></tr>
 </table></td></tr>
 </table>
 </td></tr>
@@ -319,7 +319,7 @@
 <tr><td><nobr>
 	      size:16
 		label:<font style="font-family:courier new">_ptv</font>
-		label:<font style="font-family:courier new">0</font></nobr></td></tr>
+		init:<font style="font-family:courier new">0</font></nobr></td></tr>
 </table></td></tr>
 </table>
 </td></tr>
@@ -341,7 +341,7 @@
 <tr><td><nobr>
 	      size:16
 		label:<font style="font-family:courier new">_ptu</font>
-		label:<font style="font-family:courier new">0</font></nobr></td></tr>
+		init:<font style="font-family:courier new">0</font></nobr></td></tr>
 </table></td></tr>
 </table>
 </td></tr>
@@ -363,7 +363,7 @@
 <tr><td><nobr>
 	      size:32
 		label:<font style="font-family:courier new">_ptt</font>
-		label:<font style="font-family:courier new">0</font></nobr></td></tr>
+		init:<font style="font-family:courier new">0</font></nobr></td></tr>
 </table></td></tr>
 </table>
 </td></tr>
@@ -385,7 +385,7 @@
 <tr><td><nobr>
 	      size:8
 		label:<font style="font-family:courier new">_pi</font>
-		label:<font style="font-family:courier new">0</font></nobr></td></tr>
+		init:<font style="font-family:courier new">0</font></nobr></td></tr>
 </table></td></tr>
 </table>
 </td></tr>
@@ -420,7 +420,9 @@
 	      depth:1 
 	      size:16 
 	      locs:0
-	      args:0</nobr></td></tr>
+	      args:0
+	      FP:T0
+	      RV:T1</nobr></td></tr>
 </table></td></tr>
 </table>
 </td></tr>
@@ -717,7 +719,9 @@
 	      depth:1 
 	      size:32 
 	      locs:0
-	      args:16</nobr></td></tr>
+	      args:16
+	      FP:T2
+	      RV:T3</nobr></td></tr>
 </table></td></tr>
 </table>
 </td></tr>
@@ -728,7 +732,18 @@
 </td></tr>
 <tr><td><table width="100%">
 <tr bgcolor="FFEE00"><td colspan="1000">
-<nobr>&nbsp;<font style="font-family:arial black">ParDecl</font>&nbsp;</nobr><br><nobr>&nbsp;<nobr><font style="font-family:helvetica">27.7--27.13</font></nobr>&nbsp;</nobr><br><nobr>&nbsp;<font style="font-family:courier new">x</font>&nbsp;</nobr><br><table width="100%"><tr></tr></table>
+<nobr>&nbsp;<font style="font-family:arial black">ParDecl</font>&nbsp;</nobr><br><nobr>&nbsp;<nobr><font style="font-family:helvetica">27.7--27.13</font></nobr>&nbsp;</nobr><br><nobr>&nbsp;<font style="font-family:courier new">x</font>&nbsp;</nobr><br><table width="100%">
+<tr></tr>
+<tr><td><table width="100%" bgcolor="EECF00">
+<tr><td>
+	    ACCESS
+	  </td></tr>
+<tr><td><nobr>
+	      size:8
+		offset:8
+		depth:1</nobr></td></tr>
+</table></td></tr>
+</table>
 </td></tr>
 <tr><td><table width="100%">
 <tr bgcolor="FFEE00"><td colspan="1000">

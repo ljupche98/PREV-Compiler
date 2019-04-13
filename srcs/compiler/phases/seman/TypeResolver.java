@@ -636,6 +636,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				}
 
 				SemType ret = decl.accept(this, 4);
+				if (!lock) SemAn.declaredAt.put(recExpr.comp, decl);
 				if (!lock) SemAn.isOfType.put(recExpr, ret);
 				return ret;
 			}
@@ -656,6 +657,9 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 				recType.compDecls.accept(this, 3);	
 				SemRecType type = new SemRecType(TypeResolver.recDecl);
 				if (!lock) SemAn.isType.put(recType, type);
+
+				for (AbsCompDecl decl : recType.compDecls.compDecls())
+					SemAn.compOf.put(decl, recType);
 
 				SymbTable tab = new SymbTable();
 				for (AbsCompDecl decl : recType.compDecls.compDecls())
@@ -678,6 +682,8 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 
 	@Override
 	public SemType visit(AbsSource source, Object visArg) {
+		source.decls.accept(this, 6);
+
 		source.decls.accept(this, 0);
 		source.decls.accept(this, 1);
 		source.decls.accept(this, 4);
@@ -688,6 +694,11 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 	@Override
 	public SemType visit(AbsStmts stmts, Object visArg) {
 		switch ((int) visArg) {
+			case 4: {
+				for (AbsStmt stmt : stmts.stmts())
+					stmt.accept(this, visArg);
+				return new SemVoidType();
+			}
 
 			default:
 				for (AbsStmt stmt : stmts.stmts())

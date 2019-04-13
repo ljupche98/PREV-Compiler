@@ -29,6 +29,13 @@ public class SemAn extends Phase {
 
 	/** Denotes whether a value expression can denote an address. */
 	public static final AbsAttribute<AbsExpr, Boolean> isAddr = new AbsAttribute<AbsExpr, Boolean>();
+
+	/** Maps component declarations to their corresponding type declarations
+	    typ r : rec(x : int, y : int)
+	    (x : int) -> r
+	    (y : int) -> y
+	**/
+	public static final AbsAttribute<AbsCompDecl, AbsRecType> compOf = new AbsAttribute<AbsCompDecl, AbsRecType>();
 	
 	/**
 	 * Constructs a new phase of semantic analysis.

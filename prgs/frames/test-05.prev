@@ -1,0 +1,18 @@
+typ r : rec(a : int, b : int, c : ll);
+typ ll : int;
+
+typ rr : rec(rr : char, b : int);
+
+typ xx : rec(pp : ptr rr, ppp : ptr ptr rr, r : r);
+
+typ zz : ptr xx;
+
+fun f(x : int, y : int, z : int, w : ptr rr) : void = {
+	x.rr;
+	x.b;
+	y.b;
+	: none
+	where
+		var x : rr;
+		var y : r;
+};

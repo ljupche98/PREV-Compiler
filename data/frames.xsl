@@ -138,6 +138,8 @@
 	      size:<xsl:value-of select="@size"/> 
 	      locs:<xsl:value-of select="@locssize"/>
 	      args:<xsl:value-of select="@argssize"/>
+	      FP:<xsl:value-of select="@FP"/>
+	      RV:<xsl:value-of select="@RV"/>
 	    </nobr>
 	  </td>
 	</tr>
@@ -163,7 +165,7 @@
 		label:<font style="font-family:courier new"><xsl:value-of select="@label"/></font>
 	      </xsl:if>
 	      <xsl:if test="@init!=''">
-		label:<font style="font-family:courier new"><xsl:value-of select="@init"/></font>
+		init:<font style="font-family:courier new"><xsl:value-of select="@init"/></font>
 	      </xsl:if>
 	      <xsl:if test="@offset!=''">
 		offset:<xsl:value-of select="@offset"/>

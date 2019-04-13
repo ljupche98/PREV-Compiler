@@ -53,6 +53,7 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 	1 ... look for funDecls
 	2 ... within a function, find MAX(SIZE(ARGS) + SL) for every fun. call.
 	3 ... within a function, find SUM(varDecls).
+	4 ... add parameters of a function.
 
 	**/
 
@@ -67,9 +68,9 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 	public Object visit(AbsArgs args, FrmEvaluator.Context visArg) {
 		switch (state.peek()) {
 			default:
-				for (AbsExpr arg : args.args())
-					arg.accept(this, visArg);
-				return null;
+			for (AbsExpr arg : args.args())
+				arg.accept(this, visArg);
+			return null;
 		}
 	}
 
@@ -197,11 +198,29 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 	@Override
 	public Object visit(AbsFunDecl funDecl, FrmEvaluator.Context visArg) {
 		switch (state.peek()) {
+			case 1: {
+				FunContext oldFC = cxt;
+				cxt = new FunContext();
+				cxt.depth = ++level;
+
+				state.push(4);
+				funDecl.parDecls.accept(this, visArg);
+				state.pop();
+								/// new Label(funDecl.name)
+				Frames.frames.put(funDecl, new Frame(new Label(), cxt.depth, cxt.locsSize, cxt.argsSize));
+
+				--level;
+				cxt = oldFC;
+				return null;
+			}
+
 			case 3: return null;
 
 			default:
+			++level;
 			funDecl.parDecls.accept(this, visArg);
 			funDecl.type.accept(this, visArg);
+			--level;
 			return null;
 		}
 	}
@@ -222,7 +241,12 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 				funDef.value.accept(this, visArg);
 				state.pop();
 
-				Frames.frames.put(funDef, new Frame(new Label(funDef.name), cxt.depth, cxt.locsSize, cxt.argsSize));
+				state.push(4);
+				funDef.parDecls.accept(this, visArg);
+				state.pop();
+
+								/// new Label(funDef.name)
+				Frames.frames.put(funDef, new Frame(new Label(), cxt.depth, cxt.locsSize, cxt.argsSize));
 
 				funDef.value.accept(this, visArg);
 
@@ -234,9 +258,11 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 			case 3: return null; /// prevents adding size of declarations of variables of nested functions.
 
 			default:
+			++level;
 			funDef.parDecls.accept(this, visArg);
 			funDef.type.accept(this, visArg);
 			funDef.value.accept(this, visArg);
+			--level;
 			return null;
 		}
 	}
@@ -298,6 +324,20 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 	@Override
 	public Object visit(AbsParDecls parDecls, FrmEvaluator.Context visArg) {
 		switch (state.peek()) {
+			case 4: {
+				long cum = 0;
+
+				for (int i = 0; i < parDecls.parDecls().size(); i++) {
+					SemType type = parDecls.parDecl(i).type.accept(new TypeResolver(true), 1);
+
+					Frames.accesses.put(parDecls.parDecl(i), new RelAccess(type.size(), cum + type.size(), level));
+
+					cum = cum + type.size();
+				}
+
+				return null;
+			}
+			
 			default:
 			for (AbsParDecl parDecl : parDecls.parDecls())
 				parDecl.accept(this, visArg);
