@@ -180,6 +180,13 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 	@Override
 	public Object visit(AbsDelExpr delExpr, FrmEvaluator.Context visArg) {
 		switch (state.peek()) {
+			case 2: {
+				long curSize = (new SemPtrType(new SemVoidType())).size(); /// size of SL.
+				curSize += (new SemIntType()).size();			   /// size of argument.
+				cxt.argsSize = Math.max(cxt.argsSize, curSize);
+				return null;
+			}
+
 			default:
 			delExpr.expr.accept(this, visArg);
 			return null;
@@ -206,8 +213,8 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 				state.push(4);
 				funDecl.parDecls.accept(this, visArg);
 				state.pop();
-								/// new Label(funDecl.name)
-				Frames.frames.put(funDecl, new Frame(new Label(), cxt.depth, cxt.locsSize, cxt.argsSize));
+
+				Frames.frames.put(funDecl, new Frame(new Label(funDecl.name), cxt.depth, cxt.locsSize, cxt.argsSize));
 
 				--level;
 				cxt = oldFC;
@@ -245,8 +252,7 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 				funDef.parDecls.accept(this, visArg);
 				state.pop();
 
-								/// new Label(funDef.name)
-				Frames.frames.put(funDef, new Frame(new Label(), cxt.depth, cxt.locsSize, cxt.argsSize));
+				Frames.frames.put(funDef, new Frame(level == 1 ? new Label(funDef.name) : new Label(), cxt.depth, cxt.locsSize, cxt.argsSize));
 
 				funDef.value.accept(this, visArg);
 
@@ -306,6 +312,13 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 	@Override
 	public Object visit(AbsNewExpr newExpr, FrmEvaluator.Context visArg) {
 		switch (state.peek()) {
+			case 2: {
+				long curSize = (new SemPtrType(new SemVoidType())).size(); /// size of SL.
+				curSize += (new SemIntType()).size();			   /// size of argument.
+				cxt.argsSize = Math.max(cxt.argsSize, curSize);
+				return null;
+			}
+
 			default:
 			newExpr.type.accept(this, visArg);
 			return null;

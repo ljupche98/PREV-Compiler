@@ -29,6 +29,9 @@ fun f(x : int) : int = {
 	@pi = 3;
 	:
 	f(x - 1) + x
+
+	where fun g() : int = 3;
+	fun g2() : int = 3 + {true; x = 1; : x};
 };
 
 

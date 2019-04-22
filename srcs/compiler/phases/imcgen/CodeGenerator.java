@@ -153,7 +153,7 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 			case 1: {
 				switch (atomExpr.type) {
 					case STR: {
-						AbsAccess acs = new AbsAccess((atomExpr.expr.length() + 1) * (new SemCharType()).size(), new Label(), atomExpr.expr);
+						AbsAccess acs = new AbsAccess((atomExpr.expr.substring(1, atomExpr.expr.length() - 1).length() + 1) * (new SemCharType()).size(), new Label(), atomExpr.expr.substring(1, atomExpr.expr.length() - 1));
 					///	stringAccess.put(atomExpr, acs);
 						access.put(atomExpr, acs);
 	
@@ -374,7 +374,19 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 	public Object visit(AbsDelExpr delExpr, Stack<Frame> visArg) {
 		switch (state.peek()) {
 			case 2: {
-				// __TODO. WHAT?
+				Vector<ImcExpr> args = new Vector<ImcExpr>();
+				args.add(getFP());				/// static link of a global function. should never be used.
+
+				state.push(2);
+				delExpr.expr.accept(this, visArg);
+				state.pop();
+				ImcExpr expr = (ImcExpr) istack.pop();
+				args.add(expr);
+
+				ImcCALL node = new ImcCALL(new Label("_del"), args);
+				ImcGen.exprImCode.put(delExpr, node);
+				istack.push(node);
+				return null;
 			}
 
 			default:
@@ -497,7 +509,7 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 					args.add(aexpr);
 				}
 
-				ImcCALL node = new ImcCALL(frstack.peek().label, args);
+				ImcCALL node = new ImcCALL(Frames.frames.get((AbsFunDecl) SemAn.declaredAt.get(funName)).label, args);
 				ImcGen.exprImCode.put(funName, node);
 				istack.push(node);
 				return null;
@@ -572,7 +584,17 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 	public Object visit(AbsNewExpr newExpr, Stack<Frame> visArg) {
 		switch (state.peek()) {
 			case 2: {
-				// __TODO. WHAT?
+				Vector<ImcExpr> args = new Vector<ImcExpr>();
+				args.add(getFP());				/// static link of a global function. should never be used.
+
+				SemType argType = newExpr.type.accept(new TypeResolver(true), 1);
+				ImcCONST sz = new ImcCONST(argType.size());
+				args.add(sz);
+
+				ImcCALL node = new ImcCALL(new Label("_new"), args);
+				ImcGen.exprImCode.put(newExpr, node);
+				istack.push(node);
+				return null;
 			}
 
 			default:
@@ -696,10 +718,19 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 	public Object visit(AbsStmts stmts, Stack<Frame> visArg) {
 		switch (state.peek()) {
 			case 3: {
-				state.push(3);
-				for (AbsStmt stmt : stmts.stmts())
+				Vector<ImcStmt> stmtv = new Vector<ImcStmt>();
+
+				for (AbsStmt stmt : stmts.stmts()) {
+					state.push(3);
 					stmt.accept(this, visArg);
-				state.pop();
+					state.pop();
+
+					stmtv.add((ImcStmt) istack.pop());
+				}
+
+				ImcSTMTS node = new ImcSTMTS(stmtv);
+				istack.push(node);
+				return null;
 			}
 
 			default:
@@ -736,11 +767,12 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 						unExpr.subExpr.accept(this, visArg);
 						state.pop();
 
-						access.put(unExpr, access.get(unExpr.subExpr));
-						/// __TODO?
+					///	access.put(unExpr, access.get(unExpr.subExpr));
+
 						ImcExpr addr = (ImcExpr) istack.peek();
-						ImcGen.exprImCode.put(unExpr, addr);
-						return null;
+						ImcMEM node = new ImcMEM(addr);
+						ImcGen.exprImCode.put(unExpr, node);
+						return node;
 					}
 
 					case DATA: {
@@ -748,11 +780,11 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 						unExpr.subExpr.accept(this, visArg);
 						state.pop();
 
-						access.put(unExpr, access.get(unExpr.subExpr));
+					///	access.put(unExpr, access.get(unExpr.subExpr));				
 
-						ImcExpr node = (ImcExpr) istack.peek();
-						ImcGen.exprImCode.put(unExpr, node);
-						return null;
+						ImcMEM ptr = (ImcMEM) istack.peek();
+						ImcGen.exprImCode.put(unExpr, ptr.addr);
+						return ptr.addr;
 					}
 
 					default: return null;
@@ -761,7 +793,7 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 
 			case 2: {
 
-				switch (unExpr.oper) { /// __TODO RULE: EX4
+				switch (unExpr.oper) {
 					case ADD: {
 						state.push(2);
 						unExpr.subExpr.accept(this, visArg);

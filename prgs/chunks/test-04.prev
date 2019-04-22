@@ -1,0 +1,85 @@
+fun x() : char = ({
+	true;
+	:
+	a
+	where var a : char; var b : arr[10] int;
+} + {true; : 'c'} : char);
+
+fun g(x : int, y : int, z : int, w : ptr arr[10] int) : ptr void = {
+	true;
+	:
+	null
+};
+
+fun op(x : int) : int;
+
+typ ll : int;
+typ myrec : rec(x : int, y : ll, z : arr[10] ll);
+
+var global : myrec;
+
+
+var ptt : ptr int;
+
+fun h(A : int, B : int, C : int) : void = {
+	x();
+	stl = @ptt + 3;
+	op(3 + 7, 3);
+	g(1, ((op((x() : int), 1) : char) : int), 1, y);
+	h(1, 1, 1);
+	x();
+	op(17, 17);
+	test(global.z[3], pt.x, pt.y, -1, 17, 5, 6, @ptt);
+	$str;
+	'c';
+	if x() > '2' then
+		global.x = ('2' : int);
+		global.y = 3 + {global.x = 3; : global.x};
+	else
+		global.x = ('1' : int);
+		global.y = 2;
+	end;
+
+	if x() > '2' then true; end;
+
+	while op(3, 3) > 0 do
+		stl = stl + 17;
+
+		if x() >= 'a' then
+			stl = stl + 1;
+			str = str + 3;
+		else
+			if x() <= 'z' then
+				str = str - 3;
+			end;
+		end;
+	end;
+
+	:
+	none
+	where
+		var y : ptr arr[10] int;
+
+		fun test(x : int, y : int, z : int, w : int, a : int, b : int, c : int, d : int) : int;
+
+		fun op(lj : int, mw : int) : int = {
+			h(1, global.y, 1);
+			:
+			fx
+			where var fx : int; var sx : char; fun fxx() : int = {true; stl = stl + 1; : px[17] where var px : arr[10] int;}; fun crazy(x : int) : bool = true;
+		};
+
+		var stl : ll;
+		var pt : myrec;
+		var ptrx : ptr myrec;
+		var str : ll;
+
+		fun crazy(x : int) : bool = {
+			op(nmb, op(1, 1));
+			A;
+			x;
+			:
+			!!true
+			where var nmb : int; var xx : bool;
+		};
+};

@@ -1,0 +1,15 @@
+var a : arr[10] int;
+typ point : rec(x : ll, y : char);
+var pt : point;
+var pxt : int;
+
+typ ll : int;
+
+var l : ll;
+
+fun f() : int = {
+	pt.x = 1;
+	l = 17;
+	:
+	1
+};
