@@ -46,12 +46,12 @@ PrefixExpression -> NEW LPARENTHESIS Type RPARENTHESIS .
 PrefixExpression -> DEL LPARENTHESIS Expression RPARENTHESIS .
 PrefixExpression -> DATA PrefixExpression .
 PrefixExpression -> ADDR PrefixExpression .
-PrefixExpression -> LPARENTHESIS Expression COLON Type RPARENTHESIS .	
-PrefixExpression -> LPARENTHESIS Expression RPARENTHESIS .
 
 PostfixExpression -> AtomicExpression .
 PostfixExpression -> PostfixExpression LBRACKET Expression RBRACKET .
 PostfixExpression -> PostfixExpression DOT IDENTIFIER .
+PostfixExpression -> LPARENTHESIS Expression COLON Type RPARENTHESIS .	
+PostfixExpression -> LPARENTHESIS Expression RPARENTHESIS .
 
 AtomicExpression -> INTCONST | VOIDCONST | CHARCONST | BOOLCONST | PTRCONST | STRCONST | IDENTIFIER ArgumentsOpt .
 AtomicExpression -> LBRACE Statements COLON Expression WhereOpt RBRACE .

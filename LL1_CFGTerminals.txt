@@ -43,10 +43,10 @@ PrefixExpression -> NEW LPARENTHESIS Type RPARENTHESIS .
 PrefixExpression -> DEL LPARENTHESIS Expression RPARENTHESIS .
 PrefixExpression -> DATA PrefixExpression .
 PrefixExpression -> ADDR PrefixExpression .
-PrefixExpression -> LPARENTHESIS Expression PrefixExpression' .
-PrefixExpression' -> COLON Type RPARENTHESIS .
-PrefixExpression' -> RPARENTHESIS .
 PostfixExpression -> AtomicExpression PostfixExpression' .
+PostfixExpression -> LPARENTHESIS Expression PostfixExpression'' .
+PostfixExpression'' -> COLON Type RPARENTHESIS PostfixExpression' .
+PostfixExpression'' -> RPARENTHESIS PostfixExpression' .
 PostfixExpression' -> LBRACKET Expression RBRACKET PostfixExpression' .
 PostfixExpression' -> DOT IDENTIFIER PostfixExpression' .
 PostfixExpression' -> .
