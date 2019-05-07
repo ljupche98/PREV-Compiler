@@ -1,0 +1,28 @@
+fun putInt(n:int):void;
+fun putChar(c:char):void;
+fun putString(s:ptr char):void;
+
+fun main():int =
+    {
+	f(2);
+      : 0
+    where
+      var n:int; var m:int;
+    };
+
+fun f(x : int) : int = {
+	g(0);
+	: 0
+	where
+		fun g(i : int) : int = {
+			x;
+
+			if i == 1 then
+				true;
+			else
+				g(i + 1);
+			end;
+
+			: 0
+		};
+};

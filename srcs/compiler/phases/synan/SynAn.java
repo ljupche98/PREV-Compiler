@@ -631,7 +631,7 @@ public class SynAn extends Phase {
 				node.add(parseMULDIVExpressionP());
 				break;
 			default:
-				throw new Report.Error("Cannot parse MULDIVExpressionP");
+				throw new Report.Error("Cannot parse MULDIVExpressionP. Got " + cur);
 		}
 
 		return node;
@@ -650,12 +650,8 @@ public class SynAn extends Phase {
 			case PTRCONST:
 			case STRCONST:
 			case LBRACE:
-				node.add(parsePostfixExpression());
-				break;
 			case LPARENTHESIS:
-				add(node, Symbol.Term.LPARENTHESIS, "Expected LPARENTHESIS when parsing PrefixExpression");
-				node.add(parseExpression());
-				node.add(parsePrefixExpressionP());
+				node.add(parsePostfixExpression());
 				break;
 			case ADD:
 				add(node, Symbol.Term.ADD, "Expected ADD when parsing PrefixExpression");
@@ -696,26 +692,6 @@ public class SynAn extends Phase {
 		return node;
 	}
 
-	private DerNode parsePrefixExpressionP() {
-		Symbol.Term cur = currSymb.token;
-		DerNode node = new DerNode(DerNode.Nont.PrefixExpressionP);
-
-		switch (cur) {
-			case COLON:
-				add(node, Symbol.Term.COLON, "Expected COLON when parsing PrefixExpressionP");
-				node.add(parseType());
-				add(node, Symbol.Term.RPARENTHESIS, "Expected RPARENTHESIS when parsing PrefixExpressionP");
-				break;
-			case RPARENTHESIS:
-				add(node, Symbol.Term.RPARENTHESIS, "Expected RPARENTHESIS when parsing PrefixExpressionP");
-				break;
-			default:
-				throw new Report.Error("Cannot parse PrefixExpressionP");
-		}
-
-		return node;
-	}
-
 	private DerNode parsePostfixExpression() {
 		Symbol.Term cur = currSymb.token;
 		DerNode node = new DerNode(DerNode.Nont.PostfixExpression);
@@ -732,8 +708,35 @@ public class SynAn extends Phase {
 				node.add(parseAtomicExpression());
 				node.add(parsePostfixExpressionP());
 				break;
+			case LPARENTHESIS:
+				add(node, Symbol.Term.LPARENTHESIS, "Expected LPARENTHESIS when parsing PostfixExprssion");
+				node.add(parseExpression());
+				node.add(parsePostfixExpressionPP());
+				break;
 			default:
 				throw new Report.Error("Cannot parse PostfixExpression");
+		}
+
+		return node;
+	}
+
+	private DerNode parsePostfixExpressionPP() {
+		Symbol.Term cur = currSymb.token;
+		DerNode node = new DerNode(DerNode.Nont.PostfixExpressionPP);
+
+		switch (cur) {
+			case COLON:
+				add(node, Symbol.Term.COLON, "Expected COLON when parsing PrefixExpressionP");
+				node.add(parseType());
+				add(node, Symbol.Term.RPARENTHESIS, "Expected RPARENTHESIS when parsing PrefixExpressionP");
+				node.add(parsePostfixExpressionP());
+				break;
+			case RPARENTHESIS:
+				add(node, Symbol.Term.RPARENTHESIS, "Expected RPARENTHESIS when parsing PrefixExpressionP");
+				node.add(parsePostfixExpressionP());
+				break;
+			default:
+				throw new Report.Error("Cannot parse PrefixExpressionP");
 		}
 
 		return node;

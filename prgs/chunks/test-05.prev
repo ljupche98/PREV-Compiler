@@ -30,3 +30,5 @@ fun f(x : int, y : int, z : int, w : ptr rr) : void = {
 		var y : r;
 		var z : ptr r;
 };
+
+fun main() : void = {1; : none};

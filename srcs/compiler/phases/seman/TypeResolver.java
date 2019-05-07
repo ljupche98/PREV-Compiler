@@ -267,7 +267,7 @@ public class TypeResolver extends AbsFullVisitor<SemType, Object> {
 						SemType reqInt = (SemType) new SemIntType();
 						SemType reqChar = (SemType) new SemCharType();
 						SemType reqBool = (SemType) new SemBoolType();
-						if (!f.matches(s)) throw new Report.Error("Expressions of same types are expected in a ==, != comparison expression at " + binExpr);
+						if (!f.matches(s)) throw new Report.Error("Expressions of same types are expected in a ==, != comparison expression at " + binExpr + " " + f + " " + s);
 						if (!f.matches(reqInt) && !f.matches(reqChar) && !f.matches(reqBool) && !(f instanceof SemPtrType)) throw new Report.Error("Expressions of type int, char, bool or pointer are expected for a ==, != comparison expression at " + binExpr);
 
 						if (!lock) SemAn.isOfType.put(binExpr, reqBool);

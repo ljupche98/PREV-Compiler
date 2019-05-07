@@ -44,13 +44,23 @@ public class StmtCanonizer implements ImcVisitor<Vector<ImcStmt>, Object> {
 		Vector<ImcExpr> args = new Vector<ImcExpr>();
 		Vector<ImcStmt> stmt = new Vector<ImcStmt>();
 
-		for (ImcExpr expr : call.args()) {
+		for (int i = 0; i < call.args().size(); i++) {
+			Vector<ImcStmt> aStmt = new Vector<ImcStmt>();
+
+			if (i == 0) {
+				Temp temp = new Temp();
+				aStmt.add(new ImcMOVE(new ImcTEMP(temp), call.args().get(i)));
+				args.add(new ImcTEMP(temp));
+				stmt.addAll(aStmt);
+				continue;
+			}
+
+			ImcExpr expr = call.args().get(i);
 			expr.accept(this, visArg);
 			Temp argv = new Temp();
 			ImcExpr argExpr = iexpr.pop();
 			Vector<ImcStmt> argStmt = istmt.pop();
 
-			Vector<ImcStmt> aStmt = new Vector<ImcStmt>();
 			aStmt.addAll(argStmt);
 			aStmt.add(new ImcMOVE(new ImcTEMP(argv), argExpr));
 
@@ -93,12 +103,14 @@ public class StmtCanonizer implements ImcVisitor<Vector<ImcStmt>, Object> {
 
 	public Vector<ImcStmt> visit(ImcESTMT eStmt, Object visArg) {
 		eStmt.expr.accept(this, visArg);
-		Temp temp = new Temp();
 		ImcExpr exExpr = iexpr.pop();
 		Vector<ImcStmt> exStmt = istmt.pop();
 
 		Vector<ImcStmt> stmt = new Vector<ImcStmt>();
 		stmt.addAll(exStmt);
+
+		/// execute the expression in case it modifies the environment.
+		stmt.add(new ImcMOVE(new ImcTEMP(new Temp()), exExpr));
 
 		istmt.push(stmt);
 
@@ -140,6 +152,23 @@ public class StmtCanonizer implements ImcVisitor<Vector<ImcStmt>, Object> {
 	}
 
 	public Vector<ImcStmt> visit(ImcMOVE move, Object visArg) {
+		if (move.dst instanceof ImcMEM) {
+			move.src.accept(this, visArg);
+			Temp src = new Temp();
+			ImcExpr srcExpr = iexpr.pop();
+			Vector<ImcStmt> srcStmt = istmt.pop();
+	
+			Vector<ImcStmt> stmt = new Vector<ImcStmt>();
+			stmt.addAll(srcStmt);
+			stmt.add(new ImcMOVE(new ImcTEMP(src), srcExpr));
+
+			stmt.add(new ImcMOVE(move.dst, new ImcTEMP(src)));
+
+			istmt.push(stmt);
+
+			return null;
+		}
+
 		move.dst.accept(this, visArg);
 		Temp dst = new Temp();
 		ImcExpr dstExpr = iexpr.pop();
@@ -195,9 +224,7 @@ public class StmtCanonizer implements ImcVisitor<Vector<ImcStmt>, Object> {
 
 		for (ImcStmt cStmt : stmts.stmts()) {
 			cStmt.accept(this, visArg);
-			Temp temp = new Temp();
 			Vector<ImcStmt> nStmt = istmt.pop();
-
 			stmt.addAll(nStmt);
 		}
 

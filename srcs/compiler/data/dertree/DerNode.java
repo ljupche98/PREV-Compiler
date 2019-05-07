@@ -22,7 +22,7 @@ public class DerNode extends DerTree {
 	public enum Nont {
 		Source, Declarations, DeclarationsP, Declaration, Statement, StatementP, Expression, ORXORExpression, ORXORExpressionP,
 		ANDExpression, ANDExpressionP, RelationalExpression, RelationalExpressionP, ADDSUBExpression, ADDSUBExpressionP, MULDIVExpression, MULDIVExpressionP,
-		PrefixExpression, PrefixExpressionP, PostfixExpression, PostfixExpressionP, AtomicExpression, Type, FunctionBodyOpt,
+		PrefixExpression, PrefixExpressionP, PostfixExpression, PostfixExpressionP, PostfixExpressionPP, AtomicExpression, Type, FunctionBodyOpt,
 		ParametersOpt, Parameters, ParametersP, Statements, StatementsP, WhereOpt, ArgumentsOpt, ArgumentsOptP, Arguments, ArgumentsP, ElseOpt,
 	};
 

@@ -18,6 +18,8 @@ typ myrec : rec(x : int, y : ll, z : arr[10] ll);
 
 var global : myrec;
 
+fun main() : void = { 1; : none};
+
 
 var ptt : ptr int;
 

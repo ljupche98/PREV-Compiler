@@ -153,7 +153,7 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 			case 1: {
 				switch (atomExpr.type) {
 					case STR: {
-						AbsAccess acs = new AbsAccess((atomExpr.expr.substring(1, atomExpr.expr.length() - 1).length() + 1) * (new SemCharType()).size(), new Label(), atomExpr.expr.substring(1, atomExpr.expr.length() - 1));
+						AbsAccess acs = new AbsAccess((atomExpr.expr.length() + 1) * (new SemCharType()).size(), new Label(), atomExpr.expr);
 					///	stringAccess.put(atomExpr, acs);
 						access.put(atomExpr, acs);
 	
@@ -477,10 +477,12 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 		return new ImcBINOP(ImcBINOP.Oper.ADD, getFP(), new ImcCONST(frstack.peek().size));
 	}
 
-	public ImcExpr getSL(int dlvl) {
+	public ImcExpr getSL(int lvl, int dlvl) {
+		if (lvl == 1) return new ImcCONST(0);
+
 		ImcExpr SL = getFP();
 
-		for (int i = 0; i < dlvl + 1; i++)
+		for (int i = 0; i < dlvl; i++)
 			SL = new ImcMEM(SL);
 
 		return SL;
@@ -490,14 +492,12 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 	public Object visit(AbsFunName funName, Stack<Frame> visArg) {
 		switch (state.peek()) {	
 			case 2: {
-			///	System.out.println(funName.name);
-	
 				/** Construct the static link. **/
-				int dlvl = level - frstack.peek().depth;
-			///	System.out.println(funName.name + " " + ldif + " ... " + frame.depth);
+			///	System.out.println(funName.name + " " + frstack.peek().depth + " ... " + Frames.frames.get((AbsFunDecl) SemAn.declaredAt.get(funName)).depth);
+				int dlvl = frstack.peek().depth - Frames.frames.get((AbsFunDecl) SemAn.declaredAt.get(funName)).depth + 1;
 
 				Vector<ImcExpr> args = new Vector<ImcExpr>();
-				args.add(getSL(dlvl));
+				args.add(getSL(Frames.frames.get((AbsFunDecl) SemAn.declaredAt.get(funName)).depth, dlvl));
 
 				for (AbsExpr arg : funName.args.args()) {
 					state.push(2);
@@ -886,7 +886,7 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 						ImcGen.exprImCode.put(varName, node);
 						return null;
 					} else {
-						int dlvl = level - ((RelAccess) acs).depth;
+						int dlvl = frstack.peek().depth - ((RelAccess) acs).depth;
 						long offset = ((RelAccess) acs).offset;
 
 						ImcTEMP temp = getFP();
@@ -938,7 +938,7 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 						ImcGen.exprImCode.put(varName, mem);
 						return null;
 					} else {
-						int dlvl = level - frstack.peek().depth;
+						int dlvl = frstack.peek().depth - frstack.peek().depth;
 						long offset = frstack.peek().offset;
 
 

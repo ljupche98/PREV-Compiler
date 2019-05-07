@@ -176,6 +176,8 @@ public class Main {
 					Abstr.absTree.accept(new ChunkGenerator(), null);
 
 					chunks.log();
+
+					new Interpreter(Chunks.dataChunks, Chunks.codeChunks).run("_main");
 				}
 				if (cmdLine.get("--target-phase").equals("chunks"))
 					break;

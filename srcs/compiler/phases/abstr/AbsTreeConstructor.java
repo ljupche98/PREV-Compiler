@@ -107,6 +107,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 					AbsExpr second = (AbsExpr) node.subtree(1).accept(this, null);
 
 					/// Expression ;
+					if (first == null) System.out.println("DA");
 					if (second == null) return new AbsExprStmt(new Location(node, node), first);
 
 					/// Expression = Expression ;
@@ -188,11 +189,11 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 			}
 
 			case Expression: {
-				return node.subtree(0).accept(this, null);
+				return node.subtree(0).accept(this, visArg);
 			}
 
 			case ORXORExpression: {
-				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, null);
+				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, visArg);
 				return node.subtree(1).accept(this, first);
 			}
 
@@ -217,7 +218,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 
 
 			case ANDExpression: {
-				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, null);
+				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, visArg);
 				return node.subtree(1).accept(this, first);
 			}
 
@@ -238,7 +239,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 			}
 
 			case RelationalExpression: {
-				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, null);
+				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, visArg);
 				return node.subtree(1).accept(this, first);
 			}
 
@@ -272,7 +273,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 			}
 
 			case ADDSUBExpression: {
-				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, null);
+				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, visArg);
 				return node.subtree(1).accept(this, first);
 			}
 
@@ -296,7 +297,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 			}
 
 			case MULDIVExpression: {
-				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, null);
+				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, visArg);
 				return node.subtree(1).accept(this, first);
 			}
 
@@ -323,7 +324,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 			}
 
 			case PrefixExpression: {
-				if (node.numSubtrees() == 1) return node.subtree(0).accept(this, null);
+				if (node.numSubtrees() == 1) return node.subtree(0).accept(this, visArg);
 
 				if (node.numSubtrees() == 2) {
 					AbsUnExpr.Oper oper = null;
@@ -345,20 +346,8 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 							break;			
 					}
 
-					AbsExpr next = (AbsExpr) node.subtree(1).accept(this, null);
+					AbsExpr next = (AbsExpr) node.subtree(1).accept(this, visArg);
 					return new AbsUnExpr(new Location(node, node), oper, next);
-				}
-
-				if (node.numSubtrees() == 3) {
-					AbsExpr expr = (AbsExpr) node.subtree(1).accept(this, null);
-					AbsType type = (AbsType) node.subtree(2).accept(this, null);
-
-					/// ( Expr )
-					if (type == null)
-						return expr;
-
-					/// ( Expr : Type )
-					return new AbsCastExpr(new Location(node, node), expr, type);
 				}
 
 				if (node.numSubtrees() == 4) {
@@ -371,21 +360,38 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 				}
 
 				return null;
-			}
-
-			case PrefixExpressionP: {
-				/// ( Expr )
-				if (node.numSubtrees() == 1) return null;
-
-				/// returns Type of typecasting expression
-				return node.subtree(1).accept(this, null);
-			}
+			}	
 
 			case PostfixExpression: {
-				AbsExpr first = (AbsExpr) node.subtree(0).accept(this, null);
-				AbsExpr second = (AbsExpr) node.subtree(1).accept(this, first);
+				if (node.numSubtrees() == 2) {
+					AbsExpr first = (AbsExpr) node.subtree(0).accept(this, visArg);
+					AbsExpr second = (AbsExpr) node.subtree(1).accept(this, first);
 
-				return node.subtree(1).accept(this, first);
+					return node.subtree(1).accept(this, first);
+				}
+
+				if (node.numSubtrees() == 3) {		
+					AbsExpr expr = (AbsExpr) node.subtree(1).accept(this, visArg);
+					return node.subtree(2).accept(this, expr);
+				}
+
+				return null;
+			}
+
+			case PostfixExpressionPP: {
+				/// ( Expr )
+				if (node.numSubtrees() == 2) {
+					return node.subtree(1).accept(this, visArg);
+				}
+
+				/// ( Expr : Type )
+				if (node.numSubtrees() == 4) {
+					AbsCastExpr cexpr = new AbsCastExpr(new Location(node, node), (AbsExpr) visArg, (AbsType) node.subtree(1).accept(this, null));			
+					/// returns Type of typecasting expression
+					return node.subtree(3).accept(this, cexpr);
+				}
+
+				return null;
 			}
 
 			case PostfixExpressionP: {
@@ -398,7 +404,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 				}
 
 				if (node.numSubtrees() == 4) {	
-					AbsExpr idx = (AbsExpr) node.subtree(1).accept(this, null);
+					AbsExpr idx = (AbsExpr) node.subtree(1).accept(this, visArg);
 					AbsArrExpr ret = new AbsArrExpr(new Location(visArg, node.subtree(2)), (AbsExpr) visArg, idx);
 					return node.subtree(3).accept(this, ret);
 				}
@@ -419,7 +425,7 @@ public class AbsTreeConstructor implements DerVisitor<AbsTree, AbsTree> {
 				}
 
 				if (node.numSubtrees() == 2) {
-					AbsArgs args = (AbsArgs) node.subtree(1).accept(this, null);
+					AbsArgs args = (AbsArgs) node.subtree(1).accept(this, visArg);
 
 					/// Identifier
 					if (args == null) return new AbsVarName(new Location(node, node), ((DerLeaf) node.subtree(0)).symb.lexeme);

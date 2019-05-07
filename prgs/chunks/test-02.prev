@@ -7,9 +7,9 @@ typ ll : int;
 
 var l : ll;
 
-fun f() : int = {
+fun main() : int = {
 	pt.x = 1;
 	l = 17;
 	:
-	1
+	pt.x + l - 1
 };

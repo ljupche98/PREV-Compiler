@@ -212,7 +212,7 @@ public class AddrResolver extends AbsFullVisitor<Boolean, Object> {
 		}
 
 		unExpr.subExpr.accept(this, visArg);
-		return null;
+		return true;
 	}
 
 	@Override

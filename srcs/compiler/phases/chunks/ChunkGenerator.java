@@ -72,7 +72,7 @@ public class ChunkGenerator extends AbsFullVisitor<Object, Object> {
 		switch (state.peek()) {
 			case 1: {
 				if (atomExpr.type == AbsAtomExpr.Type.STR) {
-					String init = atomExpr.expr.substring(1, atomExpr.expr.length() - 1);
+					String init = atomExpr.expr;
 					ImcNAME imc = (ImcNAME) ImcGen.exprImCode.get(atomExpr);
 
 					Chunks.dataChunks.add(new DataChunk(new AbsAccess((init.length() + 1) * (new SemCharType()).size(), imc.label, init)));
@@ -186,18 +186,24 @@ public class ChunkGenerator extends AbsFullVisitor<Object, Object> {
 	public Object visit(AbsFunDef funDef, Object visArg) {
 		switch (state.peek()) {
 			case 2: {
+				Frame frame = Frames.frames.get(funDef);
+
 				funDef.value.accept(this, visArg);
 
 				ImcGen.exprImCode.get(funDef.value).accept(new StmtCanonizer(), null);
-				Temp temp = new Temp();
 				ImcExpr fExpr = StmtCanonizer.iexpr.pop();
 				Vector<ImcStmt> fStmt = StmtCanonizer.istmt.pop();
 
-				Vector<ImcStmt> stmt = new Vector<ImcStmt>();
-				stmt.addAll(fStmt);
-				stmt.add(new ImcMOVE(new ImcTEMP(temp), fExpr));
+				Label entryLabel = new Label();
+				Label exitLabel = new Label();
 
-				Chunks.codeChunks.add(new CodeChunk(Frames.frames.get(funDef), stmt, new Label(), new Label()));
+				Vector<ImcStmt> stmt = new Vector<ImcStmt>();
+				stmt.add(new ImcLABEL(entryLabel));
+				stmt.addAll(fStmt);
+				stmt.add(new ImcMOVE(new ImcTEMP(frame.RV), fExpr));
+				stmt.add(new ImcJUMP(exitLabel));
+
+				Chunks.codeChunks.add(new CodeChunk(Frames.frames.get(funDef), stmt, entryLabel, exitLabel));
 
 				return null;
 			}

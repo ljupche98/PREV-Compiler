@@ -18,11 +18,13 @@ var ptt : pt3;
 var pi : ptr int;
 
 fun main() : int = {
-	ptv.y = x * ptu.x + ('c' : ll);
-	ptt.x.y = ptt.y.x;
+	x = 0;
+	ptu.x = 2;
+	ptv.y = x * ptu.x + ('c' : ll) - ('a' : int);
+	ptt.x.y = ptv.y + 17;
 	:
-	0
-};
+	ptt.x.y
+} + 3;
 
 fun f(x : int) : int = {
 	x = x - 1 + g2();

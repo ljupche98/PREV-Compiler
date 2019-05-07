@@ -1,0 +1,33 @@
+fun putInt(n:int):void;
+fun putChar(c:char):void;
+fun putString(s:ptr char):void;
+
+fun main():int =
+    {
+	f(2);
+      : 0
+    where
+      var n:int; var m:int;
+    };
+
+fun f(x : int) : int = {
+	g(0);
+	: 0
+	where
+		fun g(i : int) : int = {
+			if i == x then
+				putString("End: ");
+				putInt(i);
+				putChar((10 : char));
+			else
+				putString("i = ");
+				putInt(i);
+				putChar((10 : char));
+				g(i + 1);
+				putString("ri = ");
+				putInt(i);
+				putChar((10 : char));
+			end;
+			: 0
+		};
+};

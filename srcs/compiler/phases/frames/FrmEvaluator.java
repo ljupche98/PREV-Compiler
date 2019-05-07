@@ -437,7 +437,7 @@ public class FrmEvaluator extends AbsFullVisitor<Object, FrmEvaluator.Context> {
 			/// Global variable declaration.
 
 			SemType type = varDecl.type.accept(new TypeResolver(true), 1);
-			Frames.accesses.put(varDecl, new AbsAccess(type.size(), new Label(varDecl.name), "0"));
+			Frames.accesses.put(varDecl, new AbsAccess(type.size(), new Label(varDecl.name)));
 		} else {
 			switch (state.peek()) {
 				case 3: {
