@@ -1,0 +1,2328 @@
+<html>
+<style>
+      table, tr, td {
+      text-align: center;
+      vertical-align: top;
+      }
+    </style>
+<body><table>
+<td bgcolor="FFEE00"><table>
+<tr><td bgcolor="EECF00"><table width="100%">
+<tr><td><nobr>
+	  FRAME
+	  label=<font style="font-family:courier new">_f</font></nobr></td></tr>
+<tr><td><nobr>
+	  depth=1 
+	  size=72 
+	  locs=40
+	  args=16</nobr></td></tr>
+<tr><td><nobr>
+    	  FP=T0
+	  RV=T1</nobr></td></tr>
+</table></td></tr>
+<tr><td bgcolor="EECF00"><nobr>
+	    entryLabel=L1
+	    exitLabel=L2
+	    temps=0</nobr></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>L1</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T78 T64 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T78 T64 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T4, T0, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T4</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T78 T64 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T4</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T60, 32</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T4</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T4</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T60, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T4</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T4</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T60, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T4</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T4</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T60, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T4</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T64 T60 T113 T87 T106 T94 T119 T4 T0 T100</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T60, 0, T60</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T64 T60 T113 T87 T106 T94 T119 T4 T0 T100</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T64 T60 T113 T87 T106 T94 T119 T4 T0 T100</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T5, T60, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T5</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T64 T60 T113 T87 T106 T94 T119 T4 T0 T100</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T64 T113 T87 T106 T94 T119 T4 T0 T100 T5</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T61, T4, T5</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T4 T5</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T61</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T64 T113 T87 T106 T94 T119 T4 T0 T100 T5</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T61</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T6, T61, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T61</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T6</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119 T61</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T6 T64 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T62, 8</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T6 T64 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T6 T64 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T62, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T6 T64 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T6 T64 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T62, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T6 T64 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T6 T64 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T62, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T6 T64 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T64 T113 T87 T106 T62 T94 T119 T0 T6 T100</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T7, T62, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T7</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T64 T113 T87 T106 T62 T94 T119 T0 T6 T100</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T64 T113 T87 T106 T94 T119 T0 T6 T100 T7</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T63, T6, T7</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T6 T7</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T63</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T64 T113 T87 T106 T94 T119 T0 T6 T100 T7</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T63 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T8, T63, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T63</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T8</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T63 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDO T65, T64, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T64</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T65</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T64 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T65 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T9, T65, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T65</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T9</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T65 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T66, 5</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T66, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T66, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T66, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T66 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T10, T66, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T10</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T66 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T67, 55</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T67, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T67, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T67, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T67 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T11, T67, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T11</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T67 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T68, 55</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T68</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T68, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T68</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T68, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T68</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T68, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T68</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T68 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T12, T68, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T68</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T12</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T68 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T12 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T69, 0, T12</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T12</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T69</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T12 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T69 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T13, T69, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T69</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T13</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T69 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T70, 55</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T70</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T70, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T70</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T70, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T70</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T70, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T70</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T70 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T14, T70, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T70</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T14</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T70 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T14 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T71, 0, T14</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T14</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T71</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T14 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T71 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T15, T71, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T71</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T15</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T71 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T72, 55</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T72</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T72, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T72</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T72, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T72</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T72, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T72</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T72 T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T16, T72, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T72</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T16</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T72 T84 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T16 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T73, T15, T16</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T15 T16</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T73</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T16 T78 T0 T113 T87 T100 T106 T94 T15 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119 T73</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T17, T73, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T73</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T17</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119 T73</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T74, 17</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T74</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T74, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T74</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T74, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T74</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T74, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T74</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T74 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T18, T74, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T74</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T18</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T74 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T18 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T75, 0, T18</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T18</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T75</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T18 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T75 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T19, T75, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T75</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T19</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T75 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDA T76, _vr</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T76</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119 T76</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T20, T76, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T76</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T20</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119 T76</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDA T77, _zzz</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T77</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T77 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T21, T77, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T77</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T21</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T77 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDO T79, T78, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T78</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T79</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T78 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T119 T79</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T22, T79, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T79</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T22</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T119 T79</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T23, T0, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T23</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T80, 8</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T80</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T80, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T80</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T80, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T80</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T80, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T80</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119 T80</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T80, 0, T80</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T80</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T80</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119 T80</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119 T80</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T24, T80, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T80</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T24</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T23 T113 T87 T100 T106 T94 T119 T80</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T23 T113 T87 T100 T24 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T81, T23, T24</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T23 T24</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T81</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T23 T113 T87 T100 T24 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T81 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T25, T81, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T81</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T25</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T81 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T26, T0, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T26</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T82, 24</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T82</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T82, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T82</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T82, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T82</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T82, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T82</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119 T82</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T27, T82, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T82</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T27</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T26 T119 T82</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T27 T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>STO T26, $254, 8</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T26</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T27 T84 T0 T113 T87 T100 T106 T94 T26 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T27 T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>STO T27, $254, 16</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T27</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T27 T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDA T83, __new</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T83</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T83 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>PUSHJ $15, T83, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T83</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T83 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T28, T84, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T84</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T28</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T84 T0 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T28 T113 T87 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDO T88, T87, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T87</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T88</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T28 T113 T87 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T88 T0 T28 T113 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>STO T88, T28, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T88 T28</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T88 T0 T28 T113 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDA T89, L0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T89</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T94 T119 T89</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T29, T89, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T89</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T29</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T94 T119 T89</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T30, T0, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T30</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T30 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T90, 32</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T90</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T30 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T30 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T90, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T90</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T30 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T30 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T90, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T90</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T30 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T30 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T90, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T90</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T30 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T90 T113 T30 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T90, 0, T90</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T90</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T90</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T90 T113 T30 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T90 T113 T30 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T31, T90, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T90</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T31</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T90 T113 T30 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T31 T113 T30 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T91, T30, T31</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T30 T31</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T91</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T31 T113 T30 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T91 T113 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T32, T91, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T91</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T32</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T91 T113 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T32 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T92, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T32 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T32 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T92, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T32 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T32 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T92, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T32 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T32 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T92, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T32 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T92 T0 T113 T32 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T33, T92, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T33</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T92 T0 T113 T32 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T32 T100 T106 T94 T33 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T93, T32, T33</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T32 T33</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T93</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T32 T100 T106 T94 T33 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T94 T119 T93</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T34, T93, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T93</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T34</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T94 T119 T93</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T94 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDO T95, T94, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T94</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T95</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T94 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T95 T0 T113 T100 T106 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T35, T95, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T95</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T35</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T95 T0 T113 T100 T106 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T36, T0, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T36</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35 T36</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T96, 32</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T96</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35 T36</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35 T36</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T96, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T96</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35 T36</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35 T36</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T96, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T96</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35 T36</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35 T36</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T96, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T96</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35 T36</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35 T36 T96</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T96, 0, T96</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T96</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T96</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35 T36 T96</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35 T36 T96</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T37, T96, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T96</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T37</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35 T36 T96</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35 T36 T37</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T97, T36, T37</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T36 T37</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T97</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35 T36 T37</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35 T97</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T38, T97, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T97</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T38</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35 T97</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T38 T106 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T98, 8</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T98</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T38 T106 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T38 T106 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T98, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T98</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T38 T106 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T38 T106 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T98, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T98</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T38 T106 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T38 T106 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T98, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T98</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T38 T106 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T98 T113 T100 T38 T106 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T39, T98, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T98</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T39</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T98 T113 T100 T38 T106 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T39 T0 T113 T100 T38 T106 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T99, T38, T39</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T38 T39</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T99</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T39 T0 T113 T100 T38 T106 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T99 T0 T113 T100 T106 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T40, T99, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T99</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T40</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T99 T0 T113 T100 T106 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T100 T106 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDO T101, T100, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T100</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T101</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T100 T106 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T106 T101 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T41, T101, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T101</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T41</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T106 T101 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T106 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T42, T0, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T42</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T106 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T106 T119 T41 T35 T42</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T102, 32</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T102</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T106 T119 T41 T35 T42</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T106 T119 T41 T35 T42</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T102, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T102</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T106 T119 T41 T35 T42</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T106 T119 T41 T35 T42</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T102, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T102</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T106 T119 T41 T35 T42</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T106 T119 T41 T35 T42</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T102, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T102</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T106 T119 T41 T35 T42</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T102 T113 T106 T119 T41 T35 T42</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T102, 0, T102</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T102</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T102</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T102 T113 T106 T119 T41 T35 T42</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T102 T113 T106 T119 T41 T35 T42</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T43, T102, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T102</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T43</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T102 T113 T106 T119 T41 T35 T42</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T43 T0 T113 T106 T119 T41 T35 T42</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T103, T42, T43</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T42 T43</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T103</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T43 T0 T113 T106 T119 T41 T35 T42</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T103 T106 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T44, T103, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T103</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T44</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T103 T106 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T44 T106 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T104, 16</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T104</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T44 T106 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T44 T106 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T104, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T104</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T44 T106 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T44 T106 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T104, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T104</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T44 T106 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T44 T106 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T104, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T104</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T44 T106 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T44 T106 T104 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T45, T104, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T104</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T45</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T44 T106 T104 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T44 T106 T119 T45 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T105, T44, T45</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T44 T45</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T105</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T44 T106 T119 T45 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T105 T106 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T46, T105, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T105</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T46</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T105 T106 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T106 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDO T107, T106, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T106</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T107</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T106 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T107 T113 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T47, T107, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T107</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T47</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T107 T113 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T47 T119 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>MUL T108, T41, T47</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T41 T47</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T108</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T47 T119 T41 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T108 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T48, T108, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T108</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T48</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T108 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T113 T48 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T49, T0, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T49</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T113 T48 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T119 T49 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T109, 32</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T109</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T119 T49 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T119 T49 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T109, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T109</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T119 T49 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T119 T49 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T109, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T109</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T119 T49 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T119 T49 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T109, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T109</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T119 T49 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T109 T113 T48 T119 T49 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T109, 0, T109</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T109</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T109</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T109 T113 T48 T119 T49 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T109 T113 T48 T119 T49 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T50, T109, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T109</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T50</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T109 T113 T48 T119 T49 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T50 T119 T49 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T110, T49, T50</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T49 T50</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T110</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T50 T119 T49 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T110 T113 T48 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T51, T110, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T110</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T51</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T110 T113 T48 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T51 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T111, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T111</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T51 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T51 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T111, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T111</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T51 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T51 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T111, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T111</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T51 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T51 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T111, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T111</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T51 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T51 T119 T35 T111</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T52, T111, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T111</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T52</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T51 T119 T35 T111</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T51 T52 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T112, T51, T52</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T51 T52</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T112</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T51 T52 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T112 T113 T48 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T53, T112, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T112</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T53</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T112 T113 T48 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113 T48 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDO T114, T113, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T114</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113 T48 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T48 T119 T114 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T54, T114, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T114</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T54</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T48 T119 T114 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T48 T119 T54 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>DIV T115, T48, T54</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T48 T54</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T48 T119 T54 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T115, rR, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T115 T119 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T55, T115, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T55</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T115 T119 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T119 T35 T55</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T116, T35, T55</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T35 T55</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T119 T35 T55</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T116 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T56, T116, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T56</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T116 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T56 T119</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDO T120, T119, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T119</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T120</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T56 T119</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T56 T120</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>STO T120, T56, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T120 T56</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T56 T120</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T121, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T121</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T121, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T121</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T121, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T121</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T121, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T121</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T121</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T57, T121, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T121</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T57</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T121</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T57</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T1, T57, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T57</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T1</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T57</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDA T122, L2</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T122</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T122</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>GO T122, T122, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T122</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T122</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T122</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+</table></td>
+<td bgcolor="FFEE00"><table>
+<tr><td bgcolor="EECF00"><table width="100%">
+<tr><td><nobr>
+	  FRAME
+	  label=<font style="font-family:courier new">_main</font></nobr></td></tr>
+<tr><td><nobr>
+	  depth=1 
+	  size=16 
+	  locs=0
+	  args=0</nobr></td></tr>
+<tr><td><nobr>
+    	  FP=T2
+	  RV=T3</nobr></td></tr>
+</table></td></tr>
+<tr><td bgcolor="EECF00"><nobr>
+	    entryLabel=L3
+	    exitLabel=L4
+	    temps=0</nobr></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>L3</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T123, 1</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T123</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T123, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T123</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T123, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T123</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T123, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T123</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T123</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T58, T123, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T123</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T58</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T123</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>SETL  T124, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T124</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCML T124, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T124</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T124, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T124</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH  T124, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T124</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T124</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T59, T124, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T124</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T59</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T124</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T59</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T3, T59, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T59</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T3</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T59</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>LDA T125, L4</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T125</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+      </td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T125</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>GO T125, T125, 0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T125</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T125</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T125</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+      </td></tr>
+</table></td></tr>
+</table></td>
+</table></body>
+</html>
