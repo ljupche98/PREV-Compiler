@@ -19,8 +19,14 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 		ImcStmt: pushes Vector<AsmInstr> to instr.
 	**/
 
+	int nRegs = 16;
+
 	Stack<Temp> itemp = new Stack<Temp>();
 	Stack<Vector<AsmInstr>> instr = new Stack<Vector<AsmInstr>>();
+
+	public String getLastReg() {
+		return "$" + Integer.toString(nRegs - 1);
+	}
 
 	public Vector<AsmInstr> visit(ImcBINOP binOp, Object visArg) {
 		binOp.fstExpr.accept(this, visArg);
@@ -64,18 +70,6 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 				cinstr.add(new AsmOPER("CMP `d0, `s0, `s1", uses, defs, null));
 				cinstr.add(new AsmOPER("ZSZ `d0, `s0, 1", defs, defs, null));
 				break;
-
-			/**
-				Temp _t = new Temp();
-
-				Vector<Temp> _defs = new Vector<Temp>();
-				_defs.add(_t);
-
-				cinstr.add(new AsmOPER("CMP `d0, `s0, `s1", uses, _defs, null));
-				cinstr.add(new AsmOPER("NOR `d0, `s0, 0", _defs, defs, null));
-
-				break;
-			**/
 			}
 
 			case NEQ: {
@@ -137,8 +131,6 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 			default: throw new Report.Error("Unknown binary operator");
 		}
 
-		/** __TODO: RETURN **/
-
 		itemp.push(d0);
 		instr.push(cinstr);
 
@@ -162,17 +154,18 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 			Vector<Temp> uses = new Vector<Temp>();
 			uses.add(s0);
 
+			/// __TODO: Hard coded $254 SP.
 			cinstr.addAll(is0);
-			cinstr.add(new AsmOPER("STO `d0, $254, " + offset, uses, null, null));		
+			cinstr.add(new AsmOPER("STO `s0, $254, " + offset, uses, null, null));		
 		}
 
 		Temp d0 = new Temp();
 		Vector<Temp> defs = new Vector<Temp>();
 		defs.add(d0);
 
-		/// __TODO: Hard coded. Address of next instruction is written in $0.
+		/// __TODO: Hard coded.
 		cinstr.add(new AsmOPER("LDA `d0, " + call.label.name, null, defs, null));
-		cinstr.add(new AsmOPER("GO $0, `s0, 0", defs, defs, jumps));
+		cinstr.add(new AsmOPER("PUSHJ " + getLastReg() + ", `s0, 0", defs, null, jumps));
 
 		/// __TODO: Returned temp should be RV Temp.
 		itemp.push(new Temp());
@@ -205,9 +198,9 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 	public Vector<AsmInstr> visit(ImcCONST constant, Object visArg) {
 		Vector<AsmInstr> cinstr = new Vector<AsmInstr>();
 
-		Temp t = new Temp();
+		Temp d0 = new Temp();
 		Vector<Temp> defs = new Vector<Temp>();
-		defs.add(t);
+		defs.add(d0);
 
 		cinstr.add(new AsmOPER("SETL  `d0, " + (0x000000000000FFFFL & Math.abs(constant.value)), null, defs, null));
 		cinstr.add(new AsmOPER("INCML `d0, " + (0x00000000FFFF0000L & Math.abs(constant.value)), null, defs, null));
@@ -218,7 +211,7 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 			cinstr.add(new AsmOPER("NEG `d0, 0, `s0", defs, defs, null));
 		}
 
-		itemp.push(t);
+		itemp.push(d0);
 		instr.push(cinstr);
 
 		return null;
