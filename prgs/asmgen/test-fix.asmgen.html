@@ -27,51 +27,51 @@
 <tr></tr>
 <tr><td bgcolor="00BBFF">L4</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T43, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T41, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T43, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T41, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T43, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T41, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T43, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T41, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T12, T43, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T12, T41, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T44, 2</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T42, 2</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T44, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T42, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T44, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T42, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T44, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T42, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T13, T44, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T13, T42, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">STO T12, $254, 8</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">STO T13, $254, 16</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T45, _f</td></tr>
+<tr><td bgcolor="00BBFF">LDA T43, _f</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">PUSHJ $15, T45, 0</td></tr>
+<tr><td bgcolor="00BBFF">PUSHJ $15, T43, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T14, T46, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T14, T44, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T47, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T45, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T47, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T45, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T47, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T45, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T47, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T45, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T15, T47, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T15, T45, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">OR T7, T15, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T48, L5</td></tr>
+<tr><td bgcolor="00BBFF">LDA T46, L5</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">GO T48, T48, 0</td></tr>
+<tr><td bgcolor="00BBFF">GO T46, T46, 0</td></tr>
 </table></td>
 <td bgcolor="FFEE00"><table>
 <tr><td bgcolor="EECF00"><table width="100%">
@@ -96,9 +96,25 @@
 <tr></tr>
 <tr><td bgcolor="00BBFF">OR T16, T10, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDO T50, T49, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T17, T16, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T17, T50, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T48, 8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML T48, 0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH T48, 0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH  T48, 0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR T18, T48, 0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">ADD T49, T17, T18</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR T19, T49, 0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR T20, T19, 0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR T21, T10, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">SETL  T51, 8</td></tr>
 <tr></tr>
@@ -108,143 +124,117 @@
 <tr></tr>
 <tr><td bgcolor="00BBFF">INCH  T51, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T18, T51, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T22, T51, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">ADD T52, T17, T18</td></tr>
+<tr><td bgcolor="00BBFF">ADD T52, T21, T22</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T19, T52, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T23, T52, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDO T54, T53, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T24, T23, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T20, T54, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T54, 1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T21, T10, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T54, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T55, 8</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T54, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T55, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T54, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T55, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T25, T54, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T55, 0</td></tr>
+<tr><td bgcolor="00BBFF">CMP T55, T24, T25</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T22, T55, 0</td></tr>
+<tr><td bgcolor="00BBFF">ZSZ T55, T55, 1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">ADD T56, T21, T22</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">OR T23, T56, 0</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">LDO T58, T57, 0</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">OR T24, T58, 0</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T59, 1</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">INCML T59, 0</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T59, 0</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T59, 0</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">OR T25, T59, 0</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">CMP T60, T24, T25</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">ZSZ T60, T60, 1</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">OR T26, T60, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T26, T55, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">BNZ T26, L1</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">L6</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T61, L2</td></tr>
+<tr><td bgcolor="00BBFF">LDA T56, L2</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">GO T61, T61, 0</td></tr>
+<tr><td bgcolor="00BBFF">GO T56, T56, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">L1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T62, 1</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T57, 1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T62, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T57, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T62, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T57, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T62, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T57, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T27, T62, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T27, T57, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T63, L3</td></tr>
+<tr><td bgcolor="00BBFF">LDA T58, L3</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">GO T63, T63, 0</td></tr>
+<tr><td bgcolor="00BBFF">GO T58, T58, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">L2</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDO T65, T64, 0</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">OR T28, T65, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T28, T10, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">OR T29, T10, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T66, 8</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T60, 8</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T66, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T60, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T66, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T60, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T66, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T60, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T30, T66, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T30, T60, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">ADD T67, T29, T30</td></tr>
+<tr><td bgcolor="00BBFF">ADD T61, T29, T30</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T31, T67, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T31, T61, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDO T69, T68, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T32, T31, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T32, T69, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T63, 1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T70, 1</td></tr>
+<tr><td bgcolor="00BBFF">INCML T63, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T70, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T63, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T70, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T63, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T70, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T33, T63, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T33, T70, 0</td></tr>
+<tr><td bgcolor="00BBFF">ADD T64, T32, T33</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">ADD T71, T32, T33</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">OR T34, T71, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T34, T64, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">STO T28, $254, 8</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">STO T34, $254, 16</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T72, L0</td></tr>
+<tr><td bgcolor="00BBFF">LDA T65, L0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">PUSHJ $15, T72, 0</td></tr>
+<tr><td bgcolor="00BBFF">PUSHJ $15, T65, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T35, T73, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T35, T66, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">L3</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T74, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T67, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T74, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T67, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T74, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T67, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T74, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T67, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T36, T74, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T36, T67, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">OR T11, T36, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T75, L8</td></tr>
+<tr><td bgcolor="00BBFF">LDA T68, L8</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">GO T75, T75, 0</td></tr>
+<tr><td bgcolor="00BBFF">GO T68, T68, 0</td></tr>
 </table></td>
 <td bgcolor="FFEE00"><table>
 <tr><td bgcolor="EECF00"><table width="100%">
@@ -269,41 +259,41 @@
 <tr></tr>
 <tr><td bgcolor="00BBFF">OR T37, T8, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T76, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T69, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T76, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T69, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T76, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T69, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T76, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T69, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T38, T76, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T38, T69, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">STO T37, $254, 8</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">STO T38, $254, 16</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T77, L0</td></tr>
+<tr><td bgcolor="00BBFF">LDA T70, L0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">PUSHJ $15, T77, 0</td></tr>
+<tr><td bgcolor="00BBFF">PUSHJ $15, T70, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T39, T78, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T39, T71, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T79, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  T72, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T79, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T72, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T79, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T72, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T79, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  T72, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T40, T79, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T40, T72, 0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">OR T9, T40, 0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T80, L10</td></tr>
+<tr><td bgcolor="00BBFF">LDA T73, L10</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">GO T80, T80, 0</td></tr>
+<tr><td bgcolor="00BBFF">GO T73, T73, 0</td></tr>
 </table></td>
 </table></body>
 </html>

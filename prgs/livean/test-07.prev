@@ -1,0 +1,11 @@
+var i:int;
+
+fun main() : void = {
+	i = 3 + 2;
+	j = i * -1 + 7;
+	: none
+	where
+		var j : int;
+		var z : int;
+};
+

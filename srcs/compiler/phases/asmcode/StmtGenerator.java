@@ -21,11 +21,12 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 
 	int nRegs = 16;
 
+	boolean resolveAddr = false;
 	Stack<Temp> itemp = new Stack<Temp>();
 	Stack<Vector<AsmInstr>> instr = new Stack<Vector<AsmInstr>>();
 
 	public String getLastReg() {
-		return "$" + Integer.toString(nRegs - 1);
+		return "$" + Integer.toString(nRegs);
 	}
 
 	public Vector<AsmInstr> visit(ImcBINOP binOp, Object visArg) {
@@ -167,8 +168,13 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 		cinstr.add(new AsmOPER("LDA `d0, " + call.label.name, null, defs, null));
 		cinstr.add(new AsmOPER("PUSHJ " + getLastReg() + ", `s0, 0", defs, null, jumps));
 
+		Temp r0 = new Temp();
+		Vector<Temp> defsr = new Vector<Temp>();
+		defsr.add(r0);
+		cinstr.add(new AsmOPER("LDO `d0, $254, 0", null, defsr, null));
+
 		/// __TODO: Returned temp should be RV Temp.
-		itemp.push(new Temp());
+		itemp.push(r0);
 		instr.push(cinstr);
 
 		return null;
@@ -250,11 +256,11 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 
 	public Vector<AsmInstr> visit(ImcMEM mem, Object visArg) {
 		mem.addr.accept(this, visArg);
-		Temp s0 = new Temp();
-		Vector<AsmInstr> is0 = new Vector<AsmInstr>();
+		Temp s0 = itemp.pop();
+		Vector<AsmInstr> is0 = instr.pop();
 
 		Vector<Temp> uses = new Vector<Temp>();
-		uses.add(s0);		
+		uses.add(s0);
 
 		Temp d0 = new Temp();
 		Vector<Temp> defs = new Vector<Temp>();
@@ -262,16 +268,25 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 
 		Vector<AsmInstr> cinstr = new Vector<AsmInstr>();
 		cinstr.addAll(is0);
-		cinstr.add(new AsmOPER("LDO `d0, `s0, 0", uses, defs, null));
 
-		itemp.add(d0);
-		instr.add(cinstr);
+		if (resolveAddr) {
+			cinstr.add(new AsmOPER("LDO `d0, `s0, 0", uses, defs, null));
+			itemp.add(d0);
+			instr.add(cinstr);
+		} else {
+			itemp.push(s0);
+			instr.push(is0);
+		}
 
 		return null;
 	}
 
 	public Vector<AsmInstr> visit(ImcMOVE move, Object visArg) {
+		boolean oldResolve = resolveAddr;
+		resolveAddr = !(move.dst instanceof ImcMEM);
 		move.dst.accept(this, visArg);
+		resolveAddr = oldResolve;
+
 		Temp dst = itemp.pop();
 		Vector<AsmInstr> idst = instr.pop();
 
