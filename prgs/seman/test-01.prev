@@ -1,22 +1,2 @@
+fun f(i:int,j:int):int=i+j+f(i,j);
 var i:int;
-fun main(n:int):int=main(i+2*n)+{none;:i where var i:int;};
-
-typ ll : int;
-var vr : arr[17] ll;
-
-typ pll : ptr ll;
-
-typ str : rec(aa : ll, bb : ll, cc : pll, dd : int);
-
-var ii : str;
-fun fn() : str = {ii.xx + ii.yy + 3; : true};
-
-fun fl(x : int, y : ll, x : ll) : pll;
-
-
-var j:int;
-
-typ y:rec(k:int);
-var z:y;
-
-fun ekv(mk : y, cr : ll, xx : bool) : y = j ;

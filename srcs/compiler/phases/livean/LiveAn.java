@@ -62,9 +62,7 @@ public class LiveAn extends Phase {
 	}
 
 	public void chunksLiveness() {
-		for (Code code : AsmGen.codes) {
-			chunkLiveness(code);
-		}
+		for (Code code : AsmGen.codes) chunkLiveness(code);
 	}
 
 	public void log() {

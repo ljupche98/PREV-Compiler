@@ -1,14 +1,4 @@
+fun three():int=two(three())+3*i;
+fun one():ptr(char)=(new(int):ptr char);
+fun two(i:int):int;
 var i:int;
-fun f1():ptr char = "one";
-fun f2():int = 1;
-
-fun main() : void = {
-	i = 3 + 2;
-	putInt(i);
-	putString("test");
-	: none
-};
-
-fun putInt(n:int):void;
-fun putChar(c:char):void;
-fun putString(s:ptr char):void;

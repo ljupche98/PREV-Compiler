@@ -1,15 +1,2 @@
-fun f() : int = (g(3) : int) + 17;
-
-var ekv : _type;
-
-fun g(x : int) : char = ekv + 69;
-
-typ _type : void;
-
-fun fx(x : int, y : char) : void = {
-	ekv = (((ekv))) * (15 + 2); : x + f() + ekv + p(ekv) where fun p() : _type = 17;
-};
-
-fun nw() : void = {
-	3 + 7 + 7; : none
-};
+fun f1():int=f2();
+fun f2():int=f1();
