@@ -15,6 +15,7 @@ import compiler.phases.imcgen.*;
 import compiler.phases.chunks.*;
 import compiler.phases.livean.*;
 import compiler.phases.ralloc.*;
+import compiler.phases.mmixasmgen.*;
 
 /**
  * The compiler.
@@ -24,7 +25,7 @@ import compiler.phases.ralloc.*;
 public class Main {
 
 	/** All valid phases of the compiler. */
-	private static final String phases = "lexan|synan|abstr|seman|frames|imcgen|chunks|asmgen|livean|ralloc";
+	private static final String phases = "lexan|synan|abstr|seman|frames|imcgen|chunks|asmgen|livean|ralloc|mmxisasmgen";
 
 	/** Values of command line arguments. */
 	private static HashMap<String, String> cmdLine = new HashMap<String, String>();
@@ -174,6 +175,7 @@ public class Main {
 					logger.addSubvisitor(new FrmLogger(imcGen.logger));
 					logger.addSubvisitor(new ImcLogger(imcGen.logger));
 					Abstr.absTree.accept(logger, null);
+
 				}
 				if (cmdLine.get("--target-phase").equals("imcgen"))
 					break;
@@ -183,9 +185,8 @@ public class Main {
 					Abstr.absTree.accept(new ChunkGenerator(), null);
 					chunks.log();
 
-					// Interpreter interpreter = new Interpreter(Chunks.dataChunks,
-					// Chunks.codeChunks);
-					// System.out.println("EXIT CODE: " + interpreter.run("_main"));
+				///	Interpreter interpreter = new Interpreter(Chunks.dataChunks, Chunks.codeChunks);
+				///	System.out.println("EXIT CODE: " + interpreter.run("_main"));
 				}
 				if (cmdLine.get("--target-phase").equals("chunks"))
 					break;
@@ -211,12 +212,21 @@ public class Main {
 					ralloc.tempsToRegs();
 					ralloc.log();
 				}
-				if (cmdLine.get("--target-phase").equals("ralloc"))
+
+				try (MMIXAsmGen mmixasmgen = new MMIXAsmGen()) {
+					mmixasmgen.init();
+					mmixasmgen.generateData();
+					mmixasmgen.generateCode();
+					mmixasmgen.close();
+				}
+	
+				if (cmdLine.get("--target-phase").equals("mmixasmgen"))
 					break;
 
 				int endWarnings = Report.numOfWarnings();
 				if (begWarnings != endWarnings)
 					throw new Report.Error("Compilation stopped.");
+
 
 			} while (false);
 

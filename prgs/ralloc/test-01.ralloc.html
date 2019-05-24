@@ -21,57 +21,61 @@
 	  RV=T1</nobr></td></tr>
 </table></td></tr>
 <tr><td bgcolor="EECF00"><nobr>
-	    entryLabel=L0
-	    exitLabel=L1
+	    entryLabel=L1
+	    exitLabel=L2
 	    temps=0</nobr></td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">L0</td></tr>
+<tr><td bgcolor="00BBFF">L1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  $0, 1</td></tr>
+<tr><td bgcolor="00BBFF">SETL  $0,1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR $1, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR $1,$0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA $0, _i</td></tr>
+<tr><td bgcolor="00BBFF">LDA $0,_i</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">STO $0, $1, 0</td></tr>
+<tr><td bgcolor="00BBFF">STO $0,$1,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  $0, 2</td></tr>
+<tr><td bgcolor="00BBFF">LDA $0,L0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  $0,2</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR $1, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  $0, 3</td></tr>
+<tr><td bgcolor="00BBFF">INCH  $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR $1,$0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  $0,3</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR $0, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">DIV $0, $1, $0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR $0, rR, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR $0, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">DIV $0,$1,$0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR $0, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR $0,rR,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA $0, L1</td></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">GO $0, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDA $0,L2</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">GO $0,$0,0</td></tr>
 </table></td>
 <td bgcolor="FFEE00"><table>
 <tr><td bgcolor="EECF00"><table width="100%">
@@ -88,39 +92,39 @@
 	  RV=T3</nobr></td></tr>
 </table></td></tr>
 <tr><td bgcolor="EECF00"><nobr>
-	    entryLabel=L2
-	    exitLabel=L3
+	    entryLabel=L3
+	    exitLabel=L4
 	    temps=0</nobr></td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">L2</td></tr>
+<tr><td bgcolor="00BBFF">L3</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  $0, 1</td></tr>
+<tr><td bgcolor="00BBFF">SETL  $0,1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR $1, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR $1,$0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL  $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH  $0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR $0, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">XOR $0, $1, $0</td></tr>
+<tr><td bgcolor="00BBFF">XOR $0,$1,$0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR $0, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA $0, L3</td></tr>
+<tr><td bgcolor="00BBFF">LDA $0,L4</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">GO $0, $0, 0</td></tr>
+<tr><td bgcolor="00BBFF">GO $0,$0,0</td></tr>
 </table></td>
 </table></body>
 </html>

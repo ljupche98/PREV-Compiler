@@ -4,46 +4,65 @@ fun putString(s:ptr char):void;
 
 fun main():int =
     {
-      putString(" facItr: "); putChar((10:char));
+      putString("facItr:"); putChar((10:char));
       n=1;
       while n<=10 do
-        putInt(n); putString(" :  ");
+        putInt(n); putString(": ");
 	putInt(facItr(n));
 	putChar((10:char));
 	n=n+1;
       end;
 
-      putString(" facRec: "); putChar((10:char));
+      putString("facRec:"); putChar((10:char));
       n=1;
       while n<=10 do
-        putInt(n); putString(" :  ");
+        putInt(n); putString(": ");
 	putInt(facRec(n));
 	putChar((10:char));
 	n=n+1;
       end;
 
-      putString(" fibItr: "); putChar((10:char));
+      putString("fibItr:"); putChar((10:char));
       n=1;
       while n<=10 do
-        putInt(n); putString(" :  ");
+        putInt(n); putString(": ");
 	putInt(fibItr(n));
 	putChar((10:char));
 	n=n+1;
       end;
 
-      putString(" fibRec: "); putChar((10:char));
+      putString("fibRec:"); putChar((10:char));
       n=1;
       while n<=10 do
-        putInt(n); putString(" :  ");
+        putInt(n); putString(": ");
 	putInt(fibRec(n));
 	putChar((10:char));
 	n=n+1;
       end;
 
+      putString("Combs:"); putChar((10:char));
+      combs(4, 3);
 
-      putString(" Combs: "); putChar((10:char));
-      combs(4,3);
+      putString("Sudoku:"); putChar((10:char));
+      { t[0][0]=0; t[0][1]=0; t[0][2]=3;   t[0][3]=0; t[0][4]=0; t[0][5]=0;   t[0][6]=0; t[0][7]=9; t[0][8]=0;
+        t[1][0]=9; t[1][1]=0; t[1][2]=0;   t[1][3]=0; t[1][4]=8; t[1][5]=4;   t[1][6]=0; t[1][7]=0; t[1][8]=6;
+	t[2][0]=8; t[2][1]=2; t[2][2]=0;   t[2][3]=0; t[2][4]=9; t[2][5]=0;   t[2][6]=0; t[2][7]=0; t[2][8]=0;
 
+        t[3][0]=0; t[3][1]=1; t[3][2]=4;   t[3][3]=8; t[3][4]=0; t[3][5]=0;   t[3][6]=0; t[3][7]=5; t[3][8]=0;
+	t[4][0]=3; t[4][1]=0; t[4][2]=0;   t[4][3]=0; t[4][4]=0; t[4][5]=0;   t[4][6]=6; t[4][7]=7; t[4][8]=0;
+	t[5][0]=0; t[5][1]=0; t[5][2]=0;   t[5][3]=0; t[5][4]=0; t[5][5]=9;   t[5][6]=0; t[5][7]=0; t[5][8]=0;
+
+        t[6][0]=0; t[6][1]=0; t[6][2]=0;   t[6][3]=0; t[6][4]=0; t[6][5]=1;   t[6][6]=0; t[6][7]=0; t[6][8]=7;
+	t[7][0]=1; t[7][1]=0; t[7][2]=0;   t[7][3]=0; t[7][4]=0; t[7][5]=2;   t[7][6]=4; t[7][7]=0; t[7][8]=0;
+	t[8][0]=5; t[8][1]=7; t[8][2]=0;   t[8][3]=0; t[8][4]=4; t[8][5]=0;   t[8][6]=9; t[8][7]=3; t[8][8]=0;
+
+        count=sudoku($t);
+	putInt(count); putChar((10:char));
+      : none
+      where
+        var t:arr[9] arr[9] int;
+	var count:int;
+      };
 
       : 0
     where
@@ -183,7 +202,8 @@ fun sudoku(t2d:ptr arr[9] arr[9] int):int =
 	    var check:bool;
 	  };
       fun solve(k:int,n:int):int =
-          { if k==n then
+          {
+	    if k==n then
 	      { if true then
 	          j=0;
 	          while j<9 do

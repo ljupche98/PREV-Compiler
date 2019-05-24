@@ -251,7 +251,7 @@ public class RAlloc extends Phase {
 					pq.add(new Pair(deg.get(v), v));
 				}
 
-		///	System.out.printf("SPILL: %d\n", u);
+			System.out.printf("SPILL: %d\n", u);
 			stack.add(u);
 			spill.add(u);
 			elim.set(u, true);

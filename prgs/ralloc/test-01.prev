@@ -1,3 +1,9 @@
 var i:int;
-fun main():int={i=1;:2%3};
+fun main():int={i=1;"stupid string";:2%3};
 fun b():bool=true^false;
+
+
+
+var j:int;
+var z:arr[10] int;
+var k:bool;
