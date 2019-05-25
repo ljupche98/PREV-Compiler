@@ -101,6 +101,8 @@ public class MMIXAsmGen extends Phase {
 	public void generateData() {
 		file.printf(format, "", "LOC", "#10000000");
 		for (int i = 0; i < Chunks.dataChunks.size(); i++) {
+			file.printf(format, "", "GREG", "@");
+
 			if (Chunks.dataChunks.get(i).init == null) {	/// global variable
 				for (int j = 0; j < Chunks.dataChunks.get(i).size / 8; j++)
 					file.printf(format, j == 0 ? Chunks.dataChunks.get(i).label.name : "", "OCTA", "0");
@@ -120,7 +122,7 @@ public class MMIXAsmGen extends Phase {
 		file.printf(format, "", "INCMH", "$0," + Math.abs(0x0000FFFF00000000L & code.frame.locsSize));
 		file.printf(format, "", "INCH",  "$0," + Math.abs(0xFFFF000000000000L & code.frame.locsSize));
 		file.printf(format, "", "ADD", "$0,$0,8");
-		file.printf(format, "", "SUB", "$0,$254,$0");	/// $0 <- &FP. (= SP - locsSize - 8);
+		file.printf(format, "", "SUB", "$0,$253,$0");	/// $0 <- &FP. (= SP - locsSize - 8);
 		file.printf(format, "", "STO", "$253,$0,0");	/// store FP.
 
 		file.printf(format, "", "SUB", "$0,$0,8");
@@ -135,19 +137,52 @@ public class MMIXAsmGen extends Phase {
 		file.printf(format, "", "INCH",  "$0," + Math.abs(0xFFFF000000000000L & code.frame.locsSize));
 		file.printf(format, "", "SUB", "$254,$254,$0");	/// SP <- SP - frame size.
 
-		file.printf(format, "", "LDA", "$0," + code.entryLabel.name);
-		file.printf(format, "", "GO", "$0,$0,0");
+		file.printf(format, "", "JMP", code.entryLabel.name);
+	///	file.printf(format, "", "LDA", "$0," + code.entryLabel.name);
+	///	file.printf(format, "", "GO", "$0,$0,0");
 	}
 
 	public void generateBody(Code code) {
 		for (int i = 0; i < code.instrs.size(); i++) {
-			/// SOLVE MULTIPLE LABELS TOMORROW.. I'M SLEEPY NOWWWWWWWW
+			if (code.instrs.get(i) instanceof AsmLABEL)
+				file.printf(format, ((AsmLABEL) code.instrs.get(i)).label.name, "OR", "$0,$0,0");
+			else
+				file.printf(format, "", ((AsmOPER) code.instrs.get(i)).toString(code.regs).split(" ")[0], ((AsmOPER) code.instrs.get(i)).toString(code.regs).split(" ")[1]);
 		}
 	}
 
+	public void generateEpilogue(Code code) {
+		file.printf(format, code.exitLabel.name, "OR", "$0,$" + code.regs.get(code.frame.RV) + ",0");	/// $0 <- RV
+
+		file.printf(format, "", "OR", "$1,$253,0");							/// $1 <- FP
+
+		file.printf(format, "", "STO", "$0,$1,0");							/// Store RV.
+
+		file.printf(format, "", "OR", "$254,$253,0");							/// SP <- FP
+
+		file.printf(format, "", "SETL",  "$0," + Math.abs(0x000000000000FFFFL & code.frame.locsSize));
+		file.printf(format, "", "INCML", "$0," + Math.abs(0x00000000FFFF0000L & code.frame.locsSize));
+		file.printf(format, "", "INCMH", "$0," + Math.abs(0x0000FFFF00000000L & code.frame.locsSize));
+		file.printf(format, "", "INCH",  "$0," + Math.abs(0xFFFF000000000000L & code.frame.locsSize));
+		file.printf(format, "", "ADD", "$0,$0,8");
+		file.printf(format, "", "SUB", "$0,$253,$0");
+		file.printf(format, "", "LDO", "$253,$0,0");							/// FP <- oldFP
+
+		file.printf(format, "", "SUB", "$0,$0,8");
+		file.printf(format, "", "LDO", "$0,$0,0");							/// $0 <- RA
+
+		file.printf(format, "", "PUT", "rJ,$1");							/// rJ <- $0 (RA)
+
+		file.printf(format, "", "POP", numOfRegs + ",0");
+	}
+
 	public void generateFunctionASMCode(Code code) {
+		file.printf(format, "", "GREG", "@");
 		generatePrologue(code);
+		file.printf(format, "", "GREG", "@");
 		generateBody(code);
+		file.printf(format, "", "GREG", "@");
+		generateEpilogue(code);
 	}
 
 	public void generateCode() {

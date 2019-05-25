@@ -125,7 +125,7 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 
 			case MOD: {
 				cinstr.add(new AsmOPER("DIV `d0,`s0,`s1", uses, defs, null));
-				cinstr.add(new AsmOPER("OR `d0,rR,0", null, defs, null));
+				cinstr.add(new AsmOPER("GET `d0,rR", null, defs, null));
 				break;
 			}
 
@@ -165,8 +165,9 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 		defs.add(d0);
 
 		/// __TODO: Hard coded.
-		cinstr.add(new AsmOPER("LDA `d0," + call.label.name, null, defs, null));
-		cinstr.add(new AsmOPER("PUSHGO " + getLastReg() + ",`s0,0", defs, null, jumps));
+		cinstr.add(new AsmOPER("PUSHJ " + getLastReg() +"," + call.label.name, null, null, jumps));
+	///	cinstr.add(new AsmOPER("LDA `d0," + call.label.name, null, defs, null));
+	///	cinstr.add(new AsmOPER("PUSHGO " + getLastReg() + ",`s0,0", defs, null, jumps));
 
 		Temp r0 = new Temp();
 		Vector<Temp> defsr = new Vector<Temp>();
@@ -208,10 +209,10 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 		Vector<Temp> defs = new Vector<Temp>();
 		defs.add(d0);
 
-		cinstr.add(new AsmOPER("SETL  `d0," + (0x000000000000FFFFL & Math.abs(constant.value)), null, defs, null));
+		cinstr.add(new AsmOPER( "SETL `d0," + (0x000000000000FFFFL & Math.abs(constant.value)), null, defs, null));
 		cinstr.add(new AsmOPER("INCML `d0," + (0x00000000FFFF0000L & Math.abs(constant.value)), null, defs, null));
 		cinstr.add(new AsmOPER("INCMH `d0," + (0x0000FFFF00000000L & Math.abs(constant.value)), null, defs, null));
-		cinstr.add(new AsmOPER("INCH  `d0," + (0xFFFF000000000000L & Math.abs(constant.value)), null, defs, null));
+		cinstr.add(new AsmOPER( "INCH `d0," + (0xFFFF000000000000L & Math.abs(constant.value)), null, defs, null));
 
 		if (constant.value < 0) {
 			cinstr.add(new AsmOPER("NEG `d0,0,`s0", defs, defs, null));
@@ -238,8 +239,9 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 		Vector<Temp> defs = new Vector<Temp>();
 		defs.add(d0);
 
-		cinstr.add(new AsmOPER("LDA `d0," + jump.label.name, null, defs, null));
-		cinstr.add(new AsmOPER("GO `d0,`s0,0", defs, defs, jumps));
+		cinstr.add(new AsmOPER("JMP " + jump.label.name, null, null, jumps));
+	///	cinstr.add(new AsmOPER("LDA `d0," + jump.label.name, null, defs, null));
+	///	cinstr.add(new AsmOPER("GO `d0,`s0,0", defs, defs, jumps));
 
 		instr.add(cinstr);
 
@@ -322,6 +324,7 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 		defs.add(d0);
 
 		Vector<AsmInstr> cinstr = new Vector<AsmInstr>();
+	///	cinstr.add(new AsmOPER("GETA `d0," + name.label.name, null, defs, null));
 		cinstr.add(new AsmOPER("LDA `d0," + name.label.name, null, defs, null));
 
 		itemp.push(d0);
