@@ -38,7 +38,19 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T4, T0, 0</td></tr>
+<tr><td>OR T0,T0,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T4,T0,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -50,43 +62,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T60, 32</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T60</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T4</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T4</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T60, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T60</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T4</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T4</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T60, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T60</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T4</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T4</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T60, 0</td></tr>
+<tr><td>SETL T60,32</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -98,7 +74,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T60, 0, T60</td></tr>
+<tr><td>INCML T60,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T60</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -110,7 +86,43 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T5, T60, 0</td></tr>
+<tr><td>INCMH T60,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T60 T4</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T60 T4</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T60,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T60 T4</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T60 T4</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T60,0,T60</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T60</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T60 T4</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T60 T4</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T5,T60,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T60</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -122,7 +134,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T61, T4, T5</td></tr>
+<tr><td>ADD T61,T4,T5</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T4 T5</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -134,7 +146,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T6, T61, 0</td></tr>
+<tr><td>OR T6,T61,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T61</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -146,43 +158,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T62, 8</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T62</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T6</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T6</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T62, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T62</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T6</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T6</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T62, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T62</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T6</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T6</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T62, 0</td></tr>
+<tr><td>SETL T62,8</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -194,7 +170,43 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T7, T62, 0</td></tr>
+<tr><td>INCML T62,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T6 T62</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T6 T62</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T62,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T6 T62</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T6 T62</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T62,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T62</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T6 T62</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T6 T62</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T7,T62,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T62</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -206,7 +218,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T63, T6, T7</td></tr>
+<tr><td>ADD T63,T6,T7</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T6 T7</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -218,7 +230,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T8, T63, 0</td></tr>
+<tr><td>OR T8,T63,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T63</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -230,55 +242,31 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T9, T8, 0</td></tr>
+<tr><td>LDO T64,T8,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T8</td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T9</td></tr>
+       T64</td></tr>
 <tr bgcolor="00CCFF"><td>in:
        T0 T8</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
+       T0 T64</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T65, 5</td></tr>
+<tr><td>OR T9,T64,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T64</td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T65</td></tr>
+       T9</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
+       T0 T64</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T65, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T65</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T65, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T65</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T65, 0</td></tr>
+<tr><td>SETL T65,5</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -290,7 +278,43 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T10, T65, 0</td></tr>
+<tr><td>INCML T65,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T65</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T65</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T65</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T65</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T65,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T65</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T65</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T65</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T65</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T65,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T65</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T65</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T65</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T65</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T10,T65,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T65</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -302,43 +326,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T66, 55</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T66</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T66, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T66</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T66, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T66</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T66, 0</td></tr>
+<tr><td>SETL T66,55</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -350,7 +338,43 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T11, T66, 0</td></tr>
+<tr><td>INCML T66,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T66</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T66</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T66,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T66</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T66</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T66,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T66</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T66</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T66</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T11,T66,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T66</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -362,43 +386,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T67, 55</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T67</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T67, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T67</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T67, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T67</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T67, 0</td></tr>
+<tr><td>SETL T67,55</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -410,7 +398,43 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T12, T67, 0</td></tr>
+<tr><td>INCML T67,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T67</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T67</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T67,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T67</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T67</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T67,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T67</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T67</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T67</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T12,T67,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T67</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -418,71 +442,35 @@
 <tr bgcolor="00CCFF"><td>in:
        T0 T67</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T12</td></tr>
+       T12 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T68, 0, T12</td></tr>
+<tr><td>NEG T68,0,T12</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T12</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T68</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T12</td></tr>
+       T12 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T68 T0</td></tr>
+       T0 T68</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T13, T68, 0</td></tr>
+<tr><td>OR T13,T68,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T68</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T13</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T68 T0</td></tr>
+       T0 T68</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T69, 55</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T69</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T69, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T69</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T69, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T69</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T69, 0</td></tr>
+<tr><td>SETL T69,55</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -494,7 +482,43 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T14, T69, 0</td></tr>
+<tr><td>INCML T69,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T69</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T69</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T69 T0</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T69 T0</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T69,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T69</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T69</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T69 T0</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T69 T0</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T69,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T69</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T69</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T69 T0</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T69 T0</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T14,T69,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T69</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -502,23 +526,23 @@
 <tr bgcolor="00CCFF"><td>in:
        T69 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T14 T0</td></tr>
+       T0 T14</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T70, 0, T14</td></tr>
+<tr><td>NEG T70,0,T14</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T14</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T70</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T14 T0</td></tr>
+       T0 T14</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0 T70</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T15, T70, 0</td></tr>
+<tr><td>OR T15,T70,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T70</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -530,7 +554,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T71, 55</td></tr>
+<tr><td>SETL T71,55</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -538,71 +562,71 @@
 <tr bgcolor="00CCFF"><td>in:
        T0 T15</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T15</td></tr>
+       T0 T15 T71</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T71, 0</td></tr>
+<tr><td>INCML T71,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T71</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T71</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T15</td></tr>
+       T0 T15 T71</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T15</td></tr>
+       T0 T15 T71</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T71, 0</td></tr>
+<tr><td>INCMH T71,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T71</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T71</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T15</td></tr>
+       T0 T15 T71</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T15</td></tr>
+       T0 T15 T71</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T71, 0</td></tr>
+<tr><td>INCH T71,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T71</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T71</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T15</td></tr>
+       T0 T15 T71</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T71 T15</td></tr>
+       T0 T15 T71</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T16, T71, 0</td></tr>
+<tr><td>OR T16,T71,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T71</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T16</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T71 T15</td></tr>
+       T0 T15 T71</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T15 T16</td></tr>
+       T16 T0 T15</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T72, T15, T16</td></tr>
+<tr><td>ADD T72,T15,T16</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T15 T16</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T72</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T15 T16</td></tr>
+       T16 T0 T15</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T72 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T17, T72, 0</td></tr>
+<tr><td>OR T17,T72,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T72</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -614,7 +638,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T73, 17</td></tr>
+<tr><td>SETL T73,17</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -622,71 +646,71 @@
 <tr bgcolor="00CCFF"><td>in:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
+       T73 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T73, 0</td></tr>
+<tr><td>INCML T73,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T73</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T73</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
+       T73 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
+       T73 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T73, 0</td></tr>
+<tr><td>INCMH T73,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T73</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T73</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
+       T73 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0</td></tr>
+       T73 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T73, 0</td></tr>
+<tr><td>INCH T73,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T73</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T73</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
+       T73 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T73</td></tr>
+       T73 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T18, T73, 0</td></tr>
+<tr><td>OR T18,T73,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T73</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T18</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T73</td></tr>
+       T73 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T18 T0</td></tr>
+       T0 T18</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T74, 0, T18</td></tr>
+<tr><td>NEG T74,0,T18</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T18</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T74</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T18 T0</td></tr>
+       T0 T18</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0 T74</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T19, T74, 0</td></tr>
+<tr><td>OR T19,T74,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T74</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -698,7 +722,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>LDA T75, _vr</td></tr>
+<tr><td>LDA T75,_vr</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -710,7 +734,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T20, T75, 0</td></tr>
+<tr><td>OR T20,T75,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T75</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -722,7 +746,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>LDA T76, _zzz</td></tr>
+<tr><td>LDA T76,_zzz</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -734,7 +758,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T21, T76, 0</td></tr>
+<tr><td>OR T21,T76,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T76</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -746,19 +770,31 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T22, T21, 0</td></tr>
+<tr><td>LDO T77,T21,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T21</td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T22</td></tr>
+       T77</td></tr>
 <tr bgcolor="00CCFF"><td>in:
        T0 T21</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T77</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T22,T77,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T77</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T22</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T77</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T23, T0, 0</td></tr>
+<tr><td>OR T23,T0,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -770,7 +806,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T78, 8</td></tr>
+<tr><td>SETL T78,8</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -778,71 +814,71 @@
 <tr bgcolor="00CCFF"><td>in:
        T0 T23</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T23</td></tr>
+       T0 T78 T23</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T78, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T78</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T23</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T23</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T78, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T78</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T23</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T23</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T78, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T78</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T23</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T78 T0 T23</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T78, 0, T78</td></tr>
+<tr><td>INCML T78,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T78</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T78</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T78 T0 T23</td></tr>
+       T0 T78 T23</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T78 T0 T23</td></tr>
+       T0 T78 T23</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T24, T78, 0</td></tr>
+<tr><td>INCMH T78,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T78</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T78</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T78 T23</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T78 T23</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T78,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T78</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T78</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T78 T23</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T78 T23</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T78,0,T78</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T78</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T78</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T78 T23</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T78 T23</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T24,T78,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T78</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T24</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T78 T0 T23</td></tr>
+       T0 T78 T23</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0 T24 T23</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T79, T23, T24</td></tr>
+<tr><td>ADD T79,T23,T24</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T23 T24</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -854,7 +890,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T25, T79, 0</td></tr>
+<tr><td>OR T25,T79,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T79</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -866,7 +902,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T26, T0, 0</td></tr>
+<tr><td>OR T26,T0,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -874,119 +910,107 @@
 <tr bgcolor="00CCFF"><td>in:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T26</td></tr>
+       T26 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T80, 24</td></tr>
+<tr><td>SETL T80,24</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T80</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T26</td></tr>
+       T26 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T26</td></tr>
+       T26 T0 T80</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T80, 0</td></tr>
+<tr><td>INCML T80,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T80</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T80</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T26</td></tr>
+       T26 T0 T80</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T26</td></tr>
+       T26 T0 T80</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T80, 0</td></tr>
+<tr><td>INCMH T80,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T80</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T80</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T26</td></tr>
+       T26 T0 T80</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T26</td></tr>
+       T26 T0 T80</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T80, 0</td></tr>
+<tr><td>INCH T80,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T80</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T80</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T26</td></tr>
+       T26 T0 T80</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T80 T26</td></tr>
+       T26 T0 T80</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T27, T80, 0</td></tr>
+<tr><td>OR T27,T80,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T80</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T27</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T80 T26</td></tr>
+       T26 T0 T80</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T27 T0 T26</td></tr>
+       T26 T0 T27</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>STO T26, $254, 8</td></tr>
+<tr><td>STO T26,$254,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T26</td></tr>
 <tr bgcolor="00CCFF"><td>def:
       </td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T27 T0 T26</td></tr>
+       T26 T0 T27</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T27 T0</td></tr>
+       T0 T27</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>STO T27, $254, 16</td></tr>
+<tr><td>STO T27,$254,8</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T27</td></tr>
 <tr bgcolor="00CCFF"><td>def:
       </td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T27 T0</td></tr>
+       T0 T27</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>LDA T81, __new</td></tr>
+<tr><td>PUSHJ $8,__new</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T81</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T81</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>PUSHJ $16, T81, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-       T81</td></tr>
-<tr bgcolor="00CCFF"><td>def:
       </td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T81</td></tr>
+       T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>LDO T82, $254, 0</td></tr>
+<tr><td>LDO T82,$254,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -998,7 +1022,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T28, T82, 0</td></tr>
+<tr><td>OR T28,T82,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T82</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -1006,95 +1030,95 @@
 <tr bgcolor="00CCFF"><td>in:
        T0 T82</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T28</td></tr>
+       T28 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T83, 40</td></tr>
+<tr><td>SETL T83,40</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T83</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T28</td></tr>
+       T28 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T28</td></tr>
+       T28 T0 T83</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T83, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T83</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T28</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T28</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T83, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T83</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T28</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T28</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T83, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T83</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T28</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T83 T0 T28</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T83, 0, T83</td></tr>
+<tr><td>INCML T83,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T83</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T83</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T83 T0 T28</td></tr>
+       T28 T0 T83</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T83 T0 T28</td></tr>
+       T28 T0 T83</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T84, T0, T83</td></tr>
+<tr><td>INCMH T83,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T83</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T83</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T28 T0 T83</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T28 T0 T83</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T83,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T83</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T83</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T28 T0 T83</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T28 T0 T83</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T83,0,T83</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T83</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T83</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T28 T0 T83</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T28 T0 T83</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T84,T0,T83</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T0 T83</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T84</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T83 T0 T28</td></tr>
+       T28 T0 T83</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T84 T28</td></tr>
+       T84 T28 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>STO T84, T28, 0</td></tr>
+<tr><td>STO T84,T28,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T84 T28</td></tr>
 <tr bgcolor="00CCFF"><td>def:
       </td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T84 T28</td></tr>
+       T84 T28 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>LDA T86, L0</td></tr>
+<tr><td>LDA T86,L0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -1102,23 +1126,23 @@
 <tr bgcolor="00CCFF"><td>in:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T86 T0</td></tr>
+       T0 T86</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T29, T86, 0</td></tr>
+<tr><td>OR T29,T86,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T86</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T29</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T86 T0</td></tr>
+       T0 T86</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T30, T0, 0</td></tr>
+<tr><td>OR T30,T0,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -1126,95 +1150,95 @@
 <tr bgcolor="00CCFF"><td>in:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T30</td></tr>
+       T30 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T87, 32</td></tr>
+<tr><td>SETL T87,32</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T87</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T30</td></tr>
+       T30 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T30</td></tr>
+       T30 T0 T87</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T87, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T87</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T30</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T30</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T87, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T87</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T30</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T0 T30</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T87, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T87</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T0 T30</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T87 T0 T30</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T87, 0, T87</td></tr>
+<tr><td>INCML T87,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T87</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T87</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T87 T0 T30</td></tr>
+       T30 T0 T87</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T87 T0 T30</td></tr>
+       T30 T0 T87</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T31, T87, 0</td></tr>
+<tr><td>INCMH T87,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T87</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T87</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T30 T0 T87</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T30 T0 T87</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T87,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T87</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T87</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T30 T0 T87</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T30 T0 T87</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T87,0,T87</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T87</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T87</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T30 T0 T87</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T30 T0 T87</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T31,T87,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T87</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T31</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T87 T0 T30</td></tr>
+       T30 T0 T87</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T30 T31</td></tr>
+       T30 T0 T31</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T88, T30, T31</td></tr>
+<tr><td>ADD T88,T30,T31</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T30 T31</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T88</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T30 T31</td></tr>
+       T30 T0 T31</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0 T88</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T32, T88, 0</td></tr>
+<tr><td>OR T32,T88,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T88</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -1226,7 +1250,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T89, 0</td></tr>
+<tr><td>SETL T89,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -1234,71 +1258,71 @@
 <tr bgcolor="00CCFF"><td>in:
        T0 T32</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T32</td></tr>
+       T0 T32 T89</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T89, 0</td></tr>
+<tr><td>INCML T89,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T89</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T89</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T32</td></tr>
+       T0 T32 T89</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T32</td></tr>
+       T0 T32 T89</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T89, 0</td></tr>
+<tr><td>INCMH T89,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T89</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T89</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T32</td></tr>
+       T0 T32 T89</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T32</td></tr>
+       T0 T32 T89</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T89, 0</td></tr>
+<tr><td>INCH T89,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T89</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T89</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T32</td></tr>
+       T0 T32 T89</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T89 T32</td></tr>
+       T0 T32 T89</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T33, T89, 0</td></tr>
+<tr><td>OR T33,T89,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T89</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T33</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T89 T32</td></tr>
+       T0 T32 T89</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T33 T32</td></tr>
+       T0 T32 T33</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T90, T32, T33</td></tr>
+<tr><td>ADD T90,T32,T33</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T32 T33</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T90</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T33 T32</td></tr>
+       T0 T32 T33</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T0 T90</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T34, T90, 0</td></tr>
+<tr><td>OR T34,T90,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T90</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -1306,791 +1330,839 @@
 <tr bgcolor="00CCFF"><td>in:
        T0 T90</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T34</td></tr>
+       T34 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T35, T34, 0</td></tr>
+<tr><td>LDO T91,T34,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T34</td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T35</td></tr>
+       T91</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T34</td></tr>
+       T34 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0</td></tr>
+       T0 T91</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T36, T0, 0</td></tr>
+<tr><td>OR T35,T91,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T91</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T35</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T91</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T36,T0,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T36</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0</td></tr>
+       T0 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T36</td></tr>
+       T0 T36 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T92, 32</td></tr>
+<tr><td>SETL T92,32</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T92</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T36</td></tr>
+       T0 T36 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T36</td></tr>
+       T0 T92 T36 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T92, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T92</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T35 T0 T36</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T35 T0 T36</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T92, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T92</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T35 T0 T36</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T35 T0 T36</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T92, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T92</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T35 T0 T36</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T35 T0 T36 T92</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T92, 0, T92</td></tr>
+<tr><td>INCML T92,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T92</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T92</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T36 T92</td></tr>
+       T0 T92 T36 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T36 T92</td></tr>
+       T0 T92 T36 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T37, T92, 0</td></tr>
+<tr><td>INCMH T92,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T92 T36 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T92 T36 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T92,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T92 T36 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T92 T36 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T92,0,T92</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T92</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T92 T36 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T92 T36 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T37,T92,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T92</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T37</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T36 T92</td></tr>
+       T0 T92 T36 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T37 T36</td></tr>
+       T37 T0 T36 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T93, T36, T37</td></tr>
+<tr><td>ADD T93,T36,T37</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T36 T37</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T93</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T37 T36</td></tr>
+       T37 T0 T36 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T93</td></tr>
+       T0 T93 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T38, T93, 0</td></tr>
+<tr><td>OR T38,T93,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T93</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T38</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T93</td></tr>
+       T0 T93 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T38 T35 T0</td></tr>
+       T0 T35 T38</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T94, 8</td></tr>
+<tr><td>SETL T94,8</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T94</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T38 T35 T0</td></tr>
+       T0 T35 T38</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T38 T35 T0</td></tr>
+       T0 T35 T38 T94</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T94, 0</td></tr>
+<tr><td>INCML T94,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T94</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T94</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T38 T35 T0</td></tr>
+       T0 T35 T38 T94</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T38 T35 T0</td></tr>
+       T0 T35 T38 T94</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T94, 0</td></tr>
+<tr><td>INCMH T94,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T94</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T94</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T38 T35 T0</td></tr>
+       T0 T35 T38 T94</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T38 T35 T0</td></tr>
+       T0 T35 T38 T94</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T94, 0</td></tr>
+<tr><td>INCH T94,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T94</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T94</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T38 T35 T0</td></tr>
+       T0 T35 T38 T94</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T38 T35 T0 T94</td></tr>
+       T0 T35 T38 T94</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T39, T94, 0</td></tr>
+<tr><td>OR T39,T94,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T94</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T39</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T38 T35 T0 T94</td></tr>
+       T0 T35 T38 T94</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T38 T35 T0 T39</td></tr>
+       T0 T35 T38 T39</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T95, T38, T39</td></tr>
+<tr><td>ADD T95,T38,T39</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T38 T39</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T95</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T38 T35 T0 T39</td></tr>
+       T0 T35 T38 T39</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T95</td></tr>
+       T0 T35 T95</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T40, T95, 0</td></tr>
+<tr><td>OR T40,T95,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T95</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T40</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T95</td></tr>
+       T0 T35 T95</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T40</td></tr>
+       T0 T40 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T41, T40, 0</td></tr>
+<tr><td>LDO T96,T40,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T40</td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T41</td></tr>
+       T96</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T40</td></tr>
+       T0 T40 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T41</td></tr>
+       T0 T96 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T42, T0, 0</td></tr>
+<tr><td>OR T41,T96,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T96</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T41</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T96 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T41 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T42,T0,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T42</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T41</td></tr>
+       T0 T41 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T42 T41</td></tr>
+       T42 T41 T0 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T97, 32</td></tr>
+<tr><td>SETL T97,32</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T97</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T42 T41</td></tr>
+       T42 T41 T0 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T42 T41</td></tr>
+       T42 T41 T0 T97 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T97, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T97</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T35 T0 T42 T41</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T35 T0 T42 T41</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T97, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T97</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T35 T0 T42 T41</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T35 T0 T42 T41</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T97, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T97</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T35 T0 T42 T41</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T35 T0 T97 T42 T41</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T97, 0, T97</td></tr>
+<tr><td>INCML T97,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T97</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T97</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T97 T42 T41</td></tr>
+       T42 T41 T0 T97 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T97 T42 T41</td></tr>
+       T42 T41 T0 T97 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T43, T97, 0</td></tr>
+<tr><td>INCMH T97,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T97</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T97</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T42 T41 T0 T97 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T42 T41 T0 T97 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T97,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T97</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T97</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T42 T41 T0 T97 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T42 T41 T0 T97 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T97,0,T97</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T97</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T97</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T42 T41 T0 T97 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T42 T41 T0 T97 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T43,T97,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T97</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T43</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T97 T42 T41</td></tr>
+       T42 T41 T0 T97 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T43 T0 T42 T41</td></tr>
+       T42 T41 T0 T43 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T98, T42, T43</td></tr>
+<tr><td>ADD T98,T42,T43</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T42 T43</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T98</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T43 T0 T42 T41</td></tr>
+       T42 T41 T0 T43 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T98 T0 T41</td></tr>
+       T41 T0 T98 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T44, T98, 0</td></tr>
+<tr><td>OR T44,T98,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T98</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T44</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T98 T0 T41</td></tr>
+       T41 T0 T98 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T44 T41</td></tr>
+       T41 T0 T44 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T99, 16</td></tr>
+<tr><td>SETL T99,16</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T99</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T44 T41</td></tr>
+       T41 T0 T44 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T44 T41</td></tr>
+       T41 T0 T44 T35 T99</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T99, 0</td></tr>
+<tr><td>INCML T99,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T99</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T99</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T44 T41</td></tr>
+       T41 T0 T44 T35 T99</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T44 T41</td></tr>
+       T41 T0 T44 T35 T99</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T99, 0</td></tr>
+<tr><td>INCMH T99,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T99</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T99</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T44 T41</td></tr>
+       T41 T0 T44 T35 T99</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T44 T41</td></tr>
+       T41 T0 T44 T35 T99</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T99, 0</td></tr>
+<tr><td>INCH T99,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T99</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T99</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T44 T41</td></tr>
+       T41 T0 T44 T35 T99</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T99 T44 T41</td></tr>
+       T41 T0 T44 T35 T99</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T45, T99, 0</td></tr>
+<tr><td>OR T45,T99,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T99</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T45</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T99 T44 T41</td></tr>
+       T41 T0 T44 T35 T99</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T45 T44 T41</td></tr>
+       T41 T0 T45 T44 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T100, T44, T45</td></tr>
+<tr><td>ADD T100,T44,T45</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T44 T45</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T100</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T45 T44 T41</td></tr>
+       T41 T0 T45 T44 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T100 T41</td></tr>
+       T100 T41 T0 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T46, T100, 0</td></tr>
+<tr><td>OR T46,T100,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T100</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T46</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T100 T41</td></tr>
+       T100 T41 T0 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T46 T41</td></tr>
+       T41 T0 T46 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T47, T46, 0</td></tr>
+<tr><td>LDO T101,T46,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T46</td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T47</td></tr>
+       T101</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T46 T41</td></tr>
+       T41 T0 T46 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T47 T41</td></tr>
+       T41 T0 T101 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>MUL T102, T41, T47</td></tr>
+<tr><td>OR T47,T101,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T101</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T47</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T41 T0 T101 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T41 T0 T47 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>MUL T102,T41,T47</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T41 T47</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T102</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T47 T41</td></tr>
+       T41 T0 T47 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T102 T35 T0</td></tr>
+       T0 T102 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T48, T102, 0</td></tr>
+<tr><td>OR T48,T102,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T102</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T48</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T102 T35 T0</td></tr>
+       T0 T102 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T48</td></tr>
+       T0 T48 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T49, T0, 0</td></tr>
+<tr><td>OR T49,T0,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T0</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T49</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T48</td></tr>
+       T0 T48 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T49 T48</td></tr>
+       T49 T0 T48 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T103, 32</td></tr>
+<tr><td>SETL T103,32</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T103</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T49 T48</td></tr>
+       T49 T0 T48 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T49 T48</td></tr>
+       T49 T0 T48 T103 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T103, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T103</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T35 T0 T49 T48</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T35 T0 T49 T48</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T103, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T103</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T35 T0 T49 T48</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T35 T0 T49 T48</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T103, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T103</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T35 T0 T49 T48</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T35 T0 T49 T48 T103</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T103, 0, T103</td></tr>
+<tr><td>INCML T103,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T103</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T103</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T49 T48 T103</td></tr>
+       T49 T0 T48 T103 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T49 T48 T103</td></tr>
+       T49 T0 T48 T103 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T50, T103, 0</td></tr>
+<tr><td>INCMH T103,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T103</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T103</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T49 T0 T48 T103 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T49 T0 T48 T103 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T103,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T103</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T103</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T49 T0 T48 T103 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T49 T0 T48 T103 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T103,0,T103</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T103</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T103</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T49 T0 T48 T103 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T49 T0 T48 T103 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T50,T103,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T103</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T50</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T49 T48 T103</td></tr>
+       T49 T0 T48 T103 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T49 T48 T50</td></tr>
+       T49 T0 T50 T48 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T104, T49, T50</td></tr>
+<tr><td>ADD T104,T49,T50</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T49 T50</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T104</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T49 T48 T50</td></tr>
+       T49 T0 T50 T48 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T104 T48</td></tr>
+       T0 T48 T104 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T51, T104, 0</td></tr>
+<tr><td>OR T51,T104,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T104</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T51</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T104 T48</td></tr>
+       T0 T48 T104 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T51 T0 T48</td></tr>
+       T0 T48 T51 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T105, 0</td></tr>
+<tr><td>SETL T105,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T105</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T51 T0 T48</td></tr>
+       T0 T48 T51 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T51 T0 T48</td></tr>
+       T0 T105 T48 T51 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T105, 0</td></tr>
+<tr><td>INCML T105,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T105</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T105</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T51 T0 T48</td></tr>
+       T0 T105 T48 T51 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T51 T0 T48</td></tr>
+       T0 T105 T48 T51 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T105, 0</td></tr>
+<tr><td>INCMH T105,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T105</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T105</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T51 T0 T48</td></tr>
+       T0 T105 T48 T51 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T51 T0 T48</td></tr>
+       T0 T105 T48 T51 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T105, 0</td></tr>
+<tr><td>INCH T105,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T105</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T105</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T51 T0 T48</td></tr>
+       T0 T105 T48 T51 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T51 T0 T105 T48</td></tr>
+       T0 T105 T48 T51 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T52, T105, 0</td></tr>
+<tr><td>OR T52,T105,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T105</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T52</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T51 T0 T105 T48</td></tr>
+       T0 T105 T48 T51 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T51 T0 T52 T48</td></tr>
+       T0 T48 T51 T52 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T106, T51, T52</td></tr>
+<tr><td>ADD T106,T51,T52</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T51 T52</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T106</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T51 T0 T52 T48</td></tr>
+       T0 T48 T51 T52 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T106 T48</td></tr>
+       T106 T0 T48 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T53, T106, 0</td></tr>
+<tr><td>OR T53,T106,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T106</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T53</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T106 T48</td></tr>
+       T106 T0 T48 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T48 T53</td></tr>
+       T0 T48 T53 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T54, T53, 0</td></tr>
+<tr><td>LDO T107,T53,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T53</td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T54</td></tr>
+       T107</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T48 T53</td></tr>
+       T0 T48 T53 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T54 T48</td></tr>
+       T107 T0 T48 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>DIV T108, T48, T54</td></tr>
+<tr><td>OR T54,T107,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T107</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T54</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T107 T0 T48 T35</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T48 T54 T35</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>DIV T108,T48,T54</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T48 T54</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T108</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T54 T48</td></tr>
+       T0 T48 T54 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0</td></tr>
+       T0 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T108, rR, 0</td></tr>
+<tr><td>GET T108,rR</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T108</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0</td></tr>
+       T0 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T0 T108</td></tr>
+       T0 T35 T108</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T55, T108, 0</td></tr>
+<tr><td>OR T55,T108,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T108</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T55</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T0 T108</td></tr>
+       T0 T35 T108</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T35 T55 T0</td></tr>
+       T0 T55 T35</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T109, T35, T55</td></tr>
+<tr><td>ADD T109,T35,T55</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T35 T55</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T109</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T35 T55 T0</td></tr>
+       T0 T55 T35</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T0 T109</td></tr>
+       T109 T0</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T56, T109, 0</td></tr>
+<tr><td>OR T56,T109,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T109</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T56</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T0 T109</td></tr>
+       T109 T0</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T56 T0</td></tr>
+       T0 T56</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T110, 8</td></tr>
+<tr><td>SETL T110,8</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T110</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T56 T0</td></tr>
+       T0 T56</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T56 T0</td></tr>
+       T0 T110 T56</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T110, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T110</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T56 T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T56 T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T110, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T110</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T56 T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T56 T0</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T110, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T110</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T56 T0</td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T56 T0 T110</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>NEG T110, 0, T110</td></tr>
+<tr><td>INCML T110,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T110</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T110</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T56 T0 T110</td></tr>
+       T0 T110 T56</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-       T56 T0 T110</td></tr>
+       T0 T110 T56</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>ADD T111, T0, T110</td></tr>
+<tr><td>INCMH T110,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T110</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T110</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T110 T56</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T110 T56</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T110,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T110</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T110</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T110 T56</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T110 T56</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>NEG T110,0,T110</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T110</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T110</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T0 T110 T56</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T0 T110 T56</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>ADD T111,T0,T110</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T0 T110</td></tr>
 <tr bgcolor="00CCFF"><td>def:
        T111</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-       T56 T0 T110</td></tr>
+       T0 T110 T56</td></tr>
 <tr bgcolor="00CCFF"><td>out:
        T56 T111</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>STO T111, T56, 0</td></tr>
+<tr><td>STO T111,T56,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T111 T56</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -2102,43 +2174,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T113, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T113</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-      </td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T113, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T113</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-      </td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T113, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T113</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-      </td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T113, 0</td></tr>
+<tr><td>SETL T113,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -2150,7 +2186,43 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T57, T113, 0</td></tr>
+<tr><td>INCML T113,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T113,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T113,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T113</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T113</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T57,T113,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T113</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -2162,7 +2234,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T1, T57, 0</td></tr>
+<tr><td>OR T1,T57,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T57</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -2174,25 +2246,13 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>LDA T114, L2</td></tr>
+<tr><td>JMP L2</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T114</td></tr>
+      </td></tr>
 <tr bgcolor="00CCFF"><td>in:
       </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T114</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>GO T114, T114, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-       T114</td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T114</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T114</td></tr>
 <tr bgcolor="00CCFF"><td>out:
       </td></tr>
 </table></td></tr>
@@ -2223,49 +2283,25 @@
 <tr bgcolor="00CCFF"><td>def:
       </td></tr>
 <tr bgcolor="00CCFF"><td>in:
-      </td></tr>
+       T2</td></tr>
 <tr bgcolor="00CCFF"><td>out:
-      </td></tr>
+       T2</td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T115, 1</td></tr>
+<tr><td>OR T2,T2,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
-      </td></tr>
+       T2</td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T115</td></tr>
+       T2</td></tr>
 <tr bgcolor="00CCFF"><td>in:
-      </td></tr>
+       T2</td></tr>
 <tr bgcolor="00CCFF"><td>out:
       </td></tr>
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T115, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T115</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-      </td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T115, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T115</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-      </td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T115, 0</td></tr>
+<tr><td>SETL T115,1</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -2277,7 +2313,43 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T58, T115, 0</td></tr>
+<tr><td>INCML T115,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T115</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T115,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T115</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T115,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T115</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T115</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T58,T115,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T115</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -2289,43 +2361,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>SETL  T116, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T116</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-      </td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCML T116, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T116</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-      </td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCMH T116, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T116</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-      </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-      </td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>INCH  T116, 0</td></tr>
+<tr><td>SETL T116,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -2337,7 +2373,43 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T59, T116, 0</td></tr>
+<tr><td>INCML T116,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T116</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCMH T116,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T116</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>INCH T116,0</td></tr>
+<tr bgcolor="00CCFF"><td>use:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>def:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>in:
+       T116</td></tr>
+<tr bgcolor="00CCFF"><td>out:
+       T116</td></tr>
+</table></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF"><table width="100%">
+<tr><td>OR T59,T116,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T116</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -2349,7 +2421,7 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>OR T3, T59, 0</td></tr>
+<tr><td>OR T3,T59,0</td></tr>
 <tr bgcolor="00CCFF"><td>use:
        T59</td></tr>
 <tr bgcolor="00CCFF"><td>def:
@@ -2361,25 +2433,13 @@
 </table></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>LDA T117, L4</td></tr>
+<tr><td>JMP L4</td></tr>
 <tr bgcolor="00CCFF"><td>use:
       </td></tr>
 <tr bgcolor="00CCFF"><td>def:
-       T117</td></tr>
+      </td></tr>
 <tr bgcolor="00CCFF"><td>in:
       </td></tr>
-<tr bgcolor="00CCFF"><td>out:
-       T117</td></tr>
-</table></td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF"><table width="100%">
-<tr><td>GO T117, T117, 0</td></tr>
-<tr bgcolor="00CCFF"><td>use:
-       T117</td></tr>
-<tr bgcolor="00CCFF"><td>def:
-       T117</td></tr>
-<tr bgcolor="00CCFF"><td>in:
-       T117</td></tr>
 <tr bgcolor="00CCFF"><td>out:
       </td></tr>
 </table></td></tr>

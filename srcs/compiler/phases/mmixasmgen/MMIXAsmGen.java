@@ -57,7 +57,7 @@ public class MMIXAsmGen extends Phase {
 
 	public void initPutChar() {
 		file.printf(format, "", "GREG", "@");
-		file.printf(format, "_putChar", "LDO", "$0,$254,0");
+		file.printf(format, "_putChar", "LDO", "$0,$254,8");
 		file.printf(format, "", "LDA", "$1,OutData");
 		file.printf(format, "", "OR", "$255,$1,0");
 		file.printf(format, "", "STB", "$0,$1,0");
@@ -69,9 +69,38 @@ public class MMIXAsmGen extends Phase {
 		file.printf("\n");
 	}
 
+	public void initPutInt() {
+		file.printf(format, "", "GREG", "@");
+		file.printf(format, "_putInt", "LDO", "$0,$254,8");
+		file.printf(format, "", "LDA", "$1,OutData");
+		file.printf(format, "", "OR", "$255,$1,0");
+
+		file.printf(format, "", "OR", "$2,$0,0");
+		file.printf(format, "", "SETL", "$3,0");
+		file.printf(format, "PutIntDigCntBeg", "BNP", "$2,PutIntDigCntEnd");
+		file.printf(format, "", "DIV", "$2,$2,0");
+		file.printf(format, "", "ADD", "$3,$3,1");
+		file.printf(format, "", "JMP", "PutIntDigCntBeg");
+		file.printf(format, "PutIntDigCntEnd", "OR", "$0,$0,$0");
+
+		file.printf(format, "PutIntBeg", "BNP", "$0,PutIntEnd");
+		file.printf(format, "", "DIV", "$0,$0,10");
+		file.printf(format, "", "GET", "$2,rR");
+		file.printf(format, "", "ADD", "$2,$2,48");
+		file.printf(format, "", "STB", "$2,$1,0");
+		file.printf(format, "", "ADD", "$1,$1,1");
+		file.printf(format, "", "JMP", "PutIntBeg");
+		file.printf(format, "PutIntEnd", "SETL", "$0,0");
+		file.printf(format, "", "STB", "$0,$1,0");
+		file.printf(format, "", "TRAP", "0,Fputs,StdOut");
+		file.printf(format, "", "POP", Integer.toString(numOfRegs) + ",0");
+		file.printf("\n");
+	}
+
 	public void initSTDLibrary() {
 		file.printf(format, "", "LOC", "#30000000");
 		initPutChar();
+	///	initPutInt();
 	}
 
 	public void initOutData() {
@@ -86,9 +115,6 @@ public class MMIXAsmGen extends Phase {
 		file.printf(format, "", "GREG", "0");
 		file.printf(format, "", "GREG", "0");
 		file.printf(format, "", "GREG", "0");
-		file.printf(format, "", "SETH", "$254,#3000");	/// SP
-		file.printf(format, "", "SETH", "$253,#3000");	/// FP
-		file.printf(format, "", "SETH", "$252,#2000");	/// HP
 		file.printf("\n");
 	}
 
@@ -122,7 +148,7 @@ public class MMIXAsmGen extends Phase {
 		file.printf(format, "", "INCMH", "$0," + Math.abs(0x0000FFFF00000000L & code.frame.locsSize));
 		file.printf(format, "", "INCH",  "$0," + Math.abs(0xFFFF000000000000L & code.frame.locsSize));
 		file.printf(format, "", "ADD", "$0,$0,8");
-		file.printf(format, "", "SUB", "$0,$253,$0");	/// $0 <- &FP. (= SP - locsSize - 8);
+		file.printf(format, "", "SUB", "$0,$254,$0");	/// $0 <- SP - locsSize - 8;
 		file.printf(format, "", "STO", "$253,$0,0");	/// store FP.
 
 		file.printf(format, "", "SUB", "$0,$0,8");
@@ -131,10 +157,10 @@ public class MMIXAsmGen extends Phase {
 
 		file.printf(format, "", "OR", "$253,$254,0");	/// FP <- SP
 
-		file.printf(format, "", "SETL",  "$0," + Math.abs(0x000000000000FFFFL & code.frame.locsSize));
-		file.printf(format, "", "INCML", "$0," + Math.abs(0x00000000FFFF0000L & code.frame.locsSize));
-		file.printf(format, "", "INCMH", "$0," + Math.abs(0x0000FFFF00000000L & code.frame.locsSize));
-		file.printf(format, "", "INCH",  "$0," + Math.abs(0xFFFF000000000000L & code.frame.locsSize));
+		file.printf(format, "", "SETL",  "$0," + Math.abs(0x000000000000FFFFL & code.frame.size));
+		file.printf(format, "", "INCML", "$0," + Math.abs(0x00000000FFFF0000L & code.frame.size));
+		file.printf(format, "", "INCMH", "$0," + Math.abs(0x0000FFFF00000000L & code.frame.size));
+		file.printf(format, "", "INCH",  "$0," + Math.abs(0xFFFF000000000000L & code.frame.size));
 		file.printf(format, "", "SUB", "$254,$254,$0");	/// SP <- SP - frame size.
 
 		file.printf(format, "", "JMP", code.entryLabel.name);
@@ -171,7 +197,7 @@ public class MMIXAsmGen extends Phase {
 		file.printf(format, "", "SUB", "$0,$0,8");
 		file.printf(format, "", "LDO", "$0,$0,0");							/// $0 <- RA
 
-		file.printf(format, "", "PUT", "rJ,$1");							/// rJ <- $0 (RA)
+		file.printf(format, "", "PUT", "rJ,$0");							/// rJ <- $0 (RA)
 
 		file.printf(format, "", "POP", numOfRegs + ",0");
 	}
@@ -185,9 +211,19 @@ public class MMIXAsmGen extends Phase {
 		generateEpilogue(code);
 	}
 
+	public void generateMMIXMainBootstrap() {
+		file.printf(format, "", "GREG", "@");
+		file.printf(format, "Main", "SETH", "$254,#3000");			/// SP
+		file.printf(format, "", "SETH", "$253,#3000");				/// FP
+		file.printf(format, "", "SETH", "$252,#2000");				/// HP
+		file.printf(format, "", "PUSHJ", "$" + numOfRegs + ",_main");
+		file.printf(format, "", "TRAP", "0,Halt,0");
+	}
+
 	public void generateCode() {
-		file.printf(format, "", "LOC", "#40000000");
+	///	file.printf(format, "", "LOC", "#40000000");
 		for (int i = 0; i < AsmGen.codes.size(); i++) generateFunctionASMCode(AsmGen.codes.get(i));
+		generateMMIXMainBootstrap();
 		file.printf("\n");
 	}
 }

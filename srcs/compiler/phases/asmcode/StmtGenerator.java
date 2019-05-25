@@ -146,8 +146,6 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 
 		long offset = 0;
 		for (ImcExpr expr : call.args()) {
-			offset += 8;
-
 			expr.accept(this, visArg);
 			Temp s0 = itemp.pop();
 			Vector<AsmInstr> is0 = instr.pop();
@@ -157,7 +155,9 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 
 			/// __TODO: Hard coded $254 SP.
 			cinstr.addAll(is0);
-			cinstr.add(new AsmOPER("STO `s0,$254," + offset, uses, null, null));		
+			cinstr.add(new AsmOPER("STO `s0,$254," + offset, uses, null, null));
+
+			offset += 8;
 		}
 
 		Temp d0 = new Temp();
@@ -210,9 +210,9 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 		defs.add(d0);
 
 		cinstr.add(new AsmOPER( "SETL `d0," + (0x000000000000FFFFL & Math.abs(constant.value)), null, defs, null));
-		cinstr.add(new AsmOPER("INCML `d0," + (0x00000000FFFF0000L & Math.abs(constant.value)), null, defs, null));
-		cinstr.add(new AsmOPER("INCMH `d0," + (0x0000FFFF00000000L & Math.abs(constant.value)), null, defs, null));
-		cinstr.add(new AsmOPER( "INCH `d0," + (0xFFFF000000000000L & Math.abs(constant.value)), null, defs, null));
+		cinstr.add(new AsmOPER("INCML `d0," + (0x00000000FFFF0000L & Math.abs(constant.value)), defs, defs, null));
+		cinstr.add(new AsmOPER("INCMH `d0," + (0x0000FFFF00000000L & Math.abs(constant.value)), defs, defs, null));
+		cinstr.add(new AsmOPER( "INCH `d0," + (0xFFFF000000000000L & Math.abs(constant.value)), defs, defs, null));
 
 		if (constant.value < 0) {
 			cinstr.add(new AsmOPER("NEG `d0,0,`s0", defs, defs, null));
@@ -284,15 +284,14 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 	}
 
 	public Vector<AsmInstr> visit(ImcMOVE move, Object visArg) {
-		boolean oldResolve = resolveAddr;
-		resolveAddr = !(move.dst instanceof ImcMEM);
 		move.dst.accept(this, visArg);
-		resolveAddr = oldResolve;
-
 		Temp dst = itemp.pop();
 		Vector<AsmInstr> idst = instr.pop();
 
+		boolean oldResolve = resolveAddr;
+		resolveAddr = move.src instanceof ImcMEM;
 		move.src.accept(this, visArg);
+		resolveAddr = oldResolve;
 		Temp src = itemp.pop();
 		Vector<AsmInstr> isrc = instr.pop();
 
@@ -304,8 +303,8 @@ public class StmtGenerator implements ImcVisitor<Vector<AsmInstr>, Object> {
 		cinstr.addAll(isrc);
 
 		if (move.dst instanceof ImcMEM) {
-			uses.add(dst);
 			uses.add(src);
+			uses.add(dst);
 			cinstr.add(new AsmOPER("STO `s0,`s1,0", uses, null, null));
 		} else {
 			defs.add(dst);

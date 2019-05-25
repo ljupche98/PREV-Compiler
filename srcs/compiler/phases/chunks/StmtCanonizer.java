@@ -14,6 +14,7 @@ import compiler.data.imcode.visitor.*;
  */
 public class StmtCanonizer implements ImcVisitor<Vector<ImcStmt>, Object> {
 
+	public boolean skip = false;
 	public static Stack<ImcExpr> iexpr = new Stack<ImcExpr>();
 	public static Stack<Vector<ImcStmt>> istmt = new Stack<Vector<ImcStmt>>();
 
@@ -153,16 +154,25 @@ public class StmtCanonizer implements ImcVisitor<Vector<ImcStmt>, Object> {
 
 	public Vector<ImcStmt> visit(ImcMOVE move, Object visArg) {
 		if (move.dst instanceof ImcMEM) {
+			boolean prevSkip = skip;
+			skip = true;
+			move.dst.accept(this, visArg);
+			skip = prevSkip;
+			Temp dst = new Temp();
+			ImcExpr dstExpr = iexpr.pop();
+			Vector<ImcStmt> dstStmt = istmt.pop();
+
 			move.src.accept(this, visArg);
 			Temp src = new Temp();
 			ImcExpr srcExpr = iexpr.pop();
 			Vector<ImcStmt> srcStmt = istmt.pop();
 	
 			Vector<ImcStmt> stmt = new Vector<ImcStmt>();
+			stmt.addAll(dstStmt);
 			stmt.addAll(srcStmt);
 			stmt.add(new ImcMOVE(new ImcTEMP(src), srcExpr));
-
-			stmt.add(new ImcMOVE(move.dst, new ImcTEMP(src)));
+	
+			stmt.add(new ImcMOVE(dstExpr, new ImcTEMP(src)));
 
 			istmt.push(stmt);
 

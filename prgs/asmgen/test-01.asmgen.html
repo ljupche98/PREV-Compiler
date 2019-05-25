@@ -27,51 +27,51 @@
 <tr></tr>
 <tr><td bgcolor="00BBFF">L0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T10, 1</td></tr>
+<tr><td bgcolor="00BBFF">LDA T12,_i</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T10, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T4,T12,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T10, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL T13,1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T10, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T13,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T4, T10, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T13,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T11, _i</td></tr>
+<tr><td bgcolor="00BBFF">INCH T13,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">STO T11, T4, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T6,T13,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T13, 2</td></tr>
+<tr><td bgcolor="00BBFF">STO T6,T4,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T13, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL T15,2</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T13, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T15,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T13, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T15,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T5, T13, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH T15,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T14, 3</td></tr>
+<tr><td bgcolor="00BBFF">OR T7,T15,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T14, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL T16,3</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T14, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T16,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T14, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T16,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T6, T14, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH T16,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">DIV T15, T5, T6</td></tr>
+<tr><td bgcolor="00BBFF">OR T8,T16,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T15, rR, 0</td></tr>
+<tr><td bgcolor="00BBFF">DIV T17,T7,T8</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T7, T15, 0</td></tr>
+<tr><td bgcolor="00BBFF">GET T17,rR</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T1, T7, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T9,T17,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T16, L1</td></tr>
+<tr><td bgcolor="00BBFF">OR T1,T9,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">GO T16, T16, 0</td></tr>
+<tr><td bgcolor="00BBFF">JMP L1</td></tr>
 </table></td>
 <td bgcolor="FFEE00"><table>
 <tr><td bgcolor="EECF00"><table width="100%">
@@ -94,33 +94,31 @@
 <tr></tr>
 <tr><td bgcolor="00BBFF">L2</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T17, 1</td></tr>
+<tr><td bgcolor="00BBFF">SETL T19,1</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T17, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T19,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T17, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T19,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T17, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH T19,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T8, T17, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T10,T19,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">SETL  T18, 0</td></tr>
+<tr><td bgcolor="00BBFF">SETL T20,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCML T18, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCML T20,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCMH T18, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCMH T20,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">INCH  T18, 0</td></tr>
+<tr><td bgcolor="00BBFF">INCH T20,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T9, T18, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T11,T20,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">XOR T19, T8, T9</td></tr>
+<tr><td bgcolor="00BBFF">XOR T21,T10,T11</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">OR T3, T19, 0</td></tr>
+<tr><td bgcolor="00BBFF">OR T3,T21,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">LDA T20, L3</td></tr>
-<tr></tr>
-<tr><td bgcolor="00BBFF">GO T20, T20, 0</td></tr>
+<tr><td bgcolor="00BBFF">JMP L3</td></tr>
 </table></td>
 </table></body>
 </html>

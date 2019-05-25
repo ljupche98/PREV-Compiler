@@ -92,6 +92,7 @@ public class RAlloc extends Phase {
 		LiveAn livean = new LiveAn();
 		livean.chunkLiveness(code);
 
+		add(code.frame.FP);
 		for (int i = 0; i < code.instrs.size(); i++) {
 			for (Temp x : code.instrs.get(i).uses()) add(x);
 			for (Temp x : code.instrs.get(i).defs()) add(x);
@@ -282,6 +283,7 @@ public class RAlloc extends Phase {
 						throw new Report.Error("Neighbours " + Integer.toString(i) + " and " + Integer.toString(v) + " cannot be colored with the same color: " + Integer.toString(color.get(i)));
 
 			HashMap<Temp, Integer> ans = new HashMap<Temp, Integer>();
+			color.set(mapTemps.get(code.frame.FP), 253);
 			for (int i = 0; i < it; i++) ans.put(invMapTemps.get(i), color.get(i));
 			return new Code(code.frame, code.entryLabel, code.exitLabel, code.instrs, ans, code.tempSize);
 		}

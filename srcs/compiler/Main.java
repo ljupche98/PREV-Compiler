@@ -215,8 +215,8 @@ public class Main {
 
 				try (MMIXAsmGen mmixasmgen = new MMIXAsmGen()) {
 					mmixasmgen.init();
-					mmixasmgen.generateData();
 					mmixasmgen.generateCode();
+					mmixasmgen.generateData();
 					mmixasmgen.close();
 				}
 	

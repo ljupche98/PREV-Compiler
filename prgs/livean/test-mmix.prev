@@ -1,0 +1,11 @@
+fun putChar(x : char) : void;
+fun putInt(x : int) : void = {
+	putChar(((x % 10 + 48) : char));
+	: none
+};
+
+fun main() : int = {
+	putChar('c');
+	putInt(123);
+	: 0
+};

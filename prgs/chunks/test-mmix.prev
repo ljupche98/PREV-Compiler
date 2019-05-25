@@ -1,0 +1,43 @@
+fun putChar(x : char) : void;
+fun putInt(x : int) : void = {
+	if x == 0 then
+		putChar('0');
+	else
+		if x < 0 then
+			putChar('-');
+			putInt(-x);
+		else
+			if x < 10 then
+				putChar((x + 48 : char));
+			else
+				putInt(x / 10);
+				putChar((x % 10 + 48 : char));
+			end;
+		end;
+	end;
+	: none
+};
+
+fun g() : int = 17;
+
+fun h() : void = {
+
+	it = 1;
+	x[0] = 1;
+	while it < 10 do
+		x[it] = x[it - 1] * 17;
+		it = it + 1;
+	end;
+
+	: none
+	where
+		var it : int;
+		var x : arr[10] int;
+};
+
+fun main() : int = {
+
+	h();
+
+	: 0
+};
