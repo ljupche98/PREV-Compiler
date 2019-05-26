@@ -29,6 +29,8 @@ fun h() : void = {
 		it = it + 1;
 	end;
 
+	f($x);
+
 	it = 0;
 	while it < 10 do
 		putInt(it); putChar(' '); putInt(x[it]); putChar((10 : char));
@@ -39,6 +41,11 @@ fun h() : void = {
 	where
 		var it : int;
 		var x : arr[10] int;
+
+		fun f(y : ptr arr[10] int) : void = {
+			(@y)[5] = 17;
+			: none
+		};
 };
 
 fun main() : int = {
