@@ -3,6 +3,102 @@
                 	GREG	0
                 	GREG	0
 
+                	LOC	#10000000
+                	GREG	@
+_gx             	OCTA	0
+                	GREG	@
+L14             	BYTE	69
+                	BYTE	75
+                	BYTE	86
+                	BYTE	0
+                	GREG	@
+L15             	BYTE	70
+                	BYTE	97
+                	BYTE	99
+                	BYTE	73
+                	BYTE	116
+                	BYTE	101
+                	BYTE	114
+                	BYTE	0
+                	GREG	@
+L16             	BYTE	58
+                	BYTE	32
+                	BYTE	0
+                	GREG	@
+L20             	BYTE	70
+                	BYTE	97
+                	BYTE	99
+                	BYTE	82
+                	BYTE	101
+                	BYTE	99
+                	BYTE	0
+                	GREG	@
+L21             	BYTE	58
+                	BYTE	32
+                	BYTE	0
+                	GREG	@
+L25             	BYTE	70
+                	BYTE	105
+                	BYTE	98
+                	BYTE	73
+                	BYTE	116
+                	BYTE	101
+                	BYTE	114
+                	BYTE	0
+                	GREG	@
+L26             	BYTE	58
+                	BYTE	32
+                	BYTE	0
+                	GREG	@
+L30             	BYTE	70
+                	BYTE	105
+                	BYTE	98
+                	BYTE	82
+                	BYTE	101
+                	BYTE	99
+                	BYTE	0
+                	GREG	@
+L31             	BYTE	58
+                	BYTE	32
+                	BYTE	0
+                	GREG	@
+L35             	BYTE	67
+                	BYTE	111
+                	BYTE	109
+                	BYTE	98
+                	BYTE	115
+                	BYTE	0
+                	GREG	@
+L36             	BYTE	83
+                	BYTE	117
+                	BYTE	100
+                	BYTE	111
+                	BYTE	107
+                	BYTE	117
+                	BYTE	0
+                	GREG	@
+L37             	BYTE	46
+                	BYTE	46
+                	BYTE	46
+                	BYTE	32
+                	BYTE	97
+                	BYTE	110
+                	BYTE	100
+                	BYTE	32
+                	BYTE	73
+                	BYTE	39
+                	BYTE	109
+                	BYTE	32
+                	BYTE	100
+                	BYTE	111
+                	BYTE	110
+                	BYTE	101
+                	BYTE	46
+                	BYTE	32
+                	BYTE	58
+                	BYTE	41
+                	BYTE	0
+
                 	LOC	#20000000
                 	GREG	@
 OutData         	BYTE	0
@@ -18,6 +114,21 @@ _putChar        	LDO	$0,$254,8
                 	STB	$0,$1,0
                 	TRAP	0,Fputs,StdOut
                 	POP	8,0
+
+                	GREG	@
+_putString      	LDO	$0,$254,8
+                	OR	$255,$0,0
+                	TRAP	0,Fputs,StdOut
+                	POP	8,0
+
+                	GREG	@
+_new            	LDO	$0,$254,8
+                	STO	$252,$254,0
+                	SUB	$252,$252,$0
+                	POP	8,0
+
+                	GREG	@
+_del            	POP	8,0
 
                 	GREG	@
 _putInt         	SETL	$0,0
@@ -36,9 +147,9 @@ _putInt         	SETL	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L108
+                	JMP	L120
                 	GREG	@
-L108            	OR	$0,$0,0
+L120            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -58,7 +169,7 @@ L108            	OR	$0,$0,0
                 	ZSZ	$0,$0,1
                 	OR	$0,$0,0
                 	BNZ	$0,L11
-L105            	OR	$0,$0,0
+L117            	OR	$0,$0,0
                 	JMP	L12
 L11             	OR	$0,$0,0
                 	SETL	$0,0
@@ -97,7 +208,7 @@ L12             	OR	$0,$0,0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
                 	BNZ	$0,L8
-L106            	OR	$0,$0,0
+L118            	OR	$0,$0,0
                 	JMP	L9
 L8              	OR	$0,$0,0
                 	SETL	$0,0
@@ -158,7 +269,7 @@ L9              	OR	$0,$0,0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
                 	BNZ	$0,L5
-L107            	OR	$0,$0,0
+L119            	OR	$0,$0,0
                 	JMP	L6
 L5              	OR	$0,$0,0
                 	SETL	$0,0
@@ -277,9 +388,9 @@ L13             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L109
+                	JMP	L121
                 	GREG	@
-L109            	OR	$0,$0,0
+L121            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -295,7 +406,7 @@ L109            	OR	$0,$0,0
                 	PUT	rJ,$0
                 	POP	8,0
                 	GREG	@
-_main           	SETL	$0,672
+_main           	SETL	$0,680
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -306,14 +417,38 @@ _main           	SETL	$0,672
                 	GET	$1,rJ
                 	STO	$1,$0,0
                 	OR	$253,$254,0
-                	SETL	$0,712
+                	SETL	$0,720
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L114
+                	JMP	L126
                 	GREG	@
-L114            	OR	$0,$0,0
+L126            	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,L14
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putString
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,L15
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putString
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -352,7 +487,7 @@ L114            	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L14             	OR	$0,$0,0
+L17             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -372,10 +507,10 @@ L14             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L15
-L110            	OR	$0,$0,0
-                	JMP	L16
-L15             	OR	$0,$0,0
+                	BNZ	$0,L18
+L122            	OR	$0,$0,0
+                	JMP	L19
+L18             	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -402,29 +537,11 @@ L15             	OR	$0,$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$1,$0,0
-                	SETL	$0,58
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
+                	LDA	$0,L16
                 	OR	$0,$0,0
                 	STO	$1,$254,0
                 	STO	$0,$254,8
-                	PUSHJ	$8,_putChar
-                	LDO	$0,$254,0
-                	OR	$0,$0,0
-                	SETL	$0,0
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,32
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$1,$254,0
-                	STO	$0,$254,8
-                	PUSHJ	$8,_putChar
+                	PUSHJ	$8,_putString
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
                 	SETL	$0,0
@@ -509,8 +626,20 @@ L15             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L14
-L16             	OR	$0,$0,0
+                	JMP	L17
+L19             	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,L20
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putString
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -549,7 +678,7 @@ L16             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L17             	OR	$0,$0,0
+L22             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -569,10 +698,10 @@ L17             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L18
-L111            	OR	$0,$0,0
-                	JMP	L19
-L18             	OR	$0,$0,0
+                	BNZ	$0,L23
+L123            	OR	$0,$0,0
+                	JMP	L24
+L23             	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -599,29 +728,11 @@ L18             	OR	$0,$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$1,$0,0
-                	SETL	$0,58
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
+                	LDA	$0,L21
                 	OR	$0,$0,0
                 	STO	$1,$254,0
                 	STO	$0,$254,8
-                	PUSHJ	$8,_putChar
-                	LDO	$0,$254,0
-                	OR	$0,$0,0
-                	SETL	$0,0
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,32
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$1,$254,0
-                	STO	$0,$254,8
-                	PUSHJ	$8,_putChar
+                	PUSHJ	$8,_putString
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
                 	SETL	$0,0
@@ -706,8 +817,20 @@ L18             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L17
-L19             	OR	$0,$0,0
+                	JMP	L22
+L24             	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,L25
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putString
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -746,7 +869,7 @@ L19             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L20             	OR	$0,$0,0
+L27             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -766,10 +889,10 @@ L20             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L21
-L112            	OR	$0,$0,0
-                	JMP	L22
-L21             	OR	$0,$0,0
+                	BNZ	$0,L28
+L124            	OR	$0,$0,0
+                	JMP	L29
+L28             	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -796,29 +919,11 @@ L21             	OR	$0,$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$1,$0,0
-                	SETL	$0,58
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
+                	LDA	$0,L26
                 	OR	$0,$0,0
                 	STO	$1,$254,0
                 	STO	$0,$254,8
-                	PUSHJ	$8,_putChar
-                	LDO	$0,$254,0
-                	OR	$0,$0,0
-                	SETL	$0,0
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,32
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$1,$254,0
-                	STO	$0,$254,8
-                	PUSHJ	$8,_putChar
+                	PUSHJ	$8,_putString
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
                 	SETL	$0,0
@@ -903,8 +1008,20 @@ L21             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L20
-L22             	OR	$0,$0,0
+                	JMP	L27
+L29             	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,L30
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putString
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -943,7 +1060,7 @@ L22             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L23             	OR	$0,$0,0
+L32             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -963,10 +1080,10 @@ L23             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L24
-L113            	OR	$0,$0,0
-                	JMP	L25
-L24             	OR	$0,$0,0
+                	BNZ	$0,L33
+L125            	OR	$0,$0,0
+                	JMP	L34
+L33             	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -993,29 +1110,11 @@ L24             	OR	$0,$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$1,$0,0
-                	SETL	$0,58
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
+                	LDA	$0,L31
                 	OR	$0,$0,0
                 	STO	$1,$254,0
                 	STO	$0,$254,8
-                	PUSHJ	$8,_putChar
-                	LDO	$0,$254,0
-                	OR	$0,$0,0
-                	SETL	$0,0
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,32
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$1,$254,0
-                	STO	$0,$254,8
-                	PUSHJ	$8,_putChar
+                	PUSHJ	$8,_putString
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
                 	SETL	$0,0
@@ -1100,8 +1199,20 @@ L24             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L23
-L25             	OR	$0,$0,0
+                	JMP	L32
+L34             	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,L35
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putString
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -1150,6 +1261,18 @@ L25             	OR	$0,$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,L36
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putString
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
                 	OR	$2,$0,0
                 	SETL	$0,10
                 	INCML	$0,0
@@ -1170,7 +1293,7 @@ L25             	OR	$0,$0,0
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1213,7 +1336,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1256,7 +1379,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1299,7 +1422,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1342,7 +1465,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1385,7 +1508,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1428,7 +1551,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1471,7 +1594,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1514,7 +1637,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1557,7 +1680,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1600,7 +1723,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1643,7 +1766,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1686,7 +1809,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1729,7 +1852,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1765,14 +1888,14 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	ADD	$0,$2,$0
                 	OR	$1,$0,0
-                	SETL	$0,0
+                	SETL	$0,8
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1815,7 +1938,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1858,7 +1981,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1901,7 +2024,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1944,7 +2067,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -1987,7 +2110,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2030,7 +2153,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2073,7 +2196,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2116,7 +2239,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2159,7 +2282,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2202,7 +2325,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2245,7 +2368,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2288,7 +2411,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2331,7 +2454,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2374,7 +2497,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2417,7 +2540,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2460,7 +2583,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2503,7 +2626,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2546,7 +2669,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2589,7 +2712,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2632,7 +2755,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2675,7 +2798,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2718,7 +2841,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2761,7 +2884,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2804,7 +2927,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2847,7 +2970,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2883,14 +3006,14 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	ADD	$0,$2,$0
                 	OR	$1,$0,0
-                	SETL	$0,0
+                	SETL	$0,1
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2933,7 +3056,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -2969,14 +3092,14 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	ADD	$0,$2,$0
                 	OR	$1,$0,0
-                	SETL	$0,0
+                	SETL	$0,5
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3019,7 +3142,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3062,7 +3185,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3105,7 +3228,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3148,7 +3271,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3191,7 +3314,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3227,14 +3350,14 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	ADD	$0,$2,$0
                 	OR	$1,$0,0
-                	SETL	$0,0
+                	SETL	$0,5
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3277,7 +3400,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3313,14 +3436,14 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	ADD	$0,$2,$0
                 	OR	$1,$0,0
-                	SETL	$0,0
+                	SETL	$0,7
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3363,7 +3486,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3406,7 +3529,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3449,7 +3572,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3492,7 +3615,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3535,7 +3658,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3578,7 +3701,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3614,14 +3737,14 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	ADD	$0,$2,$0
                 	OR	$1,$0,0
-                	SETL	$0,0
+                	SETL	$0,6
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3664,7 +3787,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3700,14 +3823,14 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	ADD	$0,$2,$0
                 	OR	$1,$0,0
-                	SETL	$0,0
+                	SETL	$0,3
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3750,7 +3873,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3793,7 +3916,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3836,7 +3959,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3879,7 +4002,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3922,7 +4045,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -3965,7 +4088,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4008,7 +4131,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4051,7 +4174,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4094,7 +4217,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4137,7 +4260,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4180,7 +4303,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4223,7 +4346,7 @@ L25             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4232,393 +4355,6 @@ L25             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$2,$0,0
                 	SETL	$0,7
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,72
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$1,$0,0
-                	SETL	$0,0
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$0,$1,0
-                	OR	$1,$253,0
-                	SETL	$0,664
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	NEG	$0,0,$0
-                	OR	$0,$0,0
-                	ADD	$0,$1,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,72
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$2,$0,0
-                	SETL	$0,0
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$1,$0,0
-                	SETL	$0,5
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$0,$1,0
-                	OR	$1,$253,0
-                	SETL	$0,664
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	NEG	$0,0,$0
-                	OR	$0,$0,0
-                	ADD	$0,$1,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,72
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$2,$0,0
-                	SETL	$0,1
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$1,$0,0
-                	SETL	$0,7
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$0,$1,0
-                	OR	$1,$253,0
-                	SETL	$0,664
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	NEG	$0,0,$0
-                	OR	$0,$0,0
-                	ADD	$0,$1,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,72
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$2,$0,0
-                	SETL	$0,2
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$1,$0,0
-                	SETL	$0,0
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$0,$1,0
-                	OR	$1,$253,0
-                	SETL	$0,664
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	NEG	$0,0,$0
-                	OR	$0,$0,0
-                	ADD	$0,$1,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,72
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$2,$0,0
-                	SETL	$0,3
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$1,$0,0
-                	SETL	$0,6
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$0,$1,0
-                	OR	$1,$253,0
-                	SETL	$0,664
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	NEG	$0,0,$0
-                	OR	$0,$0,0
-                	ADD	$0,$1,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,72
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$2,$0,0
-                	SETL	$0,4
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$1,$0,0
-                	SETL	$0,0
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$0,$1,0
-                	OR	$1,$253,0
-                	SETL	$0,664
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	NEG	$0,0,$0
-                	OR	$0,$0,0
-                	ADD	$0,$1,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,72
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$2,$0,0
-                	SETL	$0,5
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$0,$1,0
-                	OR	$1,$253,0
-                	SETL	$0,664
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	NEG	$0,0,$0
-                	OR	$0,$0,0
-                	ADD	$0,$1,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,72
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$2,$0,0
-                	SETL	$0,6
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$1,$0,0
-                	SETL	$0,9
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$0,$1,0
-                	OR	$1,$253,0
-                	SETL	$0,664
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	NEG	$0,0,$0
-                	OR	$0,$0,0
-                	ADD	$0,$1,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,72
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$2,$0,0
-                	SETL	$0,7
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$1,$0,0
-                	SETL	$0,8
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	MUL	$0,$1,$0
-                	OR	$0,$0,0
-                	ADD	$0,$2,$0
-                	OR	$1,$0,0
-                	SETL	$0,3
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	OR	$0,$0,0
-                	STO	$0,$1,0
-                	OR	$1,$253,0
-                	SETL	$0,664
-                	INCML	$0,0
-                	INCMH	$0,0
-                	INCH	$0,0
-                	NEG	$0,0,$0
-                	OR	$0,$0,0
-                	ADD	$0,$1,$0
-                	OR	$2,$0,0
-                	SETL	$0,8
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4660,6 +4396,393 @@ L25             	OR	$0,$0,0
                 	NEG	$0,0,$0
                 	OR	$0,$0,0
                 	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,72
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$2,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$1,$0,0
+                	SETL	$0,5
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,672
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,72
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$2,$0,0
+                	SETL	$0,1
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$1,$0,0
+                	SETL	$0,7
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,672
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,72
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$2,$0,0
+                	SETL	$0,2
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$1,$0,0
+                	SETL	$0,2
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,672
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,72
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$2,$0,0
+                	SETL	$0,3
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$1,$0,0
+                	SETL	$0,6
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,672
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,72
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$2,$0,0
+                	SETL	$0,4
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$1,$0,0
+                	SETL	$0,4
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,672
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,72
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$2,$0,0
+                	SETL	$0,5
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,672
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,72
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$2,$0,0
+                	SETL	$0,6
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$1,$0,0
+                	SETL	$0,9
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,672
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,72
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$2,$0,0
+                	SETL	$0,7
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$1,$0,0
+                	SETL	$0,3
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,672
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,72
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$2,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	MUL	$0,$1,$0
+                	OR	$0,$0,0
+                	ADD	$0,$2,$0
+                	OR	$1,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,680
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
                 	OR	$3,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
@@ -4667,7 +4790,7 @@ L25             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$2,$0,0
                 	OR	$1,$253,0
-                	SETL	$0,664
+                	SETL	$0,672
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4685,20 +4808,20 @@ L25             	OR	$0,$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
+                	OR	$2,$0,0
+                	OR	$1,$253,0
+                	SETL	$0,680
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
                 	OR	$0,$0,0
-                	OR	$2,$253,0
-                	SETL	$1,672
-                	INCML	$1,0
-                	INCMH	$1,0
-                	INCH	$1,0
-                	NEG	$1,0,$1
-                	OR	$1,$1,0
-                	ADD	$1,$2,$1
-                	OR	$1,$1,0
-                	LDO	$1,$1,0
-                	OR	$1,$1,0
-                	STO	$0,$254,0
-                	STO	$1,$254,8
+                	ADD	$0,$1,$0
+                	OR	$0,$0,0
+                	LDO	$0,$0,0
+                	OR	$0,$0,0
+                	STO	$2,$254,0
+                	STO	$0,$254,8
                 	PUSHJ	$8,_putInt
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
@@ -4731,19 +4854,253 @@ L25             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
+                	OR	$1,$253,0
+                	SETL	$0,24
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$2,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,8
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_new
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	STO	$0,$2,0
+                	OR	$1,$253,0
+                	SETL	$0,24
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$0,$0,0
+                	LDO	$0,$0,0
+                	OR	$1,$0,0
+                	SETL	$0,51
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$2,$0,0
+                	OR	$1,$253,0
+                	SETL	$0,24
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$0,$0,0
+                	LDO	$0,$0,0
+                	OR	$0,$0,0
+                	LDO	$0,$0,0
+                	OR	$0,$0,0
+                	STO	$2,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putInt
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$2,$0,0
+                	SETL	$0,10
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,256
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	DIV	$0,$1,$0
+                	GET	$0,rR
+                	OR	$0,$0,0
+                	STO	$2,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putChar
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	LDA	$0,_gx
+                	OR	$1,$0,0
+                	SETL	$0,3
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,_gx
+                	OR	$0,$0,0
+                	LDO	$0,$0,0
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putInt
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$2,$0,0
+                	SETL	$0,10
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,256
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	DIV	$0,$1,$0
+                	GET	$0,rR
+                	OR	$0,$0,0
+                	STO	$2,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putChar
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	OR	$1,$253,0
+                	SETL	$0,24
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$1,$0,0
+                	LDA	$0,_gx
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	OR	$1,$253,0
+                	SETL	$0,24
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	NEG	$0,0,$0
+                	OR	$0,$0,0
+                	ADD	$0,$1,$0
+                	OR	$0,$0,0
+                	LDO	$0,$0,0
+                	OR	$1,$0,0
+                	SETL	$0,7
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	STO	$0,$1,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,_gx
+                	OR	$0,$0,0
+                	LDO	$0,$0,0
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putInt
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$2,$0,0
+                	SETL	$0,10
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,256
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	DIV	$0,$1,$0
+                	GET	$0,rR
+                	OR	$0,$0,0
+                	STO	$2,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putChar
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	LDA	$0,L37
+                	OR	$0,$0,0
+                	STO	$1,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putString
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
+                	SETL	$0,0
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$2,$0,0
+                	SETL	$0,10
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$1,$0,0
+                	SETL	$0,256
+                	INCML	$0,0
+                	INCMH	$0,0
+                	INCH	$0,0
+                	OR	$0,$0,0
+                	DIV	$0,$1,$0
+                	GET	$0,rR
+                	OR	$0,$0,0
+                	STO	$2,$254,0
+                	STO	$0,$254,8
+                	PUSHJ	$8,_putChar
+                	LDO	$0,$254,0
+                	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L115
+                	JMP	L127
                 	GREG	@
-L115            	OR	$0,$0,0
+L127            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
-                	SETL	$0,672
+                	SETL	$0,680
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
@@ -4771,9 +5128,9 @@ _facItr         	SETL	$0,8
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L117
+                	JMP	L129
                 	GREG	@
-L117            	OR	$0,$0,0
+L129            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -4789,7 +5146,7 @@ L117            	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L26             	OR	$0,$0,0
+L38             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -4808,10 +5165,10 @@ L26             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L27
-L116            	OR	$0,$0,0
-                	JMP	L28
-L27             	OR	$0,$0,0
+                	BNZ	$0,L39
+L128            	OR	$0,$0,0
+                	JMP	L40
+L39             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -4871,8 +5228,8 @@ L27             	OR	$0,$0,0
                 	SUB	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L26
-L28             	OR	$0,$0,0
+                	JMP	L38
+L40             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -4885,9 +5242,9 @@ L28             	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L118
+                	JMP	L130
                 	GREG	@
-L118            	OR	$0,$0,0
+L130            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -4919,9 +5276,9 @@ _facRec         	SETL	$0,8
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L120
+                	JMP	L132
                 	GREG	@
-L120            	OR	$0,$0,0
+L132            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -4940,10 +5297,10 @@ L120            	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSZ	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L29
-L119            	OR	$0,$0,0
-                	JMP	L30
-L29             	OR	$0,$0,0
+                	BNZ	$0,L41
+L131            	OR	$0,$0,0
+                	JMP	L42
+L41             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -4959,8 +5316,8 @@ L29             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-                	JMP	L31
-L30             	OR	$0,$0,0
+                	JMP	L43
+L42             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5010,7 +5367,7 @@ L30             	OR	$0,$0,0
                 	MUL	$0,$3,$0
                 	OR	$0,$0,0
                 	STO	$0,$4,0
-L31             	OR	$0,$0,0
+L43             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5023,9 +5380,9 @@ L31             	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L121
+                	JMP	L133
                 	GREG	@
-L121            	OR	$0,$0,0
+L133            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -5057,9 +5414,9 @@ _fibItr         	SETL	$0,24
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L123
+                	JMP	L135
                 	GREG	@
-L123            	OR	$0,$0,0
+L135            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5105,7 +5462,7 @@ L123            	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L32             	OR	$0,$0,0
+L44             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5124,10 +5481,10 @@ L32             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L33
-L122            	OR	$0,$0,0
-                	JMP	L34
-L33             	OR	$0,$0,0
+                	BNZ	$0,L45
+L134            	OR	$0,$0,0
+                	JMP	L46
+L45             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5230,8 +5587,8 @@ L33             	OR	$0,$0,0
                 	SUB	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L32
-L34             	OR	$0,$0,0
+                	JMP	L44
+L46             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5244,9 +5601,9 @@ L34             	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L124
+                	JMP	L136
                 	GREG	@
-L124            	OR	$0,$0,0
+L136            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -5278,9 +5635,9 @@ _fibRec         	SETL	$0,8
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L126
+                	JMP	L138
                 	GREG	@
-L126            	OR	$0,$0,0
+L138            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5299,10 +5656,10 @@ L126            	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L35
-L125            	OR	$0,$0,0
-                	JMP	L36
-L35             	OR	$0,$0,0
+                	BNZ	$0,L47
+L137            	OR	$0,$0,0
+                	JMP	L48
+L47             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5318,8 +5675,8 @@ L35             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-                	JMP	L37
-L36             	OR	$0,$0,0
+                	JMP	L49
+L48             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5386,7 +5743,7 @@ L36             	OR	$0,$0,0
                 	ADD	$0,$3,$0
                 	OR	$0,$0,0
                 	STO	$0,$4,0
-L37             	OR	$0,$0,0
+L49             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5399,9 +5756,9 @@ L37             	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L127
+                	JMP	L139
                 	GREG	@
-L127            	OR	$0,$0,0
+L139            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -5433,9 +5790,9 @@ L0              	SETL	$0,8
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L131
+                	JMP	L143
                 	GREG	@
-L131            	OR	$0,$0,0
+L143            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5461,10 +5818,10 @@ L131            	OR	$0,$0,0
                 	CMP	$0,$2,$0
                 	ZSZ	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L44
-L128            	OR	$0,$0,0
-                	JMP	L45
-L44             	OR	$0,$0,0
+                	BNZ	$0,L56
+L140            	OR	$0,$0,0
+                	JMP	L57
+L56             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5480,7 +5837,7 @@ L44             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L38             	OR	$0,$0,0
+L50             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5507,10 +5864,10 @@ L38             	OR	$0,$0,0
                 	CMP	$0,$2,$0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L39
-L129            	OR	$0,$0,0
-                	JMP	L40
-L39             	OR	$0,$0,0
+                	BNZ	$0,L51
+L141            	OR	$0,$0,0
+                	JMP	L52
+L51             	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -5597,8 +5954,8 @@ L39             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L38
-L40             	OR	$0,$0,0
+                	JMP	L50
+L52             	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -5622,8 +5979,8 @@ L40             	OR	$0,$0,0
                 	PUSHJ	$8,_putChar
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
-                	JMP	L46
-L45             	OR	$0,$0,0
+                	JMP	L58
+L57             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5639,7 +5996,7 @@ L45             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L41             	OR	$0,$0,0
+L53             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -5666,10 +6023,10 @@ L41             	OR	$0,$0,0
                 	CMP	$0,$2,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L42
-L130            	OR	$0,$0,0
-                	JMP	L43
-L42             	OR	$0,$0,0
+                	BNZ	$0,L54
+L142            	OR	$0,$0,0
+                	JMP	L55
+L54             	OR	$0,$0,0
                 	OR	$0,$253,0
                 	LDO	$0,$0,0
                 	OR	$1,$0,0
@@ -5764,18 +6121,18 @@ L42             	OR	$0,$0,0
                 	PUSHJ	$8,L0
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
-                	JMP	L41
-L43             	OR	$0,$0,0
-L46             	OR	$0,$0,0
+                	JMP	L53
+L55             	OR	$0,$0,0
+L58             	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L132
+                	JMP	L144
                 	GREG	@
-L132            	OR	$0,$0,0
+L144            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -5807,9 +6164,9 @@ _combs          	SETL	$0,808
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L134
+                	JMP	L146
                 	GREG	@
-L134            	OR	$0,$0,0
+L146            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,808
                 	INCML	$0,0
@@ -5825,7 +6182,7 @@ L134            	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L47             	OR	$0,$0,0
+L59             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,808
                 	INCML	$0,0
@@ -5845,10 +6202,10 @@ L47             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L48
-L133            	OR	$0,$0,0
-                	JMP	L49
-L48             	OR	$0,$0,0
+                	BNZ	$0,L60
+L145            	OR	$0,$0,0
+                	JMP	L61
+L60             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,800
                 	INCML	$0,0
@@ -5912,8 +6269,8 @@ L48             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L47
-L49             	OR	$0,$0,0
+                	JMP	L59
+L61             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,0
                 	INCML	$0,0
@@ -5931,9 +6288,9 @@ L49             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L135
+                	JMP	L147
                 	GREG	@
-L135            	OR	$0,$0,0
+L147            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -5965,9 +6322,9 @@ L1              	SETL	$0,96
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L140
+                	JMP	L152
                 	GREG	@
-L140            	OR	$0,$0,0
+L152            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,96
                 	INCML	$0,0
@@ -5998,7 +6355,7 @@ L140            	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L50             	OR	$0,$0,0
+L62             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -6018,10 +6375,10 @@ L50             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L51
-L136            	OR	$0,$0,0
-                	JMP	L52
-L51             	OR	$0,$0,0
+                	BNZ	$0,L63
+L148            	OR	$0,$0,0
+                	JMP	L64
+L63             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,80
                 	INCML	$0,0
@@ -6085,8 +6442,8 @@ L51             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L50
-L52             	OR	$0,$0,0
+                	JMP	L62
+L64             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -6102,7 +6459,7 @@ L52             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L58             	OR	$0,$0,0
+L70             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -6122,10 +6479,10 @@ L58             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L59
-L137            	OR	$0,$0,0
-                	JMP	L60
-L59             	OR	$0,$0,0
+                	BNZ	$0,L71
+L149            	OR	$0,$0,0
+                	JMP	L72
+L71             	OR	$0,$0,0
                 	OR	$0,$253,0
                 	LDO	$0,$0,0
                 	OR	$1,$0,0
@@ -6187,10 +6544,10 @@ L59             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNZ	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L56
-L138            	OR	$0,$0,0
-                	JMP	L57
-L56             	OR	$0,$0,0
+                	BNZ	$0,L68
+L150            	OR	$0,$0,0
+                	JMP	L69
+L68             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,80
                 	INCML	$0,0
@@ -6264,10 +6621,10 @@ L56             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
-                	BNZ	$0,L53
-L139            	OR	$0,$0,0
-                	JMP	L54
-L53             	OR	$0,$0,0
+                	BNZ	$0,L65
+L151            	OR	$0,$0,0
+                	JMP	L66
+L65             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,96
                 	INCML	$0,0
@@ -6283,8 +6640,8 @@ L53             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-                	JMP	L55
-L54             	OR	$0,$0,0
+                	JMP	L67
+L66             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,80
                 	INCML	$0,0
@@ -6362,8 +6719,8 @@ L54             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L55             	OR	$0,$0,0
-L57             	OR	$0,$0,0
+L67             	OR	$0,$0,0
+L69             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -6392,8 +6749,8 @@ L57             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L58
-L60             	OR	$0,$0,0
+                	JMP	L70
+L72             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,96
                 	INCML	$0,0
@@ -6406,9 +6763,9 @@ L60             	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L141
+                	JMP	L153
                 	GREG	@
-L141            	OR	$0,$0,0
+L153            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -6440,9 +6797,9 @@ L2              	SETL	$0,96
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L146
+                	JMP	L158
                 	GREG	@
-L146            	OR	$0,$0,0
+L158            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,96
                 	INCML	$0,0
@@ -6473,7 +6830,7 @@ L146            	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L61             	OR	$0,$0,0
+L73             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -6493,10 +6850,10 @@ L61             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L62
-L142            	OR	$0,$0,0
-                	JMP	L63
-L62             	OR	$0,$0,0
+                	BNZ	$0,L74
+L154            	OR	$0,$0,0
+                	JMP	L75
+L74             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,80
                 	INCML	$0,0
@@ -6560,8 +6917,8 @@ L62             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L61
-L63             	OR	$0,$0,0
+                	JMP	L73
+L75             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -6577,7 +6934,7 @@ L63             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L69             	OR	$0,$0,0
+L81             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -6597,10 +6954,10 @@ L69             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L70
-L143            	OR	$0,$0,0
-                	JMP	L71
-L70             	OR	$0,$0,0
+                	BNZ	$0,L82
+L155            	OR	$0,$0,0
+                	JMP	L83
+L82             	OR	$0,$0,0
                 	OR	$0,$253,0
                 	LDO	$0,$0,0
                 	OR	$1,$0,0
@@ -6662,10 +7019,10 @@ L70             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNZ	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L67
-L144            	OR	$0,$0,0
-                	JMP	L68
-L67             	OR	$0,$0,0
+                	BNZ	$0,L79
+L156            	OR	$0,$0,0
+                	JMP	L80
+L79             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,80
                 	INCML	$0,0
@@ -6739,10 +7096,10 @@ L67             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
-                	BNZ	$0,L64
-L145            	OR	$0,$0,0
-                	JMP	L65
-L64             	OR	$0,$0,0
+                	BNZ	$0,L76
+L157            	OR	$0,$0,0
+                	JMP	L77
+L76             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,96
                 	INCML	$0,0
@@ -6758,8 +7115,8 @@ L64             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-                	JMP	L66
-L65             	OR	$0,$0,0
+                	JMP	L78
+L77             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,80
                 	INCML	$0,0
@@ -6837,8 +7194,8 @@ L65             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L66             	OR	$0,$0,0
-L68             	OR	$0,$0,0
+L78             	OR	$0,$0,0
+L80             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -6867,8 +7224,8 @@ L68             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L69
-L71             	OR	$0,$0,0
+                	JMP	L81
+L83             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,96
                 	INCML	$0,0
@@ -6881,9 +7238,9 @@ L71             	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L147
+                	JMP	L159
                 	GREG	@
-L147            	OR	$0,$0,0
+L159            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -6915,9 +7272,9 @@ L3              	SETL	$0,112
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L153
+                	JMP	L165
                 	GREG	@
-L153            	OR	$0,$0,0
+L165            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,112
                 	INCML	$0,0
@@ -6948,7 +7305,7 @@ L153            	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L72             	OR	$0,$0,0
+L84             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,104
                 	INCML	$0,0
@@ -6968,10 +7325,10 @@ L72             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L73
-L148            	OR	$0,$0,0
-                	JMP	L74
-L73             	OR	$0,$0,0
+                	BNZ	$0,L85
+L160            	OR	$0,$0,0
+                	JMP	L86
+L85             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,80
                 	INCML	$0,0
@@ -7035,8 +7392,8 @@ L73             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L72
-L74             	OR	$0,$0,0
+                	JMP	L84
+L86             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,96
                 	INCML	$0,0
@@ -7052,7 +7409,7 @@ L74             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L83             	OR	$0,$0,0
+L95             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,96
                 	INCML	$0,0
@@ -7072,10 +7429,10 @@ L83             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L84
-L149            	OR	$0,$0,0
-                	JMP	L85
-L84             	OR	$0,$0,0
+                	BNZ	$0,L96
+L161            	OR	$0,$0,0
+                	JMP	L97
+L96             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -7091,7 +7448,7 @@ L84             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L80             	OR	$0,$0,0
+L92             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -7111,10 +7468,10 @@ L80             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L81
-L150            	OR	$0,$0,0
-                	JMP	L82
-L81             	OR	$0,$0,0
+                	BNZ	$0,L93
+L162            	OR	$0,$0,0
+                	JMP	L94
+L93             	OR	$0,$0,0
                 	OR	$0,$253,0
                 	LDO	$0,$0,0
                 	OR	$1,$0,0
@@ -7215,10 +7572,10 @@ L81             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNZ	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L78
-L151            	OR	$0,$0,0
-                	JMP	L79
-L78             	OR	$0,$0,0
+                	BNZ	$0,L90
+L163            	OR	$0,$0,0
+                	JMP	L91
+L90             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,80
                 	INCML	$0,0
@@ -7331,10 +7688,10 @@ L78             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
-                	BNZ	$0,L75
-L152            	OR	$0,$0,0
-                	JMP	L76
-L75             	OR	$0,$0,0
+                	BNZ	$0,L87
+L164            	OR	$0,$0,0
+                	JMP	L88
+L87             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,112
                 	INCML	$0,0
@@ -7350,8 +7707,8 @@ L75             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-                	JMP	L77
-L76             	OR	$0,$0,0
+                	JMP	L89
+L88             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,80
                 	INCML	$0,0
@@ -7468,8 +7825,8 @@ L76             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L77             	OR	$0,$0,0
-L79             	OR	$0,$0,0
+L89             	OR	$0,$0,0
+L91             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,88
                 	INCML	$0,0
@@ -7498,8 +7855,8 @@ L79             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L80
-L82             	OR	$0,$0,0
+                	JMP	L92
+L94             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,96
                 	INCML	$0,0
@@ -7528,8 +7885,8 @@ L82             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L83
-L85             	OR	$0,$0,0
+                	JMP	L95
+L97             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,112
                 	INCML	$0,0
@@ -7542,9 +7899,9 @@ L85             	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L154
+                	JMP	L166
                 	GREG	@
-L154            	OR	$0,$0,0
+L166            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -7576,9 +7933,9 @@ L4              	SETL	$0,32
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L162
+                	JMP	L174
                 	GREG	@
-L162            	OR	$0,$0,0
+L174            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -7602,19 +7959,19 @@ L162            	OR	$0,$0,0
                 	CMP	$0,$2,$0
                 	ZSZ	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L102
-L155            	OR	$0,$0,0
-                	JMP	L103
-L102            	OR	$0,$0,0
+                	BNZ	$0,L114
+L167            	OR	$0,$0,0
+                	JMP	L115
+L114            	OR	$0,$0,0
                 	SETL	$0,1
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
-                	BNZ	$0,L92
-L156            	OR	$0,$0,0
-                	JMP	L93
-L92             	OR	$0,$0,0
+                	BNZ	$0,L104
+L168            	OR	$0,$0,0
+                	JMP	L105
+L104            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,16
                 	INCML	$0,0
@@ -7630,7 +7987,7 @@ L92             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L89             	OR	$0,$0,0
+L101            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,16
                 	INCML	$0,0
@@ -7650,10 +8007,10 @@ L89             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L90
-L157            	OR	$0,$0,0
-                	JMP	L91
-L90             	OR	$0,$0,0
+                	BNZ	$0,L102
+L169            	OR	$0,$0,0
+                	JMP	L103
+L102            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,24
                 	INCML	$0,0
@@ -7669,7 +8026,7 @@ L90             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L86             	OR	$0,$0,0
+L98             	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,24
                 	INCML	$0,0
@@ -7689,10 +8046,10 @@ L86             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSN	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L87
-L158            	OR	$0,$0,0
-                	JMP	L88
-L87             	OR	$0,$0,0
+                	BNZ	$0,L99
+L170            	OR	$0,$0,0
+                	JMP	L100
+L99             	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -7800,8 +8157,8 @@ L87             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L86
-L88             	OR	$0,$0,0
+                	JMP	L98
+L100            	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -7853,8 +8210,8 @@ L88             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L89
-L91             	OR	$0,$0,0
+                	JMP	L101
+L103            	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -7878,7 +8235,7 @@ L91             	OR	$0,$0,0
                 	PUSHJ	$8,_putChar
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
-L93             	OR	$0,$0,0
+L105            	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
@@ -7900,8 +8257,8 @@ L93             	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-                	JMP	L104
-L103            	OR	$0,$0,0
+                	JMP	L116
+L115            	OR	$0,$0,0
                 	OR	$0,$253,0
                 	LDO	$0,$0,0
                 	OR	$1,$0,0
@@ -7944,10 +8301,10 @@ L103            	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNZ	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L99
-L159            	OR	$0,$0,0
-                	JMP	L100
-L99             	OR	$0,$0,0
+                	BNZ	$0,L111
+L171            	OR	$0,$0,0
+                	JMP	L112
+L111            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -7993,8 +8350,8 @@ L99             	OR	$0,$0,0
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
                 	STO	$0,$4,0
-                	JMP	L101
-L100            	OR	$0,$0,0
+                	JMP	L113
+L112            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -8025,7 +8382,7 @@ L100            	OR	$0,$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	STO	$0,$1,0
-L96             	OR	$0,$0,0
+L108            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,32
                 	INCML	$0,0
@@ -8045,10 +8402,10 @@ L96             	OR	$0,$0,0
                 	CMP	$0,$1,$0
                 	ZSNP	$0,$0,1
                 	OR	$0,$0,0
-                	BNZ	$0,L97
-L160            	OR	$0,$0,0
-                	JMP	L98
-L97             	OR	$0,$0,0
+                	BNZ	$0,L109
+L172            	OR	$0,$0,0
+                	JMP	L110
+L109            	OR	$0,$0,0
                 	OR	$0,$253,0
                 	LDO	$0,$0,0
                 	OR	$1,$0,0
@@ -8203,10 +8560,10 @@ L97             	OR	$0,$0,0
                 	OR	$0,$0,0
                 	AND	$0,$4,$0
                 	OR	$0,$0,0
-                	BNZ	$0,L94
-L161            	OR	$0,$0,0
-                	JMP	L95
-L94             	OR	$0,$0,0
+                	BNZ	$0,L106
+L173            	OR	$0,$0,0
+                	JMP	L107
+L106            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -8265,7 +8622,7 @@ L94             	OR	$0,$0,0
                 	ADD	$0,$4,$0
                 	OR	$0,$0,0
                 	STO	$0,$5,0
-L95             	OR	$0,$0,0
+L107            	OR	$0,$0,0
                 	OR	$0,$253,0
                 	LDO	$0,$0,0
                 	OR	$1,$0,0
@@ -8332,16 +8689,16 @@ L95             	OR	$0,$0,0
                 	ADD	$0,$1,$0
                 	OR	$0,$0,0
                 	STO	$0,$2,0
-                	JMP	L96
-L98             	OR	$0,$0,0
+                	JMP	L108
+L110            	OR	$0,$0,0
                 	SETL	$0,0
                 	INCML	$0,0
                 	INCMH	$0,0
                 	INCH	$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-L101            	OR	$0,$0,0
-L104            	OR	$0,$0,0
+L113            	OR	$0,$0,0
+L116            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -8354,9 +8711,9 @@ L104            	OR	$0,$0,0
                 	LDO	$0,$0,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L163
+                	JMP	L175
                 	GREG	@
-L163            	OR	$0,$0,0
+L175            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -8388,9 +8745,9 @@ _sudoku         	SETL	$0,8
                 	INCMH	$0,0
                 	INCH	$0,0
                 	SUB	$254,$254,$0
-                	JMP	L164
+                	JMP	L176
                 	GREG	@
-L164            	OR	$0,$0,0
+L176            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	SETL	$0,8
                 	INCML	$0,0
@@ -8429,9 +8786,9 @@ L164            	OR	$0,$0,0
                 	LDO	$0,$254,0
                 	OR	$0,$0,0
                 	OR	$0,$0,0
-                	JMP	L165
+                	JMP	L177
                 	GREG	@
-L165            	OR	$0,$0,0
+L177            	OR	$0,$0,0
                 	OR	$1,$253,0
                 	STO	$0,$1,0
                 	OR	$254,$253,0
@@ -8452,6 +8809,4 @@ Main            	SETH	$254,#3000
                 	SETH	$252,#2000
                 	PUSHJ	$8,_main
                 	TRAP	0,Halt,0
-
-                	LOC	#10000000
 

@@ -55,6 +55,48 @@ public class MMIXAsmGen extends Phase {
 		file.close();
 	}
 
+	public void out() {
+		initRegisters();
+		generateData();
+		initOutData();
+		initSTDLibrary();
+		generateCode();
+		close();
+	}
+
+	public void initRegisters() {
+		file.printf(format, "", "LOC", "#0");
+		file.printf(format, "", "GREG", "0");
+		file.printf(format, "", "GREG", "0");
+		file.printf(format, "", "GREG", "0");
+		file.printf("\n");
+	}
+
+	public void generateData() {
+		file.printf(format, "", "LOC", "#10000000");
+		for (int i = 0; i < Chunks.dataChunks.size(); i++) {
+			file.printf(format, "", "GREG", "@");
+
+			if (Chunks.dataChunks.get(i).init == null) {	/// global variable
+				for (int j = 0; j < Chunks.dataChunks.get(i).size / 8; j++)
+					file.printf(format, j == 0 ? Chunks.dataChunks.get(i).label.name : "", "OCTA", "0");
+			} else {					/// string constant
+				for (int j = 1; j < Chunks.dataChunks.get(i).init.length() - 1; j++)
+					file.printf(format, j == 1 ? Chunks.dataChunks.get(i).label.name : "", "BYTE", Integer.toString((int) Chunks.dataChunks.get(i).init.charAt(j)));
+
+				file.printf(format, "", "BYTE", "0");
+			}
+		}
+		file.printf("\n");
+	}
+
+	public void initOutData() {
+		file.printf(format, "", "LOC", "#20000000");
+		file.printf(format, "", "GREG", "@");
+		file.printf(format, "OutData", "BYTE", "0");
+		file.printf("\n");
+	}
+
 	public void initPutChar() {
 		file.printf(format, "", "GREG", "@");
 		file.printf(format, "_putChar", "LDO", "$0,$254,8");
@@ -64,6 +106,15 @@ public class MMIXAsmGen extends Phase {
 		file.printf(format, "", "ADD", "$1,$1,1");
 		file.printf(format, "", "SETL", "$0,0");
 		file.printf(format, "", "STB", "$0,$1,0");
+		file.printf(format, "", "TRAP", "0,Fputs,StdOut");
+		file.printf(format, "", "POP", Integer.toString(numOfRegs) + ",0");
+		file.printf("\n");
+	}
+
+	public void initPutString() {
+		file.printf(format, "", "GREG", "@");
+		file.printf(format, "_putString", "LDO", "$0,$254,8");
+		file.printf(format, "", "OR", "$255,$0,0");
 		file.printf(format, "", "TRAP", "0,Fputs,StdOut");
 		file.printf(format, "", "POP", Integer.toString(numOfRegs) + ",0");
 		file.printf("\n");
@@ -97,49 +148,28 @@ public class MMIXAsmGen extends Phase {
 		file.printf("\n");
 	}
 
+	public void initNew() {
+		file.printf(format, "", "GREG", "@");
+		file.printf(format, "_new", "LDO", "$0,$254,8");
+		file.printf(format, "", "STO", "$252,$254,0");
+		file.printf(format, "", "SUB", "$252,$252,$0");
+		file.printf(format, "", "POP", Integer.toString(numOfRegs) + ",0");
+		file.printf("\n");
+	}
+
+	public void initDel() {
+		file.printf(format, "", "GREG", "@");
+		file.printf(format, "_del", "POP", Integer.toString(numOfRegs) + ",0");
+		file.printf("\n");
+	}
+
 	public void initSTDLibrary() {
 		file.printf(format, "", "LOC", "#30000000");
 		initPutChar();
+		initPutString();
 	///	initPutInt();
-	}
-
-	public void initOutData() {
-		file.printf(format, "", "LOC", "#20000000");
-		file.printf(format, "", "GREG", "@");
-		file.printf(format, "OutData", "BYTE", "0");
-		file.printf("\n");
-	}
-
-	public void initRegisters() {
-		file.printf(format, "", "LOC", "#0");
-		file.printf(format, "", "GREG", "0");
-		file.printf(format, "", "GREG", "0");
-		file.printf(format, "", "GREG", "0");
-		file.printf("\n");
-	}
-
-	public void init() {
-		initRegisters();
-		initOutData();
-		initSTDLibrary();
-	}
-
-	public void generateData() {
-		file.printf(format, "", "LOC", "#10000000");
-		for (int i = 0; i < Chunks.dataChunks.size(); i++) {
-			file.printf(format, "", "GREG", "@");
-
-			if (Chunks.dataChunks.get(i).init == null) {	/// global variable
-				for (int j = 0; j < Chunks.dataChunks.get(i).size / 8; j++)
-					file.printf(format, j == 0 ? Chunks.dataChunks.get(i).label.name : "", "OCTA", "0");
-			} else {					/// string constant
-				for (int j = 1; j < Chunks.dataChunks.get(i).init.length() - 1; j++)
-					file.printf(format, j == 1 ? Chunks.dataChunks.get(i).label.name : "", "OCTA", Integer.toString((int) Chunks.dataChunks.get(i).init.charAt(j)));
-
-				file.printf(format, "", "OCTA", "0");
-			}
-		}
-		file.printf("\n");
+		initNew();
+		initDel();
 	}
 
 	public void generatePrologue(Code code) {

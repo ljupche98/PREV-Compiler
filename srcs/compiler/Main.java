@@ -214,10 +214,8 @@ public class Main {
 				}
 
 				try (MMIXAsmGen mmixasmgen = new MMIXAsmGen()) {
-					mmixasmgen.init();
-					mmixasmgen.generateCode();
-					mmixasmgen.generateData();
-					mmixasmgen.close();
+					mmixasmgen.out();
+
 				}
 	
 				if (cmdLine.get("--target-phase").equals("mmixasmgen"))
