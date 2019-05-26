@@ -48,6 +48,11 @@ fun h() : void = {
 		};
 };
 
+fun ff(x : ptr int) : void = {
+	@(x) = 21;
+	: none
+};
+
 fun main() : int = {
 	putChar('c');
 	putChar((10 : char));
@@ -57,5 +62,15 @@ fun main() : int = {
 	putChar((10 : char));
 	h();
 
+	pi = new(int);
+	@(pi) = 51;
+	putInt(@(pi));
+	putChar((10 : char));
+	ff(pi);
+	putInt(@(pi));
+	putChar((10 : char));
+
 	: 0
+	where
+		var pi : ptr int;
 };

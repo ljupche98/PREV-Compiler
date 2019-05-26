@@ -20,24 +20,20 @@ fun putInt(x : int) : void = {
 
 fun g() : int = 17;
 
-fun h() : void = {
-
-	it = 1;
-	x[0] = 1;
-	while it < 10 do
-		x[it] = x[it - 1] * 17;
-		it = it + 1;
-	end;
-
-	: none
-	where
-		var it : int;
-		var x : arr[10] int;
-};
 
 fun main() : int = {
+	putChar('c');
+	putChar((10 : char));
+	putInt(123);
+	putChar((10 : char));
+	putInt(-g());
+	putChar((10 : char));
 
-	h();
+	pi = new(int);
+	@(pi) = 51;
+	putInt(@(pi));
 
 	: 0
+	where
+		var pi : ptr int;
 };

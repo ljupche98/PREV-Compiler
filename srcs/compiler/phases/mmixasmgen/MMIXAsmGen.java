@@ -97,10 +97,27 @@ public class MMIXAsmGen extends Phase {
 		file.printf("\n");
 	}
 
+	public void initNew() {
+		file.printf(format, "", "GREG", "@");
+		file.printf(format, "_new", "LDO", "$0,$254,8");
+		file.printf(format, "", "STO", "$252,$254,0");
+		file.printf(format, "", "SUB", "$252,$252,$0");
+		file.printf(format, "", "POP", Integer.toString(numOfRegs) + ",0");
+		file.printf("\n");
+	}
+
+	public void initDel() {
+		file.printf(format, "", "GREG", "@");
+		file.printf(format, "_del", "POP", Integer.toString(numOfRegs) + ",0");
+		file.printf("\n");
+	}
+
 	public void initSTDLibrary() {
 		file.printf(format, "", "LOC", "#30000000");
 		initPutChar();
 	///	initPutInt();
+		initNew();
+		initDel();
 	}
 
 	public void initOutData() {

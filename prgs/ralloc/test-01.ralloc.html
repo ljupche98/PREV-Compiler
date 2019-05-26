@@ -1020,6 +1020,10 @@
 <tr></tr>
 <tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
 <tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
 <tr><td bgcolor="00BBFF">STO $2,$254,0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">STO $0,$254,8</td></tr>
@@ -1386,12 +1390,12 @@
 <tr><td bgcolor="EECF00"><table width="100%">
 <tr><td><nobr>
 	  FRAME
-	  label=<font style="font-family:courier new">_main</font></nobr></td></tr>
+	  label=<font style="font-family:courier new">_ff</font></nobr></td></tr>
 <tr><td><nobr>
 	  depth=1 
-	  size=32 
+	  size=16 
 	  locs=0
-	  args=16</nobr></td></tr>
+	  args=0</nobr></td></tr>
 <tr><td><nobr>
     	  FP=T10
 	  RV=T11</nobr></td></tr>
@@ -1402,6 +1406,73 @@
 	    temps=0</nobr></td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">L29</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$253,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">ADD $0,$1,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,21</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $0,$1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">JMP L30</td></tr>
+</table></td>
+<td bgcolor="FFEE00"><table>
+<tr><td bgcolor="EECF00"><table width="100%">
+<tr><td><nobr>
+	  FRAME
+	  label=<font style="font-family:courier new">_main</font></nobr></td></tr>
+<tr><td><nobr>
+	  depth=1 
+	  size=40 
+	  locs=8
+	  args=16</nobr></td></tr>
+<tr><td><nobr>
+    	  FP=T12
+	  RV=T13</nobr></td></tr>
+</table></td></tr>
+<tr><td bgcolor="EECF00"><nobr>
+	    entryLabel=L31
+	    exitLabel=L32
+	    temps=0</nobr></td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">L31</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">SETL $0,0</td></tr>
 <tr></tr>
@@ -1661,6 +1732,316 @@
 <tr></tr>
 <tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
 <tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$253,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">NEG $0,0,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">ADD $0,$1,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $2,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $1,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $0,$254,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">PUSHJ $8,_new</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $0,$2,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$253,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">NEG $0,0,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">ADD $0,$1,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,51</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $0,$1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $2,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$253,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">NEG $0,0,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">ADD $0,$1,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $2,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $0,$254,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">PUSHJ $8,_putInt</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $2,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,10</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,256</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">DIV $0,$1,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">GET $0,rR</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $2,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $0,$254,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">PUSHJ $8,_putChar</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $2,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$253,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">NEG $0,0,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">ADD $0,$1,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $2,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $0,$254,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">PUSHJ $8,_ff</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $2,$253,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $1,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">NEG $1,0,$1</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">ADD $1,$2,$1</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $1,$1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $1,$1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$1,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $0,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $1,$254,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">PUSHJ $8,_putInt</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $2,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,10</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $1,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">SETL $0,256</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCMH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">INCH $0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">DIV $0,$1,$0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">GET $0,rR</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $2,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">STO $0,$254,8</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">PUSHJ $8,_putChar</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">LDO $0,$254,0</td></tr>
+<tr></tr>
+<tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
+<tr></tr>
 <tr><td bgcolor="00BBFF">SETL $0,0</td></tr>
 <tr></tr>
 <tr><td bgcolor="00BBFF">INCML $0,0</td></tr>
@@ -1673,7 +2054,7 @@
 <tr></tr>
 <tr><td bgcolor="00BBFF">OR $0,$0,0</td></tr>
 <tr></tr>
-<tr><td bgcolor="00BBFF">JMP L30</td></tr>
+<tr><td bgcolor="00BBFF">JMP L32</td></tr>
 </table></td>
 </table></body>
 </html>

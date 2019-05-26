@@ -375,7 +375,7 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 		switch (state.peek()) {
 			case 2: {
 				Vector<ImcExpr> args = new Vector<ImcExpr>();
-				args.add(getFP());				/// static link of a global function. should never be used.
+				args.add(new ImcCONST(0));			/// static link of a global function. should never be used.
 
 				state.push(2);
 				delExpr.expr.accept(this, visArg);
@@ -383,7 +383,7 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 				ImcExpr expr = (ImcExpr) istack.pop();
 				args.add(expr);
 
-				ImcCALL node = new ImcCALL(new Label("_del"), args);
+				ImcCALL node = new ImcCALL(new Label("del"), args);
 				ImcGen.exprImCode.put(delExpr, node);
 				istack.push(node);
 				return null;
@@ -585,13 +585,13 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 		switch (state.peek()) {
 			case 2: {
 				Vector<ImcExpr> args = new Vector<ImcExpr>();
-				args.add(getFP());				/// static link of a global function. should never be used.
+				args.add(new ImcCONST(0));	/// static link of a global function. should never be used.
 
 				SemType argType = newExpr.type.accept(new TypeResolver(true), 1);
 				ImcCONST sz = new ImcCONST(argType.size());
 				args.add(sz);
 
-				ImcCALL node = new ImcCALL(new Label("_new"), args);
+				ImcCALL node = new ImcCALL(new Label("new"), args);
 				ImcGen.exprImCode.put(newExpr, node);
 				istack.push(node);
 				return null;
@@ -772,6 +772,7 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 						ImcExpr addr = (ImcExpr) istack.peek();
 						ImcMEM node = new ImcMEM(addr);
 						ImcGen.exprImCode.put(unExpr, node);
+						istack.push(node);
 						return node;
 					}
 
@@ -783,8 +784,9 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 					///	access.put(unExpr, access.get(unExpr.subExpr));				
 
 						ImcMEM ptr = (ImcMEM) istack.peek();
-						ImcGen.exprImCode.put(unExpr, ptr.addr);
-						return ptr.addr;
+						ImcGen.exprImCode.put(unExpr, ptr);
+						istack.push(ptr);
+						return ptr;
 					}
 
 					default: return null;
@@ -832,23 +834,26 @@ public class CodeGenerator extends AbsFullVisitor<Object, Stack<Frame>> {
 						unExpr.subExpr.accept(this, visArg);
 						state.pop();
 
-						ImcExpr subExpr = (ImcExpr) istack.peek();
-						ImcGen.exprImCode.put(unExpr, subExpr);
-						return null;
+					///	access.put(unExpr, access.get(unExpr.subExpr));
 
+						ImcExpr addr = (ImcExpr) istack.peek();
+						ImcMEM node = new ImcMEM(addr);
+						ImcGen.exprImCode.put(unExpr, node);
+						istack.push(node);
+						return node;
 					}
 
 					case DATA: {
-						state.push(1);
+						state.push(2);
 						unExpr.subExpr.accept(this, visArg);
 						state.pop();
 
-						ImcExpr subExpr = (ImcExpr) istack.pop();
-						ImcMEM mem = new ImcMEM(subExpr);
-						istack.push(mem);
-						ImcGen.exprImCode.put(unExpr, mem);
-						return null;
+					///	access.put(unExpr, access.get(unExpr.subExpr));				
 
+						ImcMEM ptr = new ImcMEM((ImcExpr) istack.peek());
+						ImcGen.exprImCode.put(unExpr, ptr);
+						istack.push(ptr);
+						return ptr;
 					}
 
 					default: return null;
